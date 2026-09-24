@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Data and Methods · ESP-IDF Error Code Index</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="i18n.js" defer></script><script src="diagnostics.js" defer></script>
+</head>
+<body>
+  <header><a class="brand" href="./">ESP-IDF <span>/ ERROR INDEX</span></a><nav><a href="./">← Error code space</a><a href="index.json" download>Download index JSON ↗</a><select id="language" aria-label="Language / 语言"><option value="en" selected>English</option><option value="zh">中文</option></select></nav></header>
+  <main>
+    <section class="intro"><h1>Data and methods</h1><p class="lead">Inspect indexed versions, file selection, parsing status and individual definitions.</p><p class="notice">Static observations from a limited set of sources; not proof of usage under every configuration. No numbers are allocated or reserved.</p></section>
+    <div id="status" role="status">Loading index…</div>
+    <section id="stats" class="stats" aria-label="Scan coverage"></section>
+    <section class="panel"><div class="section-heading"><h2>Component coverage</h2><span>Only versions selected in the source configuration</span></div><p class="hint">A completed scan does not mean every definition can be evaluated. Previous results are retained on read failures; acceptance dates change only when a version or analysis changes.</p><div class="scroll"><table><thead><tr><th>Component / version</th><th>Maintainer</th><th>Scan status</th><th>Definitions / unresolved</th><th>Accepted on</th><th>Evidence</th></tr></thead><tbody id="components"></tbody></table></div></section>
+    <section class="panel"><div class="section-heading"><h2>Definition lookup</h2><span id="count"></span></div><div class="filters"><label class="search">Symbol, component or value<input id="query" type="search" placeholder="ESP_ERR_NVS_BASE, nvs_flash, 0x1101…"></label><label>Resolution<select id="resolution"><option value="">All</option><option value="resolved">Resolved</option><option value="conditional">Conditional</option><option value="unresolved">Unresolved</option><option value="configurable">Configurable</option></select></label></div><div class="scroll"><table><thead><tr><th>Definition / component</th><th>Value</th><th>Role / status</th><th>Expression and source</th></tr></thead><tbody id="definitions"></tbody></table></div><button id="more" hidden>Show 100 more</button></section>
+    <section class="panel"><div class="section-heading"><h2>Overlap records</h2><span>Review with project configuration and source relationships</span></div><div id="overlaps"></div></section>
+    <footer>Indexed from static candidate definitions in source code. Tests, examples and nested managed_components are excluded by default. Third-party builds are not executed or analyzed.<br>BASE and boundary roles may be inferred from names. Unevaluated configuration expressions are excluded from numeric overlap checks.</footer>
+  </main>
+</body>
+</html>

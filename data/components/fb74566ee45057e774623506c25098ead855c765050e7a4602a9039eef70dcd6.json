@@ -1,0 +1,339 @@
+{
+  "analysis": {
+    "configuration": {
+      "CONFIG_ESP_HTTP_CLIENT_ENABLE_BASIC_AUTH": {
+        "definition": "config ESP_HTTP_CLIENT_ENABLE_BASIC_AUTH\n        bool \"Enable HTTP Basic Authentication\"\n        default n\n        help\n            This option will enable HTTP Basic Authentication. It is disabled by default as Basic\n            auth uses unencrypted encoding, so it introduces a vulnerability when not using TLS",
+        "file": "components/esp_http_client/Kconfig",
+        "line": 9
+      },
+      "CONFIG_ESP_HTTP_CLIENT_ENABLE_CUSTOM_TRANSPORT": {
+        "definition": "config ESP_HTTP_CLIENT_ENABLE_CUSTOM_TRANSPORT\n        bool \"Enable custom transport\"\n        default n\n        help\n            This option will enable injection of a custom tcp_transport handle, so the http operation\n            will be performed on top of the user defined transport abstraction (if configured)",
+        "file": "components/esp_http_client/Kconfig",
+        "line": 24
+      },
+      "CONFIG_ESP_HTTP_CLIENT_ENABLE_DIGEST_AUTH": {
+        "definition": "config ESP_HTTP_CLIENT_ENABLE_DIGEST_AUTH\n        bool \"Enable HTTP Digest Authentication\"\n        default n\n        help\n            This option will enable HTTP Digest Authentication. It is enabled by default, but use of this\n            configuration is not recommended as the password can be derived from the exchange, so it introduces\n            a vulnerability when not using TLS",
+        "file": "components/esp_http_client/Kconfig",
+        "line": 16
+      },
+      "CONFIG_ESP_HTTP_CLIENT_ENABLE_HTTPS": {
+        "definition": "config ESP_HTTP_CLIENT_ENABLE_HTTPS\n        bool \"Enable https\"\n        default y\n        help\n            This option will enable https protocol by linking esp-tls library and initializing SSL transport",
+        "file": "components/esp_http_client/Kconfig",
+        "line": 2
+      },
+      "CONFIG_ESP_HTTP_CLIENT_EVENT_POST_TIMEOUT": {
+        "definition": "config ESP_HTTP_CLIENT_EVENT_POST_TIMEOUT\n        int \"Time in millisecond to wait for posting event\"\n        default 2000\n        help\n            This config option helps in setting the time in millisecond to wait for event to be posted to the\n            system default event loop. Set it to -1 if you need to set timeout to portMAX_DELAY.",
+        "file": "components/esp_http_client/Kconfig",
+        "line": 31
+      }
+    },
+    "coverage": "candidate-static-scan",
+    "definitions": [
+      {
+        "alias_of": null,
+        "base_symbols": [],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(0x7000)",
+        "file": "components/esp_http_client/include/esp_http_client.h",
+        "hex": "0x7000",
+        "id": "02c06f5acb22e360fefc0f57",
+        "line": 255,
+        "resolution": "resolved",
+        "role": "base",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_http_client/include/esp_http_client.h#L255",
+        "symbol": "ESP_ERR_HTTP_BASE",
+        "syntax": "define",
+        "value": 28672
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_HTTP_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_HTTP_BASE + 1)",
+        "file": "components/esp_http_client/include/esp_http_client.h",
+        "hex": "0x7001",
+        "id": "8181a590b01fc408547efe2c",
+        "line": 256,
+        "resolution": "resolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_http_client/include/esp_http_client.h#L256",
+        "symbol": "ESP_ERR_HTTP_MAX_REDIRECT",
+        "syntax": "define",
+        "value": 28673
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_HTTP_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_HTTP_BASE + 2)",
+        "file": "components/esp_http_client/include/esp_http_client.h",
+        "hex": "0x7002",
+        "id": "690095b51e92067edb4c906f",
+        "line": 257,
+        "resolution": "resolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_http_client/include/esp_http_client.h#L257",
+        "symbol": "ESP_ERR_HTTP_CONNECT",
+        "syntax": "define",
+        "value": 28674
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_HTTP_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_HTTP_BASE + 3)",
+        "file": "components/esp_http_client/include/esp_http_client.h",
+        "hex": "0x7003",
+        "id": "16697951e28670e7db40f2c7",
+        "line": 258,
+        "resolution": "resolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_http_client/include/esp_http_client.h#L258",
+        "symbol": "ESP_ERR_HTTP_WRITE_DATA",
+        "syntax": "define",
+        "value": 28675
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_HTTP_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_HTTP_BASE + 4)",
+        "file": "components/esp_http_client/include/esp_http_client.h",
+        "hex": "0x7004",
+        "id": "ac2e1b4e4cfe8e540361d080",
+        "line": 259,
+        "resolution": "resolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_http_client/include/esp_http_client.h#L259",
+        "symbol": "ESP_ERR_HTTP_FETCH_HEADER",
+        "syntax": "define",
+        "value": 28676
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_HTTP_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_HTTP_BASE + 5)",
+        "file": "components/esp_http_client/include/esp_http_client.h",
+        "hex": "0x7005",
+        "id": "127e95d141009618915c09c6",
+        "line": 260,
+        "resolution": "resolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_http_client/include/esp_http_client.h#L260",
+        "symbol": "ESP_ERR_HTTP_INVALID_TRANSPORT",
+        "syntax": "define",
+        "value": 28677
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_HTTP_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_HTTP_BASE + 6)",
+        "file": "components/esp_http_client/include/esp_http_client.h",
+        "hex": "0x7006",
+        "id": "805a7b2c03d84f424ac7ea61",
+        "line": 261,
+        "resolution": "resolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_http_client/include/esp_http_client.h#L261",
+        "symbol": "ESP_ERR_HTTP_CONNECTING",
+        "syntax": "define",
+        "value": 28678
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_HTTP_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_HTTP_BASE + 7)",
+        "file": "components/esp_http_client/include/esp_http_client.h",
+        "hex": "0x7007",
+        "id": "3cb62c9449630dc150384fdd",
+        "line": 262,
+        "resolution": "resolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_http_client/include/esp_http_client.h#L262",
+        "symbol": "ESP_ERR_HTTP_EAGAIN",
+        "syntax": "define",
+        "value": 28679
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_HTTP_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_HTTP_BASE + 8)",
+        "file": "components/esp_http_client/include/esp_http_client.h",
+        "hex": "0x7008",
+        "id": "98a4c576ba050560c591ac10",
+        "line": 263,
+        "resolution": "resolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_http_client/include/esp_http_client.h#L263",
+        "symbol": "ESP_ERR_HTTP_CONNECTION_CLOSED",
+        "syntax": "define",
+        "value": 28680
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_HTTP_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_HTTP_BASE + 9)",
+        "file": "components/esp_http_client/include/esp_http_client.h",
+        "hex": "0x7009",
+        "id": "68adf34063585ebce639b434",
+        "line": 264,
+        "resolution": "resolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_http_client/include/esp_http_client.h#L264",
+        "symbol": "ESP_ERR_HTTP_NOT_MODIFIED",
+        "syntax": "define",
+        "value": 28681
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_HTTP_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_HTTP_BASE + 10)",
+        "file": "components/esp_http_client/include/esp_http_client.h",
+        "hex": "0x700a",
+        "id": "be87349c467bd990537ca78c",
+        "line": 265,
+        "resolution": "resolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_http_client/include/esp_http_client.h#L265",
+        "symbol": "ESP_ERR_HTTP_RANGE_NOT_SATISFIABLE",
+        "syntax": "define",
+        "value": 28682
+      }
+    ],
+    "diagnostics": [],
+    "families": [
+      {
+        "base": "ESP_ERR_HTTP_BASE",
+        "conditions": [],
+        "declared_reserved_range": null,
+        "defined_values": [
+          28673,
+          28674,
+          28675,
+          28676,
+          28677,
+          28678,
+          28679,
+          28680,
+          28681,
+          28682
+        ],
+        "envelope": [
+          28673,
+          28682
+        ],
+        "expression": "(0x7000)",
+        "unresolved_members": [],
+        "value": 28672
+      }
+    ],
+    "limitations": [
+      "Pattern-based candidate discovery; not a build or whole-program analysis",
+      "External includes, generated code, complex expressions and C type conversions may remain unresolved",
+      "Macro scope and conditional coexistence are not proven; enum preprocessing is conservative",
+      "BASE/MAX/END/COUNT roles are naming heuristics unless reviewed"
+    ],
+    "registered_headers": []
+  },
+  "evidence": {
+    "component_tree": "9534e144c447e8ba58ebcbb96c5fe87e2ffe9b4d",
+    "selection": {
+      "candidate_files": 10,
+      "coverage_note": "Public headers are a static CMake approximation; private implementation definitions may be absent",
+      "mode": "public-headers",
+      "public_header_candidates": [
+        "components/esp_http_client/include/esp_http_client.h"
+      ],
+      "reasons": [],
+      "selected_files": 3,
+      "skipped_files": 7,
+      "version": "1"
+    }
+  },
+  "files": [
+    {
+      "path": "components/esp_http_client/CMakeLists.txt",
+      "sha256": "e849ca25c09e5dafa4354e99275435e970431a094caef119a53b4955afefc8bc"
+    },
+    {
+      "path": "components/esp_http_client/Kconfig",
+      "sha256": "6b36e6211a812f1a181d1e1bda7f4b511de49362bb6a0db7d0a47943b1759f1c"
+    },
+    {
+      "path": "components/esp_http_client/include/esp_http_client.h",
+      "sha256": "12c1424dab46b8efe5db272b7709e54fbe369f15a20dd15f5bcce46dc5bc5790"
+    }
+  ],
+  "fingerprint": "fb74566ee45057e774623506c25098ead855c765050e7a4602a9039eef70dcd6",
+  "identity": {
+    "commit": "fcae32885b0296b32044cb99ecbdc50d98dddb83",
+    "component_url": "https://github.com/espressif/esp-idf/tree/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_http_client",
+    "kind": "github",
+    "repository_url": "https://github.com/espressif/esp-idf",
+    "root_tree": "d03ebfcf051ee6526a73a045d4ee2c21a0f4966e",
+    "version": "v5.5.1"
+  },
+  "input_fingerprint": "5b4440a773626e5d5ab277bdcd2f63468da6e91661004c6df2790faa493251a2",
+  "parser_version": "3",
+  "schema_version": 1,
+  "source": {
+    "error_pattern": "^ESP_ERR_",
+    "id": "idf/esp_http_client",
+    "kind": "github",
+    "maintainer": "espressif",
+    "maintainer_evidence": "https://github.com/espressif/esp-idf",
+    "path": "components/esp_http_client",
+    "ref": "v5.5.1",
+    "repository": "espressif/esp-idf",
+    "scan_mode": "public-headers"
+  },
+  "source_sha256": "c3fd0230aac77be0c3ddd1ac24f92fa43174491db4c0fa30f3671fe3cf90f798"
+}

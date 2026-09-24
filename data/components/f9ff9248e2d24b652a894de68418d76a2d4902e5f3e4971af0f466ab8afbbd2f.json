@@ -1,0 +1,2102 @@
+{
+  "analysis": {
+    "configuration": {
+      "CONFIG_ESP_HOST_WIFI_ENABLED": {
+        "definition": "config ESP_HOST_WIFI_ENABLED\n        bool \"Host WiFi Enable\"\n        depends on SOC_WIRELESS_HOST_SUPPORTED\n        default n",
+        "file": "components/esp_wifi/Kconfig",
+        "line": 8
+      },
+      "CONFIG_ESP_WIFI_11KV_SUPPORT": {
+        "definition": "config ESP_WIFI_11KV_SUPPORT\n            bool \"Enable 802.11k, 802.11v APIs Support\"\n            default n\n            help\n                Select this option to enable 802.11k 802.11v APIs(RRM and BTM support).",
+        "file": "components/esp_wifi/Kconfig",
+        "line": 644
+      },
+      "CONFIG_ESP_WIFI_11R_SUPPORT": {
+        "definition": "config ESP_WIFI_11R_SUPPORT\n            bool \"Enable 802.11R (Fast Transition) Support\"\n            default n\n            help\n                Select this option to enable WiFi Fast Transition Support.",
+        "file": "components/esp_wifi/Kconfig",
+        "line": 722
+      },
+      "CONFIG_ESP_WIFI_AMPDU_RX_ENABLED": {
+        "definition": "config ESP_WIFI_AMPDU_RX_ENABLED\n            bool \"WiFi AMPDU RX\"\n            default y\n            help\n                Select this option to enable AMPDU RX feature",
+        "file": "components/esp_wifi/Kconfig",
+        "line": 193
+      },
+      "CONFIG_ESP_WIFI_AMPDU_TX_ENABLED": {
+        "definition": "config ESP_WIFI_AMPDU_TX_ENABLED\n            bool \"WiFi AMPDU TX\"\n            default y\n            help\n                Select this option to enable AMPDU TX feature",
+        "file": "components/esp_wifi/Kconfig",
+        "line": 174
+      },
+      "CONFIG_ESP_WIFI_AMSDU_TX_ENABLED": {
+        "definition": "config ESP_WIFI_AMSDU_TX_ENABLED\n            bool \"WiFi AMSDU TX\"\n            depends on (ESP_WIFI_CACHE_TX_BUFFER_NUM >= 2)\n            default n\n            help\n                Select this option to enable AMSDU TX feature",
+        "file": "components/esp_wifi/Kconfig",
+        "line": 214
+      },
+      "CONFIG_ESP_WIFI_BSS_MAX_IDLE_SUPPORT": {
+        "definition": "config ESP_WIFI_BSS_MAX_IDLE_SUPPORT\n            bool \"Enable bss max idle support\"\n            default y if (SOC_WIFI_HE_SUPPORT || ESP_WIFI_WNM_SUPPORT)\n            help\n                Enables bss max idle support for Station and SoftAP. BSS max idle period enables an SoftAP to indicate\n                a time period during which the AP does not disassociate a STA due to nonreceipt of frames from the STA.\n                For station, max idle period is default 10 (1000TUs) and can be set through\n                ESP_WIFI_SLP_DEFAULT_MAX_ACTIVE_TIME. For softap, bss max idle parameters will be set through\n                bss_max_idle_cfg in wifi_ap_config_t.",
+        "file": "components/esp_wifi/Kconfig",
+        "line": 367
+      },
+      "CONFIG_ESP_WIFI_CACHE_TX_BUFFER_NUM": {
+        "definition": "config ESP_WIFI_CACHE_TX_BUFFER_NUM\n            int \"Max number of WiFi cache TX buffers\"\n            depends on (SPIRAM_TRY_ALLOCATE_WIFI_LWIP && !SPIRAM_IGNORE_NOTFOUND)\n            range 0 128\n            default 32\n            help\n                Set the number of WiFi cache TX buffer number.\n\n                For each TX packet from uplayer, such as LWIP etc, WiFi driver needs to allocate a static TX\n                buffer and makes a copy of uplayer packet. If WiFi driver fails to allocate the static TX buffer,\n                it caches the uplayer packets to a dedicated buffer queue, this option is used to configure the\n                size of the cached TX queue.",
+        "file": "components/esp_wifi/Kconfig",
+        "line": 104
+      },
+      "CONFIG_ESP_WIFI_CONTROLLER_TARGET": {
+        "definition": "config ESP_WIFI_CONTROLLER_TARGET\n        depends on ESP_HOST_WIFI_ENABLED\n        string\n        default \"esp32\"",
+        "file": "components/esp_wifi/Kconfig",
+        "line": 13
+      },
+      "CONFIG_ESP_WIFI_CSI_ENABLED": {
+        "definition": "config ESP_WIFI_CSI_ENABLED\n            bool \"WiFi CSI(Channel State Information)\"\n            depends on SOC_WIFI_CSI_SUPPORT\n            default n\n            help\n                Select this option to enable CSI(Channel State Information) feature. CSI takes about\n                CONFIG_ESP_WIFI_STATIC_RX_BUFFER_NUM KB of RAM. If CSI is not used, it is better to disable\n                this feature in order to save memory.",
+        "file": "components/esp_wifi/Kconfig",
+        "line": 165
+      },
+      "CONFIG_ESP_WIFI_DEBUG_PRINT": {
+        "definition": "config ESP_WIFI_DEBUG_PRINT\n            bool \"Print debug messages from WPA Supplicant\"\n            default n\n            help\n                Select this option to print logging information from WPA supplicant,\n                this includes handshake information and key hex dumps depending\n                on the project logging level.\n\n                Enabling this could increase the build size ~60kb\n                depending on the project logging level.",
+        "file": "components/esp_wifi/Kconfig",
+        "line": 817
+      },
+      "CONFIG_ESP_WIFI_DPP_SUPPORT": {
+        "definition": "config ESP_WIFI_DPP_SUPPORT\n            bool \"Enable DPP support\"\n            default n\n            select ESP_WIFI_MBEDTLS_CRYPTO\n            help\n                Select this option to enable WiFi Easy Connect Support.",
+        "file": "components/esp_wifi/Kconfig",
+        "line": 715
+      },
+      "CONFIG_ESP_WIFI_DYNAMIC_RX_BUFFER_NUM": {
+        "definition": "config ESP_WIFI_DYNAMIC_RX_BUFFER_NUM\n            int \"Max number of WiFi dynamic RX buffers\"\n            range 0 128 if !LWIP_WND_SCALE\n            range 0 1024 if LWIP_WND_SCALE\n            default 32\n            help\n                Set the number of WiFi dynamic RX buffers, 0 means unlimited RX buffers will be allocated\n                (provided sufficient free RAM). The size of each dynamic RX buffer depends on the size of\n                the received data frame.\n\n                For each received data frame, the WiFi driver makes a copy to an RX buffer and then delivers\n                it to the high layer TCP/IP stack. The dynamic RX buffer is freed after the higher layer has\n                successfully received the data frame.\n\n                For some applications, WiFi data frames may be received faster than the application can\n                process them. In these cases we may run out of memory if RX buffer number is unlimited (0).\n\n                If a dynamic RX buffer limit is set, it should be at least the number of static RX buffers.\n\n        choice ESP_WIFI_TX_BUFFER\n            prompt \"Type of WiFi TX buffers\"\n            default ESP_WIFI_DYNAMIC_TX_BUFFER\n            help\n                Select type of WiFi TX buffers:\n\n                If \"Static\" is selected, WiFi TX buffers are allocated when WiFi is initialized and released\n                when WiFi is de-initialized. The size of each static TX buffer is fixed to about 1.6KB.\n\n                If \"Dynamic\" is selected, each WiFi TX buffer is allocated as needed when a data frame is\n                delivered to the Wifi driver from the TCP/IP stack. The buffer is freed after the data frame\n                has been sent by the WiFi driver. The size of each dynamic TX buffer depends on the length\n                of each data frame sent by the TCP/IP layer.\n\n                If PSRAM is enabled, \"Static\" should be selected to guarantee enough WiFi TX buffers.\n                If PSRAM is disabled, \"Dynamic\" should be selected to improve the utilization of RAM.",
+        "file": "components/esp_wifi/Kconfig",
+        "line": 41
+      },
+      "CONFIG_ESP_WIFI_DYNAMIC_RX_MGMT_BUF": {
+        "definition": "config ESP_WIFI_DYNAMIC_RX_MGMT_BUF\n            int\n            default 0 if ESP_WIFI_STATIC_RX_MGMT_BUFFER\n            default 1 if ESP_WIFI_DYNAMIC_RX_MGMT_BUFFER",
+        "file": "components/esp_wifi/Kconfig",
+        "line": 150
+      },
+      "CONFIG_ESP_WIFI_DYNAMIC_RX_MGMT_BUFFER": {
+        "definition": "config ESP_WIFI_DYNAMIC_RX_MGMT_BUFFER\n                bool \"Dynamic\"\n        endchoice",
+        "file": "components/esp_wifi/Kconfig",
+        "line": 147
+      },
+      "CONFIG_ESP_WIFI_DYNAMIC_TX_BUFFER": {
+        "definition": "config ESP_WIFI_DYNAMIC_TX_BUFFER\n                bool \"Dynamic\"\n                depends on !(SPIRAM_TRY_ALLOCATE_WIFI_LWIP && !SPIRAM_IGNORE_NOTFOUND)\n        endchoice",
+        "file": "components/esp_wifi/Kconfig",
+        "line": 80
+      },
+      "CONFIG_ESP_WIFI_DYNAMIC_TX_BUFFER_NUM": {
+        "definition": "config ESP_WIFI_DYNAMIC_TX_BUFFER_NUM\n            int \"Max number of WiFi dynamic TX buffers\"\n            depends on ESP_WIFI_DYNAMIC_TX_BUFFER\n            range 1 128\n            default 32\n            help\n                Set the number of WiFi dynamic TX buffers. The size of each dynamic TX buffer is not fixed,\n                it depends on the size of each transmitted data frame.\n\n                For each transmitted frame from the higher layer TCP/IP stack, the WiFi driver makes a copy\n                of it in a TX buffer. For some applications, especially UDP applications, the upper layer\n                can deliver frames faster than WiFi layer can transmit. In these cases, we may run out of TX\n                buffers.\n\n        choice ESP_WIFI_MGMT_RX_BUFFER\n            prompt \"Type of WiFi RX MGMT buffers\"\n            default ESP_WIFI_STATIC_RX_MGMT_BUFFER\n            help\n                Select type of WiFi RX MGMT buffers:\n\n                If \"Static\" is selected, WiFi RX MGMT buffers are allocated when WiFi is initialized and released\n                when WiFi is de-initialized. The size of each static RX MGMT buffer is fixed to about 500 Bytes.\n\n                If \"Dynamic\" is selected, each WiFi RX MGMT buffer is allocated as needed when a MGMT data frame is\n                received. The MGMT buffer is freed after the MGMT data frame has been processed by the WiFi driver.",
+        "file": "components/esp_wifi/Kconfig",
+        "line": 117
+      },
+      "CONFIG_ESP_WIFI_EAP_TLS1_3": {
+        "definition": "config ESP_WIFI_EAP_TLS1_3\n                bool \"Enable EAP-TLS v1.3 Support for WiFi Enterprise connection\"\n                default n\n                select MBEDTLS_SSL_PROTO_TLS1_3\n                depends on ESP_WIFI_MBEDTLS_TLS_CLIENT && IDF_EXPERIMENTAL_FEATURES\n                help\n                    Select this option to support EAP with TLS v1.3.\n                    This configuration still supports compatibility with EAP-TLS v1.2.\n                    Please note that enabling this configuration will cause every application which\n                    uses TLS go for TLS1.3 if server supports that. TLS1.3 is still in development in mbedtls\n                    and there may be interoperability issues with this. Please modify your application to set\n                    max version as TLS1.2 if you want to enable TLS1.3 only for WiFi connection.\n\n        endif",
+        "file": "components/esp_wifi/Kconfig",
+        "line": 611
+      },
+      "CONFIG_ESP_WIFI_ENABLED": {
+        "definition": "config ESP_WIFI_ENABLED\n        bool\n        default y if SOC_WIFI_SUPPORTED",
+        "file": "components/esp_wifi/Kconfig",
+        "line": 4
+      },
+      "CONFIG_ESP_WIFI_ENABLE_DUMP_CTRL_BFRP": {
+        "definition": "config ESP_WIFI_ENABLE_DUMP_CTRL_BFRP\n            bool \"Enable Wi-Fi dump BFRP frames\"\n            depends on SOC_WIFI_SUPPORT_5G\n            default \"n\"\n            help\n                Enable Wi-Fi dump BFRP frames.",
+        "file": "components/esp_wifi/Kconfig",
+        "line": 788
+      },
+      "CONFIG_ESP_WIFI_ENABLE_DUMP_CTRL_NDPA": {
+        "definition": "config ESP_WIFI_ENABLE_DUMP_CTRL_NDPA\n            bool \"Enable Wi-Fi dump NDPA frames\"\n            depends on SOC_WIFI_SUPPORT_5G\n            default \"n\"\n            help\n                Enable Wi-Fi dump NDPA frames.",
+        "file": "components/esp_wifi/Kconfig",
+        "line": 781
+      },
+      "CONFIG_ESP_WIFI_ENABLE_DUMP_HESIGB": {
+        "definition": "config ESP_WIFI_ENABLE_DUMP_HESIGB\n            bool \"Enable Wi-Fi dump HE-SIGB which is contained in DL HE MU PPDUs\"\n            depends on SOC_WIFI_SUPPORT_5G\n            default \"n\"\n            help\n                Enable Wi-Fi dump HE-SIGB which is contained in DL HE MU PPDUs.",
+        "file": "components/esp_wifi/Kconfig",
+        "line": 767
+      },
+      "CONFIG_ESP_WIFI_ENABLE_DUMP_MU_CFO": {
+        "definition": "config ESP_WIFI_ENABLE_DUMP_MU_CFO\n            bool \"Enable Wi-Fi dump MU CFO\"\n            depends on SOC_WIFI_SUPPORT_5G\n            default \"n\"\n            help\n                Enable Wi-Fi dump MU CFO.",
+        "file": "components/esp_wifi/Kconfig",
+        "line": 774
+      },
+      "CONFIG_ESP_WIFI_ENABLE_ROAMING_APP": {
+        "definition": "config ESP_WIFI_ENABLE_ROAMING_APP\n            bool \"Advanced support for Wi-Fi Roaming (Experimental)\"\n            depends on IDF_EXPERIMENTAL_FEATURES\n            default n\n            help\n                Enable Espressif's roaming app to allow for efficient Wi-Fi roaming.\n                This includes configurable periodic environment scans, maintaining a cache of the\n                best APs, handling low rssi events etc.\n\n                Risk Warning\n                Please note that this feature is still experimental and enabling this potentially can\n                lead to unpredictable scanning, connection and roaming attempts.\n                We are still working on tuning and optimising this feature to ensure reliable and stable use.",
+        "file": "components/esp_wifi/Kconfig",
+        "line": 696
+      },
+      "CONFIG_ESP_WIFI_ENABLE_SAE_H2E": {
+        "definition": "config ESP_WIFI_ENABLE_SAE_H2E\n            bool \"Enable SAE-H2E\"\n            default y\n            depends on ESP_WIFI_ENABLE_WPA3_SAE\n            help\n                Select this option to enable SAE-H2E",
+        "file": "components/esp_wifi/Kconfig",
+        "line": 317
+      },
+      "CONFIG_ESP_WIFI_ENABLE_SAE_PK": {
+        "definition": "config ESP_WIFI_ENABLE_SAE_PK\n            bool \"Enable SAE-PK\"\n            default y\n            depends on (ESP_WIFI_ENABLE_WPA3_SAE && ESP_WIFI_ENABLE_SAE_H2E)\n            help\n                Select this option to enable SAE-PK",
+        "file": "components/esp_wifi/Kconfig",
+        "line": 310
+      },
+      "CONFIG_ESP_WIFI_ENABLE_WIFI_RX_MU_STATS": {
+        "definition": "config ESP_WIFI_ENABLE_WIFI_RX_MU_STATS\n            bool \"Enable Wi-Fi DL MU-MIMO and DL OFDMA reception statistics\"\n            depends on ESP_WIFI_ENABLE_WIFI_RX_STATS\n            default n\n            help\n                Enable Wi-Fi DL MU-MIMO and DL OFDMA reception statistics. Will use 10932 bytes memory.",
+        "file": "components/esp_wifi/Kconfig",
+        "line": 751
+      },
+      "CONFIG_ESP_WIFI_ENABLE_WIFI_RX_STATS": {
+        "definition": "config ESP_WIFI_ENABLE_WIFI_RX_STATS\n            bool \"Enable Wi-Fi reception statistics\"\n            depends on SOC_WIFI_HE_SUPPORT\n            default n\n            help\n                Enable Wi-Fi reception statistics. Total support 2 access category. Each access category\n                will use 190 bytes memory.",
+        "file": "components/esp_wifi/Kconfig",
+        "line": 743
+      },
+      "CONFIG_ESP_WIFI_ENABLE_WIFI_TX_STATS": {
+        "definition": "config ESP_WIFI_ENABLE_WIFI_TX_STATS\n            bool \"Enable Wi-Fi transmission statistics\"\n            depends on SOC_WIFI_HE_SUPPORT\n            default n\n            help\n                Enable Wi-Fi transmission statistics. Total support 4 access category. Each access category\n                will use 346 bytes memory.",
+        "file": "components/esp_wifi/Kconfig",
+        "line": 735
+      },
+      "CONFIG_ESP_WIFI_ENABLE_WPA3_OWE_STA": {
+        "definition": "config ESP_WIFI_ENABLE_WPA3_OWE_STA\n            bool \"Enable OWE STA\"\n            default y\n            select ESP_WIFI_MBEDTLS_CRYPTO\n            help\n                Select this option to allow the device to establish OWE connection with eligible AP's.\n                PMF (Protected Management Frames) is a prerequisite feature for a WPA3 connection, it needs to be\n                explicitly configured before attempting connection. Please refer to the Wi-Fi Driver API Guide\n                for details.",
+        "file": "components/esp_wifi/Kconfig",
+        "line": 332
+      },
+      "CONFIG_ESP_WIFI_ENABLE_WPA3_SAE": {
+        "definition": "config ESP_WIFI_ENABLE_WPA3_SAE\n            bool \"Enable WPA3-Personal\"\n            default y\n            select ESP_WIFI_MBEDTLS_CRYPTO\n            help\n                Select this option to allow the device to establish a WPA3-Personal connection with eligible AP's.\n                PMF (Protected Management Frames) is a prerequisite feature for a WPA3 connection, it needs to be\n                explicitly configured before attempting connection. Please refer to the Wi-Fi Driver API Guide\n                for details.",
+        "file": "components/esp_wifi/Kconfig",
+        "line": 300
+      },
+      "CONFIG_ESP_WIFI_ENHANCED_LIGHT_SLEEP": {
+        "definition": "config ESP_WIFI_ENHANCED_LIGHT_SLEEP\n            bool \"WiFi modem automatically receives the beacon\"\n            default n\n            depends on ESP_PHY_MAC_BB_PD && SOC_PM_SUPPORT_BEACON_WAKEUP\n            help\n                The wifi modem automatically receives the beacon frame during light sleep.",
+        "file": "components/esp_wifi/Kconfig",
+        "line": 439
+      },
+      "CONFIG_ESP_WIFI_ENTERPRISE_SUPPORT": {
+        "definition": "config ESP_WIFI_ENTERPRISE_SUPPORT\n            bool \"Enable enterprise option\"\n            default y\n            help\n                Select this to enable/disable enterprise connection support.\n\n                disabling this will reduce binary size.\n                disabling this will disable the use of any esp_wifi_sta_wpa2_ent_* (as APIs will be meaningless)\n\n                Note that when using bigger certificates on low-power chips without crypto\n                hardware acceleration, it is recommended to adjust the task watchdog timer (TWDT)\n                if it is enabled. For precise information on timing requirements, you can check\n                performance numbers at https://github.com/espressif/mbedtls/wiki/Performance-Numbers.",
+        "file": "components/esp_wifi/Kconfig",
+        "line": 835
+      },
+      "CONFIG_ESP_WIFI_ENT_FREE_DYNAMIC_BUFFER": {
+        "definition": "config ESP_WIFI_ENT_FREE_DYNAMIC_BUFFER\n            bool \"Free dynamic buffers during WiFi enterprise connection\"\n            depends on ESP_WIFI_ENTERPRISE_SUPPORT\n            default y if IDF_TARGET_ESP32C2\n            default n if !IDF_TARGET_ESP32C2\n            help\n                Select this configuration to free dynamic buffers during WiFi enterprise connection.\n                This will enable chip to reduce heap consumption during WiFi enterprise connection.\n\n    endif # wifi enabled",
+        "file": "components/esp_wifi/Kconfig",
+        "line": 849
+      },
+      "CONFIG_ESP_WIFI_ESPNOW_MAX_ENCRYPT_NUM": {
+        "definition": "config ESP_WIFI_ESPNOW_MAX_ENCRYPT_NUM\n            int \"Maximum espnow encrypt peers number\"\n            range 0 4 if IDF_TARGET_ESP32C2\n            range 0 17 if (!IDF_TARGET_ESP32C2)\n            default 2 if IDF_TARGET_ESP32C2\n            default 7 if (!IDF_TARGET_ESP32C2)\n            help\n                Maximum number of encrypted peers supported by espnow.\n                The number of hardware keys for encryption is fixed. And the espnow and SoftAP share the same\n                hardware keys. So this configuration will affect the maximum connection number of SoftAP.\n                Maximum espnow encrypted peers number + maximum number of connections of SoftAP = Max hardware\n                keys number. When using ESP mesh, this value should be set to a maximum of 6.",
+        "file": "components/esp_wifi/Kconfig",
+        "line": 559
+      },
+      "CONFIG_ESP_WIFI_EXTRA_IRAM_OPT": {
+        "definition": "config ESP_WIFI_EXTRA_IRAM_OPT\n            bool \"WiFi EXTRA IRAM speed optimization\"\n            default y if SOC_WIFI_HE_SUPPORT\n            default n\n            help\n                Select this option to place additional frequently called Wi-Fi library functions\n                in IRAM. When this option is disabled, more than 5Kbytes of IRAM memory will be saved\n                but Wi-Fi throughput will be reduced.",
+        "file": "components/esp_wifi/Kconfig",
+        "line": 282
+      },
+      "CONFIG_ESP_WIFI_FTM_ENABLE": {
+        "definition": "config ESP_WIFI_FTM_ENABLE\n            bool \"WiFi FTM\"\n            default n\n            depends on SOC_WIFI_FTM_SUPPORT\n            help\n                Enable feature Fine Timing Measurement for calculating WiFi Round-Trip-Time (RTT).",
+        "file": "components/esp_wifi/Kconfig",
+        "line": 396
+      },
+      "CONFIG_ESP_WIFI_FTM_INITIATOR_SUPPORT": {
+        "definition": "config ESP_WIFI_FTM_INITIATOR_SUPPORT\n            bool \"FTM Initiator support\"\n            default y\n            depends on ESP_WIFI_FTM_ENABLE",
+        "file": "components/esp_wifi/Kconfig",
+        "line": 403
+      },
+      "CONFIG_ESP_WIFI_FTM_RESPONDER_SUPPORT": {
+        "definition": "config ESP_WIFI_FTM_RESPONDER_SUPPORT\n            bool \"FTM Responder support\"\n            default y\n            depends on ESP_WIFI_FTM_ENABLE",
+        "file": "components/esp_wifi/Kconfig",
+        "line": 408
+      },
+      "CONFIG_ESP_WIFI_GCMP_SUPPORT": {
+        "definition": "config ESP_WIFI_GCMP_SUPPORT\n            bool \"WiFi GCMP Support(GCMP128 and GCMP256)\"\n            default n\n            depends on SOC_WIFI_GCMP_SUPPORT\n            help\n                Select this option to enable GCMP support. GCMP support is compulsory for WiFi Suite-B support.",
+        "file": "components/esp_wifi/Kconfig",
+        "line": 420
+      },
+      "CONFIG_ESP_WIFI_GMAC_SUPPORT": {
+        "definition": "config ESP_WIFI_GMAC_SUPPORT\n            bool \"WiFi GMAC Support(GMAC128 and GMAC256)\"\n            default y\n            help\n                Select this option to enable GMAC support. GMAC support is compulsory for WiFi 192 bit certification.",
+        "file": "components/esp_wifi/Kconfig",
+        "line": 427
+      },
+      "CONFIG_ESP_WIFI_IRAM_OPT": {
+        "definition": "config ESP_WIFI_IRAM_OPT\n            bool \"WiFi IRAM speed optimization\"\n            default n if (BT_ENABLED && SPIRAM && IDF_TARGET_ESP32)\n            default y\n            help\n                Select this option to place frequently called Wi-Fi library functions in IRAM.\n                When this option is disabled, more than 10Kbytes of IRAM memory will be saved\n                but Wi-Fi throughput will be reduced.",
+        "file": "components/esp_wifi/Kconfig",
+        "line": 273
+      },
+      "CONFIG_ESP_WIFI_MBEDTLS_CRYPTO": {
+        "definition": "config ESP_WIFI_MBEDTLS_CRYPTO\n            bool \"Use MbedTLS crypto APIs\"\n            default y\n            select MBEDTLS_AES_C\n            select MBEDTLS_ECP_C\n            select MBEDTLS_ECDH_C\n            select MBEDTLS_ECDSA_C\n            select MBEDTLS_CMAC_C\n            select MBEDTLS_ECP_DP_SECP256R1_ENABLED\n            help\n                Select this option to enable the use of MbedTLS crypto APIs.\n                The internal crypto support within the supplicant is limited\n                and may not suffice for all new security features, including WPA3.\n\n                It is recommended to always keep this option enabled. Additionally,\n                note that MbedTLS can leverage hardware acceleration if available,\n                resulting in significantly faster cryptographic operations.\n\n        if ESP_WIFI_MBEDTLS_CRYPTO",
+        "file": "components/esp_wifi/Kconfig",
+        "line": 580
+      },
+      "CONFIG_ESP_WIFI_MBEDTLS_TLS_CLIENT": {
+        "definition": "config ESP_WIFI_MBEDTLS_TLS_CLIENT\n                bool \"Use MbedTLS TLS client for WiFi Enterprise connection\"\n                depends on ESP_WIFI_ENTERPRISE_SUPPORT\n                default y\n                select MBEDTLS_TLS_ENABLED\n                help\n                    Select this option to use MbedTLS TLS client for WPA2 enterprise connection.\n                    Please note that from MbedTLS-3.0 onwards, MbedTLS does not support SSL-3.0\n                    TLS-v1.0, TLS-v1.1 versions. In case your server is using one of these version,\n                    it is advisable to update your server.\n                    Please disable this option for compatibility with older TLS versions.",
+        "file": "components/esp_wifi/Kconfig",
+        "line": 600
+      },
+      "CONFIG_ESP_WIFI_MBO_SUPPORT": {
+        "definition": "config ESP_WIFI_MBO_SUPPORT\n            bool \"Enable Multi Band Operation Certification Support\"\n            default n\n            select ESP_WIFI_11KV_SUPPORT\n            select ESP_WIFI_RRM_SUPPORT\n            select ESP_WIFI_WNM_SUPPORT\n            select ESP_WIFI_SCAN_CACHE\n            help\n                Select this option to enable WiFi Multiband operation certification support.",
+        "file": "components/esp_wifi/Kconfig",
+        "line": 686
+      },
+      "CONFIG_ESP_WIFI_MGMT_SBUF_NUM": {
+        "definition": "config ESP_WIFI_MGMT_SBUF_NUM\n            int \"WiFi mgmt short buffer number\"\n            range 6 32\n            default 32\n            help\n                Set the maximum number of Wi-Fi management short buffers. These buffers are dynamically allocated,\n                with their size determined by the length of the management packet to be sent. When a management\n                packet is less than 64 bytes, the Wi-Fi driver classifies it as a short management packet and\n                assigns it to one of these buffers.",
+        "file": "components/esp_wifi/Kconfig",
+        "line": 263
+      },
+      "CONFIG_ESP_WIFI_NAN_ENABLE": {
+        "definition": "config ESP_WIFI_NAN_ENABLE\n            bool \"WiFi Aware\"\n            default n\n            depends on SOC_WIFI_NAN_SUPPORT\n            select LWIP_IPV6\n            help\n                Enable WiFi Aware (NAN) feature.",
+        "file": "components/esp_wifi/Kconfig",
+        "line": 572
+      },
+      "CONFIG_ESP_WIFI_NETWORK_ASSISTED_ROAMING_IP_RENEW_SKIP": {
+        "definition": "config ESP_WIFI_NETWORK_ASSISTED_ROAMING_IP_RENEW_SKIP\n        bool \"Skip IP renew during BTM based roaming\"\n        depends on ESP_WIFI_ROAMING_NETWORK_ASSISTED_ROAM\n        default n\n        help\n            Station will not ask for IP renew after a BTM based roaming. Before enabling please\n            make sure your network supports this.",
+        "file": "components/esp_wifi/wifi_apps/roaming_app/src/Kconfig.roaming",
+        "line": 92
+      },
+      "CONFIG_ESP_WIFI_NETWORK_ASSISTED_ROAMING_RETRY_COUNT": {
+        "definition": "config ESP_WIFI_NETWORK_ASSISTED_ROAMING_RETRY_COUNT\n        int \"Retry count after which to switch to legacy roaming\"\n        depends on ESP_WIFI_ROAMING_NETWORK_ASSISTED_ROAM\n        depends on ESP_WIFI_ROAMING_LEGACY_ROAMING\n        range 1 5\n        default 2\n        help\n            Retry threshold after which the station should stop using Network Assisted\n            roaming methods and start using legacy roaming instead.",
+        "file": "components/esp_wifi/wifi_apps/roaming_app/src/Kconfig.roaming",
+        "line": 82
+      },
+      "CONFIG_ESP_WIFI_NVS_ENABLED": {
+        "definition": "config ESP_WIFI_NVS_ENABLED\n            bool \"WiFi NVS flash\"\n            default y\n            help\n                Select this option to enable WiFi NVS flash\n\n        choice ESP_WIFI_TASK_CORE_ID\n            depends on !FREERTOS_UNICORE\n            prompt \"WiFi Task Core ID\"\n            default ESP_WIFI_TASK_PINNED_TO_CORE_0\n            help\n                Pinned WiFi task to core 0 or core 1.",
+        "file": "components/esp_wifi/Kconfig",
+        "line": 221
+      },
+      "CONFIG_ESP_WIFI_ROAMING_BACKOFF_TIME": {
+        "definition": "config ESP_WIFI_ROAMING_BACKOFF_TIME\n    int \"Default time to wait between subsequent roaming attempts.\"\n    default 15\n    range 0 120\n    help\n        Time to wait (in seconds) by station before registering for the RSSI event again\n        or start continuous montoring to find better AP.",
+        "file": "components/esp_wifi/wifi_apps/roaming_app/src/Kconfig.roaming",
+        "line": 151
+      },
+      "CONFIG_ESP_WIFI_ROAMING_HOME_CHANNEL_DWELL_TIME": {
+        "definition": "config ESP_WIFI_ROAMING_HOME_CHANNEL_DWELL_TIME\n        int \"Home channel dwell time scanning between consecutive channels\"\n        default 30\n        range 30 150\n        help\n            If connected, duration for which the station will return to it's home channel for Tx/Rx of\n            frames stored in buffers between scanning on consecutive channels.",
+        "file": "components/esp_wifi/wifi_apps/roaming_app/src/Kconfig.roaming",
+        "line": 118
+      },
+      "CONFIG_ESP_WIFI_ROAMING_LEGACY_ROAMING": {
+        "definition": "config ESP_WIFI_ROAMING_LEGACY_ROAMING\n        bool \"Support Legacy roaming approach\"\n        default y\n        help\n            Roaming between APs that do not support 802.11v.\n            This will allow station to roam even when connection is not BTM supported,\n            by forcefully disconnecting from current AP and connecting to better AP.",
+        "file": "components/esp_wifi/wifi_apps/roaming_app/src/Kconfig.roaming",
+        "line": 65
+      },
+      "CONFIG_ESP_WIFI_ROAMING_LOW_RSSI_OFFSET": {
+        "definition": "config ESP_WIFI_ROAMING_LOW_RSSI_OFFSET\n        depends on ESP_WIFI_ROAMING_LOW_RSSI_ROAMING\n        int \"Offset by which to reset the RSSI Threshold after attempt to roam.\"\n        range 0 99\n        default 5\n        help\n            Decide the offset by which to decrease the Low RSSI threshold set by ESP_WIFI_ROAMING_LOW_RSSI_THRESHOLD\n            after each failed attempt to roam. This allows for the station to keep scanning for better AP's after\n            the Low RSSI threshold is reached in a stepped manner, rather than only attempting to roam the first time\n            the current AP's RSSI breaches the set RSSI threshold.\n            Setting 0 here may cause station to be flooded with low rssi events,\n            therefore that's not recommended to be kept.",
+        "file": "components/esp_wifi/wifi_apps/roaming_app/src/Kconfig.roaming",
+        "line": 18
+      },
+      "CONFIG_ESP_WIFI_ROAMING_LOW_RSSI_ROAMING": {
+        "definition": "config ESP_WIFI_ROAMING_LOW_RSSI_ROAMING\n        bool \"Use Low RSSI to trigger roaming.\"\n        default y\n        help\n            Enable to use a RSSI threshold to trigger roaming.",
+        "file": "components/esp_wifi/wifi_apps/roaming_app/src/Kconfig.roaming",
+        "line": 3
+      },
+      "CONFIG_ESP_WIFI_ROAMING_LOW_RSSI_THRESHOLD": {
+        "definition": "config ESP_WIFI_ROAMING_LOW_RSSI_THRESHOLD\n        depends on ESP_WIFI_ROAMING_LOW_RSSI_ROAMING\n        int \"WiFi RSSI threshold to trigger roaming\"\n        range -99 -30\n        default -60\n        help\n            WiFi RSSI threshold to trigger roaming value in dBm (-99 to -1). Values under -30 dbm\n            might lead to a flood of low rssi events. This interferes with normal functioning and\n            TX/Rx performance.",
+        "file": "components/esp_wifi/wifi_apps/roaming_app/src/Kconfig.roaming",
+        "line": 8
+      },
+      "CONFIG_ESP_WIFI_ROAMING_MAX_CANDIDATES": {
+        "definition": "config ESP_WIFI_ROAMING_MAX_CANDIDATES\n        int \"Max Candidates in the network\"\n        default 3\n        range 3 20\n        help\n            Max candidates that can be considered while scanning as a part of the\n            network at one time.",
+        "file": "components/esp_wifi/wifi_apps/roaming_app/src/Kconfig.roaming",
+        "line": 141
+      },
+      "CONFIG_ESP_WIFI_ROAMING_NETWORK_ASSISTED_ROAM": {
+        "definition": "config ESP_WIFI_ROAMING_NETWORK_ASSISTED_ROAM\n        bool \"Support Network Assisted roaming using 802.11v\"\n        depends on ESP_WIFI_WNM_SUPPORT\n        default y\n        help\n            Roaming between APs using network assisted Roaming.\n            This involves  BSS Transition Management mechanisms outlined in 802.11v.\n            Note that this moves the responsibility to the AP's network, and hence isn't\n            guaranteed to cause the station to attempt to roam each time.",
+        "file": "components/esp_wifi/wifi_apps/roaming_app/src/Kconfig.roaming",
+        "line": 72
+      },
+      "CONFIG_ESP_WIFI_ROAMING_PERIODIC_RRM_MONITORING": {
+        "definition": "config ESP_WIFI_ROAMING_PERIODIC_RRM_MONITORING\n    bool \"Send periodic neighbor report request to AP for internal list updation\"\n    depends on ESP_WIFI_RRM_SUPPORT\n    default y\n    help\n        This option will enable station to keep sending RRM neighbor list request to AP and\n        update its internal list.",
+        "file": "components/esp_wifi/wifi_apps/roaming_app/src/Kconfig.roaming",
+        "line": 159
+      },
+      "CONFIG_ESP_WIFI_ROAMING_PERIODIC_SCAN_MONITOR": {
+        "definition": "config ESP_WIFI_ROAMING_PERIODIC_SCAN_MONITOR\n        bool \"Conduct periodic scans to check if a better AP is available\"\n        default y\n        help\n            Conduct periodic scans periodically to check if a better AP is available.",
+        "file": "components/esp_wifi/wifi_apps/roaming_app/src/Kconfig.roaming",
+        "line": 31
+      },
+      "CONFIG_ESP_WIFI_ROAMING_PERIODIC_SCAN_THRESHOLD": {
+        "definition": "config ESP_WIFI_ROAMING_PERIODIC_SCAN_THRESHOLD\n        int \"Threshold at which to begin periodic scanning for a better AP.\"\n        depends on ESP_WIFI_ROAMING_PERIODIC_SCAN_MONITOR\n        range -99 -1\n        default -50\n        help\n            Threshold at which the station will begin scanning to find an AP with better RSSI.",
+        "file": "components/esp_wifi/wifi_apps/roaming_app/src/Kconfig.roaming",
+        "line": 37
+      },
+      "CONFIG_ESP_WIFI_ROAMING_RRM_MONITOR_THRESHOLD": {
+        "definition": "config ESP_WIFI_ROAMING_RRM_MONITOR_THRESHOLD\n    int \"Threshold for sending periodic neighbor report requests\"\n    depends on ESP_WIFI_ROAMING_PERIODIC_RRM_MONITORING\n    default -20\n    range -99 0\n    help\n        The RSSI threshold beyond which we start sending periodic neighbor report requests.",
+        "file": "components/esp_wifi/wifi_apps/roaming_app/src/Kconfig.roaming",
+        "line": 177
+      },
+      "CONFIG_ESP_WIFI_ROAMING_RRM_MONITOR_TIME": {
+        "definition": "config ESP_WIFI_ROAMING_RRM_MONITOR_TIME\n    int \"Time interval (in seconds) between neighbor report requests to an AP\"\n    depends on ESP_WIFI_ROAMING_PERIODIC_RRM_MONITORING\n    default 60\n    range 0 1500\n    help\n        Enable this to send periodic neighbor report requests to the AP.\n        These neighbor report requests provide information about other APs in the same managed\n        network. This information is used for more intelligent roaming.",
+        "file": "components/esp_wifi/wifi_apps/roaming_app/src/Kconfig.roaming",
+        "line": 167
+      },
+      "CONFIG_ESP_WIFI_ROAMING_SCAN_CHAN_LIST": {
+        "definition": "config ESP_WIFI_ROAMING_SCAN_CHAN_LIST\n        string \"Preferred channel list for scanning\"\n        default \"None\"\n        help\n            Channels your wireless network operates on to allow for faster scanning.\n            Specify the channels(between 1-14) in a comma separated manner.",
+        "file": "components/esp_wifi/wifi_apps/roaming_app/src/Kconfig.roaming",
+        "line": 126
+      },
+      "CONFIG_ESP_WIFI_ROAMING_SCAN_EXPIRY_WINDOW": {
+        "definition": "config ESP_WIFI_ROAMING_SCAN_EXPIRY_WINDOW\n        int \"Scan results expiry window (in seconds)\"\n        default 10\n        range 5 20\n        help\n            Duration for which the results from the most recent scans can be used\n            by the roaming app for determining the roaming candidates.",
+        "file": "components/esp_wifi/wifi_apps/roaming_app/src/Kconfig.roaming",
+        "line": 133
+      },
+      "CONFIG_ESP_WIFI_ROAMING_SCAN_MAX_SCAN_TIME": {
+        "definition": "config ESP_WIFI_ROAMING_SCAN_MAX_SCAN_TIME\n        int \"Maximum duration (in milliseconds) of station's per channel active scan time\"\n        default 70\n        range 30 120\n        help\n            Maximum duration of active scanning per channel in milliseconds.",
+        "file": "components/esp_wifi/wifi_apps/roaming_app/src/Kconfig.roaming",
+        "line": 111
+      },
+      "CONFIG_ESP_WIFI_ROAMING_SCAN_MIN_SCAN_TIME": {
+        "definition": "config ESP_WIFI_ROAMING_SCAN_MIN_SCAN_TIME\n        int \"Minimum duration (in milliseconds) of station's per channel active scan\"\n        default 30\n        range 0 120\n        help\n            Minimum duration of active scanning per channel in milliseconds.",
+        "file": "components/esp_wifi/wifi_apps/roaming_app/src/Kconfig.roaming",
+        "line": 104
+      },
+      "CONFIG_ESP_WIFI_ROAMING_SCAN_MONITOR_INTERVAL": {
+        "definition": "config ESP_WIFI_ROAMING_SCAN_MONITOR_INTERVAL\n        int \"Time intervals (in seconds) at which station will initiate a scan\"\n        depends on ESP_WIFI_ROAMING_PERIODIC_SCAN_MONITOR\n        range 1 1500\n        default 30\n        help\n            Intervals at which station will periodically scan to check if better AP is available",
+        "file": "components/esp_wifi/wifi_apps/roaming_app/src/Kconfig.roaming",
+        "line": 45
+      },
+      "CONFIG_ESP_WIFI_ROAMING_SCAN_ROAM_RSSI_DIFF": {
+        "definition": "config ESP_WIFI_ROAMING_SCAN_ROAM_RSSI_DIFF\n        int \"RSSI difference b/w current AP and candidate AP to initiate connection\"\n        depends on ESP_WIFI_ROAMING_PERIODIC_SCAN_MONITOR\n        default 15\n        range 0 99\n        help\n            Minimum RSSI difference b/w current AP and a potential roaming candidate AP\n            to trigger a roaming attempt.",
+        "file": "components/esp_wifi/wifi_apps/roaming_app/src/Kconfig.roaming",
+        "line": 53
+      },
+      "CONFIG_ESP_WIFI_RRM_SUPPORT": {
+        "definition": "config ESP_WIFI_RRM_SUPPORT\n            bool \"Enable 802.11k APIs Support\"\n            depends on ESP_WIFI_11KV_SUPPORT\n            default y\n            help\n                Select this option to enable 802.11k APIs(RRM support).\n                Only APIs which are helpful for network assisted roaming\n                are supported for now.\n                Enable this option with RRM enabled in sta config\n                to make device ready for network assisted roaming.\n                RRM: Radio measurements enable STAs to understand the radio environment,\n                it enables STAs to observe and gather data on radio link performance\n                and on the radio environment. Current implementation adds beacon report,\n                link measurement, neighbor report.",
+        "file": "components/esp_wifi/Kconfig",
+        "line": 650
+      },
+      "CONFIG_ESP_WIFI_RX_BA_WIN": {
+        "definition": "config ESP_WIFI_RX_BA_WIN\n            int \"WiFi AMPDU RX BA window size\"\n            depends on ESP_WIFI_AMPDU_RX_ENABLED\n            range 2 32 if !SOC_WIFI_HE_SUPPORT\n            range 2 64 if SOC_WIFI_HE_SUPPORT\n            default 6 if !(SPIRAM_TRY_ALLOCATE_WIFI_LWIP && !SPIRAM_IGNORE_NOTFOUND)\n            default 16 if (SPIRAM_TRY_ALLOCATE_WIFI_LWIP && !SPIRAM_IGNORE_NOTFOUND)\n            help\n                Set the size of WiFi Block Ack RX window. Generally a bigger value means higher throughput and better\n                compatibility but more memory. Most of time we should NOT change the default value unless special\n                reason, e.g. test the maximum UDP RX throughput with iperf etc. For iperf test in shieldbox, the\n                recommended value is 9~12. If PSRAM is used and WiFi memory is preferred to allocate in PSRAM first,\n                the default and minimum value should be 16 to achieve better throughput and compatibility with both\n                stations and APs.",
+        "file": "components/esp_wifi/Kconfig",
+        "line": 199
+      },
+      "CONFIG_ESP_WIFI_RX_IRAM_OPT": {
+        "definition": "config ESP_WIFI_RX_IRAM_OPT\n            bool \"WiFi RX IRAM speed optimization\"\n            default n if (BT_ENABLED && SPIRAM && IDF_TARGET_ESP32)\n            default y\n            help\n                Select this option to place frequently called Wi-Fi library RX functions in IRAM.\n                When this option is disabled, more than 17Kbytes of IRAM memory will be saved\n                but Wi-Fi performance will be reduced.",
+        "file": "components/esp_wifi/Kconfig",
+        "line": 291
+      },
+      "CONFIG_ESP_WIFI_RX_MGMT_BUF_NUM_DEF": {
+        "definition": "config ESP_WIFI_RX_MGMT_BUF_NUM_DEF\n            int \"Max number of WiFi RX MGMT buffers\"\n            range 1 10\n            default 5\n            help\n                Set the number of WiFi RX_MGMT buffers.\n\n                For Management buffers, the number of dynamic and static management buffers is the same.\n                In order to prevent memory fragmentation, the management buffer type should be set to static first.",
+        "file": "components/esp_wifi/Kconfig",
+        "line": 155
+      },
+      "CONFIG_ESP_WIFI_SCAN_CACHE": {
+        "definition": "config ESP_WIFI_SCAN_CACHE\n            bool \"Keep scan results in cache\"\n            depends on ESP_WIFI_RRM_SUPPORT\n            default n\n            help\n                Keep scan results in cache, if not enabled, those\n                will be flushed immediately.",
+        "file": "components/esp_wifi/Kconfig",
+        "line": 678
+      },
+      "CONFIG_ESP_WIFI_SLP_BEACON_LOST_OPT": {
+        "definition": "config ESP_WIFI_SLP_BEACON_LOST_OPT\n            bool \"Wifi sleep optimize when beacon lost\"\n            help\n                Enable wifi sleep optimization when beacon loss occurs and immediately enter\n                sleep mode when the WiFi module detects beacon loss.",
+        "file": "components/esp_wifi/Kconfig",
+        "line": 446
+      },
+      "CONFIG_ESP_WIFI_SLP_BEACON_LOST_OVER_THRESHOLD_AUTO": {
+        "definition": "config ESP_WIFI_SLP_BEACON_LOST_OVER_THRESHOLD_AUTO\n                bool \"Auto\"\n        endchoice",
+        "file": "components/esp_wifi/Kconfig",
+        "line": 507
+      },
+      "CONFIG_ESP_WIFI_SLP_BEACON_LOST_OVER_THRESHOLD_DROP": {
+        "definition": "config ESP_WIFI_SLP_BEACON_LOST_OVER_THRESHOLD_DROP\n                bool \"Drop beacon\"",
+        "file": "components/esp_wifi/Kconfig",
+        "line": 505
+      },
+      "CONFIG_ESP_WIFI_SLP_BEACON_LOST_OVER_THRESHOLD_RECEIVE": {
+        "definition": "config ESP_WIFI_SLP_BEACON_LOST_OVER_THRESHOLD_RECEIVE\n                bool \"Receive beacon\"",
+        "file": "components/esp_wifi/Kconfig",
+        "line": 502
+      },
+      "CONFIG_ESP_WIFI_SLP_BEACON_LOST_THRESHOLD": {
+        "definition": "config ESP_WIFI_SLP_BEACON_LOST_THRESHOLD\n            int \"Maximum number of consecutive lost beacons allowed\"\n            range 0 8\n            default 3\n            depends on ESP_WIFI_SLP_BEACON_LOST_OPT\n            help\n                Maximum number of consecutive lost beacons allowed, the WiFi Rx state behaviour\n                will be determined by ESP_WIFI_SLP_BEACON_LOST_OVER_THRESHOLD_POLICY\n                when the number of consecutive beacons lost is greater than the given threshold.",
+        "file": "components/esp_wifi/Kconfig",
+        "line": 460
+      },
+      "CONFIG_ESP_WIFI_SLP_BEACON_LOST_TIMEOUT": {
+        "definition": "config ESP_WIFI_SLP_BEACON_LOST_TIMEOUT\n            int \"Beacon loss timeout\"\n            range 5 100\n            default 10\n            depends on ESP_WIFI_SLP_BEACON_LOST_OPT\n            help\n                Timeout time for close rf phy when beacon loss occurs, Unit: 1024 microsecond.",
+        "file": "components/esp_wifi/Kconfig",
+        "line": 452
+      },
+      "CONFIG_ESP_WIFI_SLP_DEFAULT_MAX_ACTIVE_TIME": {
+        "definition": "config ESP_WIFI_SLP_DEFAULT_MAX_ACTIVE_TIME\n            int \"Maximum keep alive time\"\n            range 10 60\n            default 10\n            help\n                Only for station. If no packet has been sent within ESP_WIFI_SLP_DEFAULT_MAX_ACTIVE_TIME, a null data\n                packet will be sent to maintain the connection with the AP. If ESP_WIFI_BSS_MAX_IDLE_SUPPORT is set,\n                it will be sent as bss max idle period in association request. unit: seconds.",
+        "file": "components/esp_wifi/Kconfig",
+        "line": 377
+      },
+      "CONFIG_ESP_WIFI_SLP_DEFAULT_MIN_ACTIVE_TIME": {
+        "definition": "config ESP_WIFI_SLP_DEFAULT_MIN_ACTIVE_TIME\n            int \"Minimum active time\"\n            range 8 60\n            default 50\n            help\n                Only for station in WIFI_PS_MIN_MODEM or WIFI_PS_MAX_MODEM. When the station enters the active state,\n                it will work for at least ESP_WIFI_SLP_DEFAULT_MIN_ACTIVE_TIME. If a data packet is received or sent\n                during this period, the time will be refreshed. If the time is up, but the station still has packets\n                to receive or send, the time will also be refreshed. unit: milliseconds.",
+        "file": "components/esp_wifi/Kconfig",
+        "line": 357
+      },
+      "CONFIG_ESP_WIFI_SLP_DEFAULT_WAIT_BROADCAST_DATA_TIME": {
+        "definition": "config ESP_WIFI_SLP_DEFAULT_WAIT_BROADCAST_DATA_TIME\n            int \"Minimum wait broadcast data time\"\n            range 10 30\n            default 15\n            help\n                Only for station in WIFI_PS_MIN_MODEM or WIFI_PS_MAX_MODEM. When the station knows through the beacon\n                that AP will send broadcast packet, it will wait for ESP_WIFI_SLP_DEFAULT_WAIT_BROADCAST_DATA_TIME\n                before entering the sleep process. If a broadcast packet is received with more data bits, the time\n                will refreshed. unit: milliseconds.",
+        "file": "components/esp_wifi/Kconfig",
+        "line": 386
+      },
+      "CONFIG_ESP_WIFI_SLP_IRAM_OPT": {
+        "definition": "config ESP_WIFI_SLP_IRAM_OPT\n            bool \"WiFi SLP IRAM speed optimization\"\n            select PM_SLP_DEFAULT_PARAMS_OPT\n            select PM_SLEEP_FUNC_IN_IRAM\n            select ESP_PERIPH_CTRL_FUNC_IN_IRAM\n            select ESP_PHY_IRAM_OPT\n            default y if SOC_WIFI_HE_SUPPORT\n            help\n                Select this option to place called Wi-Fi library TBTT process and receive beacon functions in IRAM.\n                Some functions can be put in IRAM either by ESP_WIFI_IRAM_OPT and ESP_WIFI_RX_IRAM_OPT, or this one.\n                If already enabled ESP_WIFI_IRAM_OPT, the other 7.3KB IRAM memory would be taken by this option.\n                If already enabled ESP_WIFI_RX_IRAM_OPT, the other 1.3KB IRAM memory would be taken by this option.\n                If neither of them are enabled, the other 7.4KB IRAM memory would be taken by this option.\n                Wi-Fi power-save mode average current would be reduced if this option is enabled.",
+        "file": "components/esp_wifi/Kconfig",
+        "line": 342
+      },
+      "CONFIG_ESP_WIFI_SLP_PHY_OFF_DELTA_TIMEOUT_TIME": {
+        "definition": "config ESP_WIFI_SLP_PHY_OFF_DELTA_TIMEOUT_TIME\n            int \"Delta timeout time for RF PHY off\"\n            range 0 8\n            default 2\n            depends on ESP_WIFI_SLP_BEACON_LOST_OPT && SOC_WIFI_SUPPORT_VARIABLE_BEACON_WINDOW\n            help\n                Delta timeout time for rf phy off, When the beacon is lost, the next rf phy off will\n                be delayed for the time specified by the configuration item. Unit: 1024 microsecond.\n\n        choice ESP_WIFI_SLP_BEACON_LOST_OVER_THRESHOLD_POLICY\n            prompt \"Beacon strategy when beacon loss exceeds threshold\"\n            depends on ESP_WIFI_SLP_BEACON_LOST_OPT\n            default ESP_WIFI_SLP_BEACON_LOST_OVER_THRESHOLD_AUTO\n            help\n                Select the strategy to apply when the number of lost beacons exceeds the threshold.\n\n                - \"Receive beacon\": Keep RF on until a beacon is successfully received.\n\n                - \"Drop beacon\": Turn off RF and skip beacon reception during this period.\n\n                - \"Auto\": Beacon will been dropped only if ESP_WIFI_SLP_SAMPLE_BEACON_FEATURE enabled\n                          and expected rx beacon probability stays below the standard.",
+        "file": "components/esp_wifi/Kconfig",
+        "line": 479
+      },
+      "CONFIG_ESP_WIFI_SLP_PHY_ON_DELTA_EARLY_TIME": {
+        "definition": "config ESP_WIFI_SLP_PHY_ON_DELTA_EARLY_TIME\n            int \"Delta early time for RF PHY on\"\n            range 0 100\n            default 2\n            depends on ESP_WIFI_SLP_BEACON_LOST_OPT && SOC_WIFI_SUPPORT_VARIABLE_BEACON_WINDOW\n            help\n                Delta early time for rf phy on, When the beacon is lost, the next rf phy on will\n                be earlier the time specified by the configuration item, Unit: 32 microsecond.",
+        "file": "components/esp_wifi/Kconfig",
+        "line": 470
+      },
+      "CONFIG_ESP_WIFI_SLP_SAMPLE_BEACON_COUNT": {
+        "definition": "config ESP_WIFI_SLP_SAMPLE_BEACON_COUNT\n                int \"Sample beacons at wifi connected to adjust beacon parameters\"\n                range 100 1200\n                default 300\n                depends on ESP_WIFI_SLP_SAMPLE_BEACON_FEATURE\n                help\n                    Numble of sampled beacons at wifi connected to adjust beacon parameters.",
+        "file": "components/esp_wifi/Kconfig",
+        "line": 520
+      },
+      "CONFIG_ESP_WIFI_SLP_SAMPLE_BEACON_DIFFERENCE_PERCENT": {
+        "definition": "config ESP_WIFI_SLP_SAMPLE_BEACON_DIFFERENCE_PERCENT\n                int \"Difference percentage triggers unstable event\"\n                range 0 100\n                default 20\n                depends on ESP_WIFI_SLP_SAMPLE_BEACON_FEATURE\n                help\n                    Difference triggers event WIFI_EVENT_STA_BEACON_OFFSET_UNSTABLE\n                    when the actual rx beacon probability continuously falls below\n                    the expected probability by this value.\n                    unit: percentage",
+        "file": "components/esp_wifi/Kconfig",
+        "line": 527
+      },
+      "CONFIG_ESP_WIFI_SLP_SAMPLE_BEACON_FEATURE": {
+        "definition": "config ESP_WIFI_SLP_SAMPLE_BEACON_FEATURE\n            bool \"Sample beacon to calculate beacon offset\"\n            default n\n            depends on ESP_WIFI_SLP_BEACON_LOST_OPT && !ESP_WIFI_ENHANCED_LIGHT_SLEEP\n            help\n                Select to enable feature sampling beacons to calculate beacon offset.",
+        "file": "components/esp_wifi/Kconfig",
+        "line": 510
+      },
+      "CONFIG_ESP_WIFI_SLP_SAMPLE_BEACON_RESAMPLE_PERIOD": {
+        "definition": "config ESP_WIFI_SLP_SAMPLE_BEACON_RESAMPLE_PERIOD\n                int \"Resample period\"\n                range 0 255\n                default 3\n                depends on ESP_WIFI_SLP_SAMPLE_BEACON_FEATURE\n                help\n                    Resample period if beacon drop is active under ESP_WIFI_SLP_BEACON_LOST_DROP_BEACON_AUTO mode.\n                    It means never resample if setting this value to 0.\n                    unit: hours",
+        "file": "components/esp_wifi/Kconfig",
+        "line": 548
+      },
+      "CONFIG_ESP_WIFI_SLP_SAMPLE_BEACON_STANDARD_PERCENT": {
+        "definition": "config ESP_WIFI_SLP_SAMPLE_BEACON_STANDARD_PERCENT\n                int \"Standard percentage triggers beacon drop\"\n                range 0 100\n                default 55\n                depends on ESP_WIFI_SLP_SAMPLE_BEACON_FEATURE\n                help\n                    Standard triggers beacon drop when the expected rx beacon probability\n                    falls below this value under ESP_WIFI_SLP_BEACON_LOST_DROP_BEACON_AUTO mode.\n                    unit: percentage",
+        "file": "components/esp_wifi/Kconfig",
+        "line": 538
+      },
+      "CONFIG_ESP_WIFI_SOFTAP_BEACON_MAX_LEN": {
+        "definition": "config ESP_WIFI_SOFTAP_BEACON_MAX_LEN\n            int \"Max length of WiFi SoftAP Beacon\"\n            range 752 1256\n            default 752\n            help\n                ESP-MESH utilizes beacon frames to detect and resolve root node conflicts (see documentation). However\n                the default length of a beacon frame can simultaneously hold only five root node identifier structures,\n                meaning that a root node conflict of up to five nodes can be detected at one time. In the occurrence of\n                more root nodes conflict involving more than five root nodes, the conflict resolution process will\n                detect five of the root nodes, resolve the conflict, and re-detect more root nodes. This process will\n                repeat until all root node conflicts are resolved. However this process can generally take a very long\n                time.\n\n                To counter this situation, the beacon frame length can be increased such that more root nodes can be\n                detected simultaneously. Each additional root node will require 36 bytes and should be added on top of\n                the default beacon frame length of\n                752 bytes. For example, if you want to detect 10 root nodes simultaneously, you need to set the beacon\n                frame length as\n                932 (752+36*5).\n\n                Setting a longer beacon length also assists with debugging as the conflicting root nodes can be\n                identified more quickly.",
+        "file": "components/esp_wifi/Kconfig",
+        "line": 240
+      },
+      "CONFIG_ESP_WIFI_SOFTAP_SAE_SUPPORT": {
+        "definition": "config ESP_WIFI_SOFTAP_SAE_SUPPORT\n            bool \"Enable WPA3 Personal(SAE) SoftAP\"\n            default y\n            depends on ESP_WIFI_ENABLE_WPA3_SAE\n            depends on ESP_WIFI_SOFTAP_SUPPORT\n            help\n                Select this option to enable SAE support in softAP mode.",
+        "file": "components/esp_wifi/Kconfig",
+        "line": 324
+      },
+      "CONFIG_ESP_WIFI_SOFTAP_SUPPORT": {
+        "definition": "config ESP_WIFI_SOFTAP_SUPPORT\n            bool \"WiFi SoftAP Support\"\n            default y\n            help\n                WiFi module can be compiled without SoftAP to save code size.",
+        "file": "components/esp_wifi/Kconfig",
+        "line": 433
+      },
+      "CONFIG_ESP_WIFI_STATIC_RX_BUFFER_NUM": {
+        "definition": "config ESP_WIFI_STATIC_RX_BUFFER_NUM\n            int \"Max number of WiFi static RX buffers\"\n            range 2 25 if !SOC_WIFI_HE_SUPPORT\n            range 2 128 if SOC_WIFI_HE_SUPPORT\n            default 10 if !(SPIRAM_TRY_ALLOCATE_WIFI_LWIP && !SPIRAM_IGNORE_NOTFOUND)\n            default 16 if (SPIRAM_TRY_ALLOCATE_WIFI_LWIP && !SPIRAM_IGNORE_NOTFOUND)\n            help\n                Set the number of WiFi static RX buffers. Each buffer takes approximately 1.6KB of RAM.\n                The static rx buffers are allocated when esp_wifi_init is called, they are not freed\n                until esp_wifi_deinit is called.\n\n                WiFi hardware use these buffers to receive all 802.11 frames.\n                A higher number may allow higher throughput but increases memory use. If ESP_WIFI_AMPDU_RX_ENABLED\n                is enabled, this value is recommended to set equal or bigger than ESP_WIFI_RX_BA_WIN in order to\n                achieve better throughput and compatibility with both stations and APs.",
+        "file": "components/esp_wifi/Kconfig",
+        "line": 25
+      },
+      "CONFIG_ESP_WIFI_STATIC_RX_MGMT_BUFFER": {
+        "definition": "config ESP_WIFI_STATIC_RX_MGMT_BUFFER\n                bool \"Static\"",
+        "file": "components/esp_wifi/Kconfig",
+        "line": 143
+      },
+      "CONFIG_ESP_WIFI_STATIC_TX_BUFFER": {
+        "definition": "config ESP_WIFI_STATIC_TX_BUFFER\n                bool \"Static\"",
+        "file": "components/esp_wifi/Kconfig",
+        "line": 77
+      },
+      "CONFIG_ESP_WIFI_STATIC_TX_BUFFER_NUM": {
+        "definition": "config ESP_WIFI_STATIC_TX_BUFFER_NUM\n            int \"Max number of WiFi static TX buffers\"\n            depends on ESP_WIFI_STATIC_TX_BUFFER\n            range 1 64\n            default 16\n            help\n                Set the number of WiFi static TX buffers. Each buffer takes approximately 1.6KB of RAM.\n                The static RX buffers are allocated when esp_wifi_init() is called, they are not released\n                until esp_wifi_deinit() is called.\n\n                For each transmitted data frame from the higher layer TCP/IP stack, the WiFi driver makes a\n                copy of it in a TX buffer.  For some applications especially UDP applications, the upper\n                layer can deliver frames faster than WiFi layer can transmit. In these cases, we may run out\n                of TX buffers.",
+        "file": "components/esp_wifi/Kconfig",
+        "line": 89
+      },
+      "CONFIG_ESP_WIFI_STA_DISCONNECTED_PM_ENABLE": {
+        "definition": "config ESP_WIFI_STA_DISCONNECTED_PM_ENABLE\n            bool \"Power Management for station at disconnected\"\n            default y\n            help\n                Select this option to enable power_management for station when disconnected.\n                Chip will do modem-sleep when rf module is not in use any more.",
+        "file": "components/esp_wifi/Kconfig",
+        "line": 413
+      },
+      "CONFIG_ESP_WIFI_SUITE_B_192": {
+        "definition": "config ESP_WIFI_SUITE_B_192\n            bool \"Enable NSA suite B support with 192 bit key\"\n            default n\n            depends on SOC_WIFI_GCMP_SUPPORT\n            select ESP_WIFI_GCMP_SUPPORT\n            select ESP_WIFI_GMAC_SUPPORT\n            help\n                Select this option to enable 192 bit NSA suite-B.\n                This is necessary to support WPA3 192 bit security.",
+        "file": "components/esp_wifi/Kconfig",
+        "line": 634
+      },
+      "CONFIG_ESP_WIFI_TARGET_ESP32": {
+        "definition": "config ESP_WIFI_TARGET_ESP32\n        depends on ESP_HOST_WIFI_ENABLED\n        bool\n        default y if ESP_WIFI_CONTROLLER_TARGET=\"esp32\"\n\n    if (ESP_WIFI_ENABLED || ESP_HOST_WIFI_ENABLED)",
+        "file": "components/esp_wifi/Kconfig",
+        "line": 18
+      },
+      "CONFIG_ESP_WIFI_TASK_PINNED_TO_CORE_0": {
+        "definition": "config ESP_WIFI_TASK_PINNED_TO_CORE_0\n                bool \"Core 0\"",
+        "file": "components/esp_wifi/Kconfig",
+        "line": 234
+      },
+      "CONFIG_ESP_WIFI_TASK_PINNED_TO_CORE_1": {
+        "definition": "config ESP_WIFI_TASK_PINNED_TO_CORE_1\n                bool \"Core 1\"\n        endchoice",
+        "file": "components/esp_wifi/Kconfig",
+        "line": 237
+      },
+      "CONFIG_ESP_WIFI_TESTING_OPTIONS": {
+        "definition": "config ESP_WIFI_TESTING_OPTIONS\n            bool \"Add DPP testing code\"\n            default n\n            help\n                Select this to enable unity test for DPP.",
+        "file": "components/esp_wifi/Kconfig",
+        "line": 829
+      },
+      "CONFIG_ESP_WIFI_TX_BA_WIN": {
+        "definition": "config ESP_WIFI_TX_BA_WIN\n            int \"WiFi AMPDU TX BA window size\"\n            depends on ESP_WIFI_AMPDU_TX_ENABLED\n            range 2 32 if !SOC_WIFI_HE_SUPPORT\n            range 2 64 if SOC_WIFI_HE_SUPPORT\n            default 6\n            help\n                Set the size of WiFi Block Ack TX window. Generally a bigger value means higher throughput but\n                more memory. Most of time we should NOT change the default value unless special reason, e.g.\n                test the maximum UDP TX throughput with iperf etc. For iperf test in shieldbox, the recommended\n                value is 9~12.",
+        "file": "components/esp_wifi/Kconfig",
+        "line": 180
+      },
+      "CONFIG_ESP_WIFI_TX_BUFFER_TYPE": {
+        "definition": "config ESP_WIFI_TX_BUFFER_TYPE\n            int\n            default 0 if ESP_WIFI_STATIC_TX_BUFFER\n            default 1 if ESP_WIFI_DYNAMIC_TX_BUFFER",
+        "file": "components/esp_wifi/Kconfig",
+        "line": 84
+      },
+      "CONFIG_ESP_WIFI_TX_HETB_QUEUE_NUM": {
+        "definition": "config ESP_WIFI_TX_HETB_QUEUE_NUM\n            int \"WiFi TX HE TB QUEUE number for STA HE TB PPDU transmission\"\n            depends on SOC_WIFI_HE_SUPPORT\n            range 1 4\n            default 3\n            help\n                Set the maximum number of queue that can be aggregated by the STA in the A-MPDU carried in the\n                HE TB PPDU.",
+        "file": "components/esp_wifi/Kconfig",
+        "line": 758
+      },
+      "CONFIG_ESP_WIFI_WAPI_PSK": {
+        "definition": "config ESP_WIFI_WAPI_PSK\n            bool \"Enable WAPI PSK support\"\n            depends on SOC_WIFI_WAPI_SUPPORT\n            default n\n            help\n                Select this option to enable WAPI-PSK\n                which is a Chinese National Standard Encryption for Wireless LANs (GB 15629.11-2003).",
+        "file": "components/esp_wifi/Kconfig",
+        "line": 626
+      },
+      "CONFIG_ESP_WIFI_WNM_SUPPORT": {
+        "definition": "config ESP_WIFI_WNM_SUPPORT\n            bool \"Enable 802.11v APIs Support\"\n            depends on ESP_WIFI_11KV_SUPPORT\n            default y\n            help\n                Select this option to enable 802.11v APIs(BTM support).\n                Only APIs which are helpful for network assisted roaming\n                are supported for now.\n                Enable this option with BTM enabled in sta config\n                to make device ready for network assisted roaming.\n                BTM: BSS transition management enables an AP to request a station to transition\n                to a specific AP, or to indicate to a station a set of preferred APs.",
+        "file": "components/esp_wifi/Kconfig",
+        "line": 665
+      },
+      "CONFIG_ESP_WIFI_WPS_PASSPHRASE": {
+        "definition": "config ESP_WIFI_WPS_PASSPHRASE\n                bool \"Get WPA2 passphrase in WPS config\"\n                default n\n                help\n                    Select this option to get passphrase during WPS configuration.\n                    This option fakes the virtual display capabilities to get the\n                    configuration in passphrase mode.\n                    Not recommended to be used since WPS credentials should not\n                    be shared to other devices, making it in readable format increases\n                    that risk, also passphrase requires pbkdf2 to convert in psk.",
+        "file": "components/esp_wifi/Kconfig",
+        "line": 804
+      },
+      "CONFIG_ESP_WIFI_WPS_SOFTAP_REGISTRAR": {
+        "definition": "config ESP_WIFI_WPS_SOFTAP_REGISTRAR\n            bool \"Add WPS Registrar support in SoftAP mode\"\n            depends on ESP_WIFI_SOFTAP_SUPPORT\n            default n\n            help\n                Select this option to enable WPS registrar support in softAP mode.",
+        "file": "components/esp_wifi/Kconfig",
+        "line": 728
+      },
+      "CONFIG_ESP_WIFI_WPS_STRICT": {
+        "definition": "config ESP_WIFI_WPS_STRICT\n                bool \"Strictly validate all WPS attributes\"\n                default n\n                help\n                    Select this option to enable validate each WPS attribute\n                    rigorously. Disabling this add the workarounds with various APs.\n                    Enabling this may cause inter operability issues with some APs.",
+        "file": "components/esp_wifi/Kconfig",
+        "line": 797
+      }
+    },
+    "coverage": "candidate-static-scan",
+    "definitions": [
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_MESH_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_MESH_BASE + 1)",
+        "file": "components/esp_wifi/include/esp_mesh.h",
+        "hex": null,
+        "id": "0a5e6c221f0271b6c981bfa0",
+        "line": 92,
+        "reason": "missing_or_conditional_reference:ESP_ERR_MESH_BASE",
+        "resolution": "unresolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_mesh.h#L92",
+        "symbol": "ESP_ERR_MESH_WIFI_NOT_START",
+        "syntax": "define",
+        "value": null
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_MESH_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_MESH_BASE + 2)",
+        "file": "components/esp_wifi/include/esp_mesh.h",
+        "hex": null,
+        "id": "a46d73e2ff768105fb699cba",
+        "line": 93,
+        "reason": "missing_or_conditional_reference:ESP_ERR_MESH_BASE",
+        "resolution": "unresolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_mesh.h#L93",
+        "symbol": "ESP_ERR_MESH_NOT_INIT",
+        "syntax": "define",
+        "value": null
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_MESH_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_MESH_BASE + 3)",
+        "file": "components/esp_wifi/include/esp_mesh.h",
+        "hex": null,
+        "id": "c190df24db57301a67297259",
+        "line": 94,
+        "reason": "missing_or_conditional_reference:ESP_ERR_MESH_BASE",
+        "resolution": "unresolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_mesh.h#L94",
+        "symbol": "ESP_ERR_MESH_NOT_CONFIG",
+        "syntax": "define",
+        "value": null
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_MESH_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_MESH_BASE + 4)",
+        "file": "components/esp_wifi/include/esp_mesh.h",
+        "hex": null,
+        "id": "9702226cd9027ef3d38c49c0",
+        "line": 95,
+        "reason": "missing_or_conditional_reference:ESP_ERR_MESH_BASE",
+        "resolution": "unresolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_mesh.h#L95",
+        "symbol": "ESP_ERR_MESH_NOT_START",
+        "syntax": "define",
+        "value": null
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_MESH_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_MESH_BASE + 5)",
+        "file": "components/esp_wifi/include/esp_mesh.h",
+        "hex": null,
+        "id": "33226af9aa4e3d048bf874d6",
+        "line": 96,
+        "reason": "missing_or_conditional_reference:ESP_ERR_MESH_BASE",
+        "resolution": "unresolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_mesh.h#L96",
+        "symbol": "ESP_ERR_MESH_NOT_SUPPORT",
+        "syntax": "define",
+        "value": null
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_MESH_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_MESH_BASE + 6)",
+        "file": "components/esp_wifi/include/esp_mesh.h",
+        "hex": null,
+        "id": "62b0ca3b807b42e59f2e38ca",
+        "line": 97,
+        "reason": "missing_or_conditional_reference:ESP_ERR_MESH_BASE",
+        "resolution": "unresolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_mesh.h#L97",
+        "symbol": "ESP_ERR_MESH_NOT_ALLOWED",
+        "syntax": "define",
+        "value": null
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_MESH_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_MESH_BASE + 7)",
+        "file": "components/esp_wifi/include/esp_mesh.h",
+        "hex": null,
+        "id": "f8b628b5df7038118abbd3ea",
+        "line": 98,
+        "reason": "missing_or_conditional_reference:ESP_ERR_MESH_BASE",
+        "resolution": "unresolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_mesh.h#L98",
+        "symbol": "ESP_ERR_MESH_NO_MEMORY",
+        "syntax": "define",
+        "value": null
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_MESH_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_MESH_BASE + 8)",
+        "file": "components/esp_wifi/include/esp_mesh.h",
+        "hex": null,
+        "id": "cd79098828faa472cfdf61f3",
+        "line": 99,
+        "reason": "missing_or_conditional_reference:ESP_ERR_MESH_BASE",
+        "resolution": "unresolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_mesh.h#L99",
+        "symbol": "ESP_ERR_MESH_ARGUMENT",
+        "syntax": "define",
+        "value": null
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_MESH_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_MESH_BASE + 9)",
+        "file": "components/esp_wifi/include/esp_mesh.h",
+        "hex": null,
+        "id": "c1fced7d181c16e2d5d7e0d3",
+        "line": 100,
+        "reason": "missing_or_conditional_reference:ESP_ERR_MESH_BASE",
+        "resolution": "unresolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_mesh.h#L100",
+        "symbol": "ESP_ERR_MESH_EXCEED_MTU",
+        "syntax": "define",
+        "value": null
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_MESH_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_MESH_BASE + 10)",
+        "file": "components/esp_wifi/include/esp_mesh.h",
+        "hex": null,
+        "id": "78c77602195c261aa6d6781e",
+        "line": 101,
+        "reason": "missing_or_conditional_reference:ESP_ERR_MESH_BASE",
+        "resolution": "unresolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_mesh.h#L101",
+        "symbol": "ESP_ERR_MESH_TIMEOUT",
+        "syntax": "define",
+        "value": null
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_MESH_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_MESH_BASE + 11)",
+        "file": "components/esp_wifi/include/esp_mesh.h",
+        "hex": null,
+        "id": "d70e04a18449d3db9c125e48",
+        "line": 102,
+        "reason": "missing_or_conditional_reference:ESP_ERR_MESH_BASE",
+        "resolution": "unresolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_mesh.h#L102",
+        "symbol": "ESP_ERR_MESH_DISCONNECTED",
+        "syntax": "define",
+        "value": null
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_MESH_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_MESH_BASE + 12)",
+        "file": "components/esp_wifi/include/esp_mesh.h",
+        "hex": null,
+        "id": "5e485fcada432d8053ef3ef4",
+        "line": 103,
+        "reason": "missing_or_conditional_reference:ESP_ERR_MESH_BASE",
+        "resolution": "unresolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_mesh.h#L103",
+        "symbol": "ESP_ERR_MESH_QUEUE_FAIL",
+        "syntax": "define",
+        "value": null
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_MESH_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_MESH_BASE + 13)",
+        "file": "components/esp_wifi/include/esp_mesh.h",
+        "hex": null,
+        "id": "0674fc3996de47d086541cc1",
+        "line": 104,
+        "reason": "missing_or_conditional_reference:ESP_ERR_MESH_BASE",
+        "resolution": "unresolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_mesh.h#L104",
+        "symbol": "ESP_ERR_MESH_QUEUE_FULL",
+        "syntax": "define",
+        "value": null
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_MESH_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_MESH_BASE + 14)",
+        "file": "components/esp_wifi/include/esp_mesh.h",
+        "hex": null,
+        "id": "8b68f2cef93985657c91cee0",
+        "line": 105,
+        "reason": "missing_or_conditional_reference:ESP_ERR_MESH_BASE",
+        "resolution": "unresolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_mesh.h#L105",
+        "symbol": "ESP_ERR_MESH_NO_PARENT_FOUND",
+        "syntax": "define",
+        "value": null
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_MESH_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_MESH_BASE + 15)",
+        "file": "components/esp_wifi/include/esp_mesh.h",
+        "hex": null,
+        "id": "be9dba075bbeb48a130da1e9",
+        "line": 106,
+        "reason": "missing_or_conditional_reference:ESP_ERR_MESH_BASE",
+        "resolution": "unresolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_mesh.h#L106",
+        "symbol": "ESP_ERR_MESH_NO_ROUTE_FOUND",
+        "syntax": "define",
+        "value": null
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_MESH_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_MESH_BASE + 16)",
+        "file": "components/esp_wifi/include/esp_mesh.h",
+        "hex": null,
+        "id": "ef4b3359e8643de17a410525",
+        "line": 107,
+        "reason": "missing_or_conditional_reference:ESP_ERR_MESH_BASE",
+        "resolution": "unresolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_mesh.h#L107",
+        "symbol": "ESP_ERR_MESH_OPTION_NULL",
+        "syntax": "define",
+        "value": null
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_MESH_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_MESH_BASE + 17)",
+        "file": "components/esp_wifi/include/esp_mesh.h",
+        "hex": null,
+        "id": "ea74ef9df819c5b74cb28bf5",
+        "line": 108,
+        "reason": "missing_or_conditional_reference:ESP_ERR_MESH_BASE",
+        "resolution": "unresolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_mesh.h#L108",
+        "symbol": "ESP_ERR_MESH_OPTION_UNKNOWN",
+        "syntax": "define",
+        "value": null
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_MESH_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_MESH_BASE + 18)",
+        "file": "components/esp_wifi/include/esp_mesh.h",
+        "hex": null,
+        "id": "3abfe8070f8f849d2a1d4dca",
+        "line": 109,
+        "reason": "missing_or_conditional_reference:ESP_ERR_MESH_BASE",
+        "resolution": "unresolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_mesh.h#L109",
+        "symbol": "ESP_ERR_MESH_XON_NO_WINDOW",
+        "syntax": "define",
+        "value": null
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_MESH_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_MESH_BASE + 19)",
+        "file": "components/esp_wifi/include/esp_mesh.h",
+        "hex": null,
+        "id": "77cef4e06512594f7755056a",
+        "line": 110,
+        "reason": "missing_or_conditional_reference:ESP_ERR_MESH_BASE",
+        "resolution": "unresolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_mesh.h#L110",
+        "symbol": "ESP_ERR_MESH_INTERFACE",
+        "syntax": "define",
+        "value": null
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_MESH_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_MESH_BASE + 20)",
+        "file": "components/esp_wifi/include/esp_mesh.h",
+        "hex": null,
+        "id": "b0ae68afd81e567d844351a0",
+        "line": 111,
+        "reason": "missing_or_conditional_reference:ESP_ERR_MESH_BASE",
+        "resolution": "unresolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_mesh.h#L111",
+        "symbol": "ESP_ERR_MESH_DISCARD_DUPLICATE",
+        "syntax": "define",
+        "value": null
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_MESH_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_MESH_BASE + 21)",
+        "file": "components/esp_wifi/include/esp_mesh.h",
+        "hex": null,
+        "id": "a2dcb96eb319ac607fa143f5",
+        "line": 112,
+        "reason": "missing_or_conditional_reference:ESP_ERR_MESH_BASE",
+        "resolution": "unresolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_mesh.h#L112",
+        "symbol": "ESP_ERR_MESH_DISCARD",
+        "syntax": "define",
+        "value": null
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_MESH_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_MESH_BASE + 22)",
+        "file": "components/esp_wifi/include/esp_mesh.h",
+        "hex": null,
+        "id": "9cae89e58545c9f866696cfa",
+        "line": 113,
+        "reason": "missing_or_conditional_reference:ESP_ERR_MESH_BASE",
+        "resolution": "unresolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_mesh.h#L113",
+        "symbol": "ESP_ERR_MESH_VOTING",
+        "syntax": "define",
+        "value": null
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_MESH_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_MESH_BASE + 23)",
+        "file": "components/esp_wifi/include/esp_mesh.h",
+        "hex": null,
+        "id": "7549f71a7b811c47f4f05c43",
+        "line": 114,
+        "reason": "missing_or_conditional_reference:ESP_ERR_MESH_BASE",
+        "resolution": "unresolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_mesh.h#L114",
+        "symbol": "ESP_ERR_MESH_XMIT",
+        "syntax": "define",
+        "value": null
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_MESH_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_MESH_BASE + 24)",
+        "file": "components/esp_wifi/include/esp_mesh.h",
+        "hex": null,
+        "id": "ade08c7e5db5547c617ddced",
+        "line": 115,
+        "reason": "missing_or_conditional_reference:ESP_ERR_MESH_BASE",
+        "resolution": "unresolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_mesh.h#L115",
+        "symbol": "ESP_ERR_MESH_QUEUE_READ",
+        "syntax": "define",
+        "value": null
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_MESH_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_MESH_BASE + 25)",
+        "file": "components/esp_wifi/include/esp_mesh.h",
+        "hex": null,
+        "id": "3d9a970417d1d2390c887801",
+        "line": 116,
+        "reason": "missing_or_conditional_reference:ESP_ERR_MESH_BASE",
+        "resolution": "unresolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_mesh.h#L116",
+        "symbol": "ESP_ERR_MESH_PS",
+        "syntax": "define",
+        "value": null
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_MESH_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_MESH_BASE + 26)",
+        "file": "components/esp_wifi/include/esp_mesh.h",
+        "hex": null,
+        "id": "b0643c86fc0c2f31bccd447a",
+        "line": 117,
+        "reason": "missing_or_conditional_reference:ESP_ERR_MESH_BASE",
+        "resolution": "unresolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_mesh.h#L117",
+        "symbol": "ESP_ERR_MESH_RECV_RELEASE",
+        "syntax": "define",
+        "value": null
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_WIFI_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_WIFI_BASE + 100)",
+        "file": "components/esp_wifi/include/esp_now.h",
+        "hex": null,
+        "id": "df3122496f470de900aec93f",
+        "line": 35,
+        "reason": "missing_or_conditional_reference:ESP_ERR_WIFI_BASE",
+        "resolution": "unresolved",
+        "role": "base",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_now.h#L35",
+        "symbol": "ESP_ERR_ESPNOW_BASE",
+        "syntax": "define",
+        "value": null
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_ESPNOW_BASE",
+          "ESP_ERR_WIFI_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_ESPNOW_BASE + 1)",
+        "file": "components/esp_wifi/include/esp_now.h",
+        "hex": null,
+        "id": "51ecb3324b766d7a46d5ff43",
+        "line": 36,
+        "reason": "missing_or_conditional_reference:ESP_ERR_WIFI_BASE",
+        "resolution": "unresolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_now.h#L36",
+        "symbol": "ESP_ERR_ESPNOW_NOT_INIT",
+        "syntax": "define",
+        "value": null
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_ESPNOW_BASE",
+          "ESP_ERR_WIFI_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_ESPNOW_BASE + 2)",
+        "file": "components/esp_wifi/include/esp_now.h",
+        "hex": null,
+        "id": "25ee85138f5c0d2f0e6c911a",
+        "line": 37,
+        "reason": "missing_or_conditional_reference:ESP_ERR_WIFI_BASE",
+        "resolution": "unresolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_now.h#L37",
+        "symbol": "ESP_ERR_ESPNOW_ARG",
+        "syntax": "define",
+        "value": null
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_ESPNOW_BASE",
+          "ESP_ERR_WIFI_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_ESPNOW_BASE + 3)",
+        "file": "components/esp_wifi/include/esp_now.h",
+        "hex": null,
+        "id": "51a3149fcfb08d0f2efd74ba",
+        "line": 38,
+        "reason": "missing_or_conditional_reference:ESP_ERR_WIFI_BASE",
+        "resolution": "unresolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_now.h#L38",
+        "symbol": "ESP_ERR_ESPNOW_NO_MEM",
+        "syntax": "define",
+        "value": null
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_ESPNOW_BASE",
+          "ESP_ERR_WIFI_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_ESPNOW_BASE + 4)",
+        "file": "components/esp_wifi/include/esp_now.h",
+        "hex": null,
+        "id": "2924634ee7d69567084012b0",
+        "line": 39,
+        "reason": "missing_or_conditional_reference:ESP_ERR_WIFI_BASE",
+        "resolution": "unresolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_now.h#L39",
+        "symbol": "ESP_ERR_ESPNOW_FULL",
+        "syntax": "define",
+        "value": null
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_ESPNOW_BASE",
+          "ESP_ERR_WIFI_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_ESPNOW_BASE + 5)",
+        "file": "components/esp_wifi/include/esp_now.h",
+        "hex": null,
+        "id": "904965f55718f145078c8d48",
+        "line": 40,
+        "reason": "missing_or_conditional_reference:ESP_ERR_WIFI_BASE",
+        "resolution": "unresolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_now.h#L40",
+        "symbol": "ESP_ERR_ESPNOW_NOT_FOUND",
+        "syntax": "define",
+        "value": null
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_ESPNOW_BASE",
+          "ESP_ERR_WIFI_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_ESPNOW_BASE + 6)",
+        "file": "components/esp_wifi/include/esp_now.h",
+        "hex": null,
+        "id": "f68b58aa14acf529b8e003ae",
+        "line": 41,
+        "reason": "missing_or_conditional_reference:ESP_ERR_WIFI_BASE",
+        "resolution": "unresolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_now.h#L41",
+        "symbol": "ESP_ERR_ESPNOW_INTERNAL",
+        "syntax": "define",
+        "value": null
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_ESPNOW_BASE",
+          "ESP_ERR_WIFI_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_ESPNOW_BASE + 7)",
+        "file": "components/esp_wifi/include/esp_now.h",
+        "hex": null,
+        "id": "4ba1453f1bcfe912d84235c7",
+        "line": 42,
+        "reason": "missing_or_conditional_reference:ESP_ERR_WIFI_BASE",
+        "resolution": "unresolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_now.h#L42",
+        "symbol": "ESP_ERR_ESPNOW_EXIST",
+        "syntax": "define",
+        "value": null
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_ESPNOW_BASE",
+          "ESP_ERR_WIFI_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_ESPNOW_BASE + 8)",
+        "file": "components/esp_wifi/include/esp_now.h",
+        "hex": null,
+        "id": "e0e5795617fd7036e76ae80b",
+        "line": 43,
+        "reason": "missing_or_conditional_reference:ESP_ERR_WIFI_BASE",
+        "resolution": "unresolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_now.h#L43",
+        "symbol": "ESP_ERR_ESPNOW_IF",
+        "syntax": "define",
+        "value": null
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_ESPNOW_BASE",
+          "ESP_ERR_WIFI_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_ESPNOW_BASE + 9)",
+        "file": "components/esp_wifi/include/esp_now.h",
+        "hex": null,
+        "id": "21e72498b2694a8200392041",
+        "line": 44,
+        "reason": "missing_or_conditional_reference:ESP_ERR_WIFI_BASE",
+        "resolution": "unresolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_now.h#L44",
+        "symbol": "ESP_ERR_ESPNOW_CHAN",
+        "syntax": "define",
+        "value": null
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_WIFI_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_WIFI_BASE + 1)",
+        "file": "components/esp_wifi/include/esp_wifi.h",
+        "hex": null,
+        "id": "5de8f07eb6d1f73611734bb4",
+        "line": 63,
+        "reason": "missing_or_conditional_reference:ESP_ERR_WIFI_BASE",
+        "resolution": "unresolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_wifi.h#L63",
+        "symbol": "ESP_ERR_WIFI_NOT_INIT",
+        "syntax": "define",
+        "value": null
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_WIFI_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_WIFI_BASE + 2)",
+        "file": "components/esp_wifi/include/esp_wifi.h",
+        "hex": null,
+        "id": "e681f3f07ed7001de46b46d1",
+        "line": 64,
+        "reason": "missing_or_conditional_reference:ESP_ERR_WIFI_BASE",
+        "resolution": "unresolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_wifi.h#L64",
+        "symbol": "ESP_ERR_WIFI_NOT_STARTED",
+        "syntax": "define",
+        "value": null
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_WIFI_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_WIFI_BASE + 3)",
+        "file": "components/esp_wifi/include/esp_wifi.h",
+        "hex": null,
+        "id": "cb2dd9e8b6178b60f52cc835",
+        "line": 65,
+        "reason": "missing_or_conditional_reference:ESP_ERR_WIFI_BASE",
+        "resolution": "unresolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_wifi.h#L65",
+        "symbol": "ESP_ERR_WIFI_NOT_STOPPED",
+        "syntax": "define",
+        "value": null
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_WIFI_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_WIFI_BASE + 4)",
+        "file": "components/esp_wifi/include/esp_wifi.h",
+        "hex": null,
+        "id": "2d9c59caeecb999710a597da",
+        "line": 66,
+        "reason": "missing_or_conditional_reference:ESP_ERR_WIFI_BASE",
+        "resolution": "unresolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_wifi.h#L66",
+        "symbol": "ESP_ERR_WIFI_IF",
+        "syntax": "define",
+        "value": null
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_WIFI_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_WIFI_BASE + 5)",
+        "file": "components/esp_wifi/include/esp_wifi.h",
+        "hex": null,
+        "id": "795ce47042b4e76e3390347c",
+        "line": 67,
+        "reason": "missing_or_conditional_reference:ESP_ERR_WIFI_BASE",
+        "resolution": "unresolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_wifi.h#L67",
+        "symbol": "ESP_ERR_WIFI_MODE",
+        "syntax": "define",
+        "value": null
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_WIFI_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_WIFI_BASE + 6)",
+        "file": "components/esp_wifi/include/esp_wifi.h",
+        "hex": null,
+        "id": "ad1351cebc17d795fce4273d",
+        "line": 68,
+        "reason": "missing_or_conditional_reference:ESP_ERR_WIFI_BASE",
+        "resolution": "unresolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_wifi.h#L68",
+        "symbol": "ESP_ERR_WIFI_STATE",
+        "syntax": "define",
+        "value": null
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_WIFI_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_WIFI_BASE + 7)",
+        "file": "components/esp_wifi/include/esp_wifi.h",
+        "hex": null,
+        "id": "61239143714a40cea03f28e9",
+        "line": 69,
+        "reason": "missing_or_conditional_reference:ESP_ERR_WIFI_BASE",
+        "resolution": "unresolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_wifi.h#L69",
+        "symbol": "ESP_ERR_WIFI_CONN",
+        "syntax": "define",
+        "value": null
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_WIFI_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_WIFI_BASE + 8)",
+        "file": "components/esp_wifi/include/esp_wifi.h",
+        "hex": null,
+        "id": "c4a312a46515c1eb615504ab",
+        "line": 70,
+        "reason": "missing_or_conditional_reference:ESP_ERR_WIFI_BASE",
+        "resolution": "unresolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_wifi.h#L70",
+        "symbol": "ESP_ERR_WIFI_NVS",
+        "syntax": "define",
+        "value": null
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_WIFI_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_WIFI_BASE + 9)",
+        "file": "components/esp_wifi/include/esp_wifi.h",
+        "hex": null,
+        "id": "ccf3c505cf5630686b8d231a",
+        "line": 71,
+        "reason": "missing_or_conditional_reference:ESP_ERR_WIFI_BASE",
+        "resolution": "unresolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_wifi.h#L71",
+        "symbol": "ESP_ERR_WIFI_MAC",
+        "syntax": "define",
+        "value": null
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_WIFI_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_WIFI_BASE + 10)",
+        "file": "components/esp_wifi/include/esp_wifi.h",
+        "hex": null,
+        "id": "93c281b6adc46efb2e50b328",
+        "line": 72,
+        "reason": "missing_or_conditional_reference:ESP_ERR_WIFI_BASE",
+        "resolution": "unresolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_wifi.h#L72",
+        "symbol": "ESP_ERR_WIFI_SSID",
+        "syntax": "define",
+        "value": null
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_WIFI_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_WIFI_BASE + 11)",
+        "file": "components/esp_wifi/include/esp_wifi.h",
+        "hex": null,
+        "id": "dbd63928296b8296892b7eb7",
+        "line": 73,
+        "reason": "missing_or_conditional_reference:ESP_ERR_WIFI_BASE",
+        "resolution": "unresolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_wifi.h#L73",
+        "symbol": "ESP_ERR_WIFI_PASSWORD",
+        "syntax": "define",
+        "value": null
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_WIFI_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_WIFI_BASE + 12)",
+        "file": "components/esp_wifi/include/esp_wifi.h",
+        "hex": null,
+        "id": "6a5a82e55c43e2594caaf0c6",
+        "line": 74,
+        "reason": "missing_or_conditional_reference:ESP_ERR_WIFI_BASE",
+        "resolution": "unresolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_wifi.h#L74",
+        "symbol": "ESP_ERR_WIFI_TIMEOUT",
+        "syntax": "define",
+        "value": null
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_WIFI_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_WIFI_BASE + 13)",
+        "file": "components/esp_wifi/include/esp_wifi.h",
+        "hex": null,
+        "id": "7a342b27c18e686a675abf26",
+        "line": 75,
+        "reason": "missing_or_conditional_reference:ESP_ERR_WIFI_BASE",
+        "resolution": "unresolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_wifi.h#L75",
+        "symbol": "ESP_ERR_WIFI_WAKE_FAIL",
+        "syntax": "define",
+        "value": null
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_WIFI_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_WIFI_BASE + 14)",
+        "file": "components/esp_wifi/include/esp_wifi.h",
+        "hex": null,
+        "id": "d1533c8e4fff62276d7d9781",
+        "line": 76,
+        "reason": "missing_or_conditional_reference:ESP_ERR_WIFI_BASE",
+        "resolution": "unresolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_wifi.h#L76",
+        "symbol": "ESP_ERR_WIFI_WOULD_BLOCK",
+        "syntax": "define",
+        "value": null
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_WIFI_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_WIFI_BASE + 15)",
+        "file": "components/esp_wifi/include/esp_wifi.h",
+        "hex": null,
+        "id": "0cacdb1b8daadf73a4549e68",
+        "line": 77,
+        "reason": "missing_or_conditional_reference:ESP_ERR_WIFI_BASE",
+        "resolution": "unresolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_wifi.h#L77",
+        "symbol": "ESP_ERR_WIFI_NOT_CONNECT",
+        "syntax": "define",
+        "value": null
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_WIFI_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_WIFI_BASE + 18)",
+        "file": "components/esp_wifi/include/esp_wifi.h",
+        "hex": null,
+        "id": "72c39be47730267f557b95c6",
+        "line": 79,
+        "reason": "missing_or_conditional_reference:ESP_ERR_WIFI_BASE",
+        "resolution": "unresolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_wifi.h#L79",
+        "symbol": "ESP_ERR_WIFI_POST",
+        "syntax": "define",
+        "value": null
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_WIFI_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_WIFI_BASE + 19)",
+        "file": "components/esp_wifi/include/esp_wifi.h",
+        "hex": null,
+        "id": "d97cdd2428f77f5a1099a9cc",
+        "line": 80,
+        "reason": "missing_or_conditional_reference:ESP_ERR_WIFI_BASE",
+        "resolution": "unresolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_wifi.h#L80",
+        "symbol": "ESP_ERR_WIFI_INIT_STATE",
+        "syntax": "define",
+        "value": null
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_WIFI_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_WIFI_BASE + 20)",
+        "file": "components/esp_wifi/include/esp_wifi.h",
+        "hex": null,
+        "id": "ca078e354b45f277afcc5c05",
+        "line": 81,
+        "reason": "missing_or_conditional_reference:ESP_ERR_WIFI_BASE",
+        "resolution": "unresolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_wifi.h#L81",
+        "symbol": "ESP_ERR_WIFI_STOP_STATE",
+        "syntax": "define",
+        "value": null
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_WIFI_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_WIFI_BASE + 21)",
+        "file": "components/esp_wifi/include/esp_wifi.h",
+        "hex": null,
+        "id": "1f41109b77c54c82c4a4c171",
+        "line": 82,
+        "reason": "missing_or_conditional_reference:ESP_ERR_WIFI_BASE",
+        "resolution": "unresolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_wifi.h#L82",
+        "symbol": "ESP_ERR_WIFI_NOT_ASSOC",
+        "syntax": "define",
+        "value": null
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_WIFI_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_WIFI_BASE + 22)",
+        "file": "components/esp_wifi/include/esp_wifi.h",
+        "hex": null,
+        "id": "03aeebce4b606836cf4255ce",
+        "line": 83,
+        "reason": "missing_or_conditional_reference:ESP_ERR_WIFI_BASE",
+        "resolution": "unresolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_wifi.h#L83",
+        "symbol": "ESP_ERR_WIFI_TX_DISALLOW",
+        "syntax": "define",
+        "value": null
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_WIFI_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_WIFI_BASE + 23)",
+        "file": "components/esp_wifi/include/esp_wifi.h",
+        "hex": null,
+        "id": "b042114a796534156a26598a",
+        "line": 85,
+        "reason": "missing_or_conditional_reference:ESP_ERR_WIFI_BASE",
+        "resolution": "unresolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_wifi.h#L85",
+        "symbol": "ESP_ERR_WIFI_TWT_FULL",
+        "syntax": "define",
+        "value": null
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_WIFI_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_WIFI_BASE + 24)",
+        "file": "components/esp_wifi/include/esp_wifi.h",
+        "hex": null,
+        "id": "13add1e964b5f90ffb461923",
+        "line": 86,
+        "reason": "missing_or_conditional_reference:ESP_ERR_WIFI_BASE",
+        "resolution": "unresolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_wifi.h#L86",
+        "symbol": "ESP_ERR_WIFI_TWT_SETUP_TIMEOUT",
+        "syntax": "define",
+        "value": null
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_WIFI_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_WIFI_BASE + 25)",
+        "file": "components/esp_wifi/include/esp_wifi.h",
+        "hex": null,
+        "id": "03b24339d7bc3241670e6c3d",
+        "line": 87,
+        "reason": "missing_or_conditional_reference:ESP_ERR_WIFI_BASE",
+        "resolution": "unresolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_wifi.h#L87",
+        "symbol": "ESP_ERR_WIFI_TWT_SETUP_TXFAIL",
+        "syntax": "define",
+        "value": null
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_WIFI_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_WIFI_BASE + 26)",
+        "file": "components/esp_wifi/include/esp_wifi.h",
+        "hex": null,
+        "id": "d8d15b2212ffab4709b10ce2",
+        "line": 88,
+        "reason": "missing_or_conditional_reference:ESP_ERR_WIFI_BASE",
+        "resolution": "unresolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_wifi.h#L88",
+        "symbol": "ESP_ERR_WIFI_TWT_SETUP_REJECT",
+        "syntax": "define",
+        "value": null
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_WIFI_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_WIFI_BASE + 27)",
+        "file": "components/esp_wifi/include/esp_wifi.h",
+        "hex": null,
+        "id": "031e4e01b01354c084579750",
+        "line": 89,
+        "reason": "missing_or_conditional_reference:ESP_ERR_WIFI_BASE",
+        "resolution": "unresolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_wifi.h#L89",
+        "symbol": "ESP_ERR_WIFI_DISCARD",
+        "syntax": "define",
+        "value": null
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_WIFI_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_WIFI_BASE + 28)",
+        "file": "components/esp_wifi/include/esp_wifi.h",
+        "hex": null,
+        "id": "704eafa171e631407dc4cb77",
+        "line": 90,
+        "reason": "missing_or_conditional_reference:ESP_ERR_WIFI_BASE",
+        "resolution": "unresolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_wifi.h#L90",
+        "symbol": "ESP_ERR_WIFI_ROC_IN_PROGRESS",
+        "syntax": "define",
+        "value": null
+      }
+    ],
+    "diagnostics": [
+      {
+        "file": "components/esp_wifi/include/esp_wifi_types_generic.h",
+        "line": 37,
+        "reason": "enum_contains_preprocessor_directives"
+      },
+      {
+        "file": "components/esp_wifi/include/esp_wifi_types_generic.h",
+        "line": 1008,
+        "reason": "enum_contains_preprocessor_directives"
+      }
+    ],
+    "families": [
+      {
+        "base": "ESP_ERR_ESPNOW_BASE",
+        "conditions": [],
+        "declared_reserved_range": null,
+        "defined_values": [],
+        "envelope": null,
+        "expression": "(ESP_ERR_WIFI_BASE + 100)",
+        "unresolved_members": [
+          "ESP_ERR_ESPNOW_NOT_INIT",
+          "ESP_ERR_ESPNOW_ARG",
+          "ESP_ERR_ESPNOW_NO_MEM",
+          "ESP_ERR_ESPNOW_FULL",
+          "ESP_ERR_ESPNOW_NOT_FOUND",
+          "ESP_ERR_ESPNOW_INTERNAL",
+          "ESP_ERR_ESPNOW_EXIST",
+          "ESP_ERR_ESPNOW_IF",
+          "ESP_ERR_ESPNOW_CHAN"
+        ],
+        "value": null
+      }
+    ],
+    "limitations": [
+      "Pattern-based candidate discovery; not a build or whole-program analysis",
+      "External includes, generated code, complex expressions and C type conversions may remain unresolved",
+      "Macro scope and conditional coexistence are not proven; enum preprocessing is conservative",
+      "BASE/MAX/END/COUNT roles are naming heuristics unless reviewed"
+    ],
+    "registered_headers": []
+  },
+  "evidence": {
+    "component_tree": "aeea024a50be1c87afc0bd2e8273531a45aca181",
+    "excluded_submodules": [
+      {
+        "commit": "c1f74dcf9151ae21b7a3850b90952796a2806358",
+        "path": "lib"
+      }
+    ],
+    "selection": {
+      "candidate_files": 49,
+      "coverage_note": "Public headers are a static CMake approximation; private implementation definitions may be absent",
+      "mode": "public-headers",
+      "public_header_candidates": [
+        "components/esp_wifi/include/esp_mesh.h",
+        "components/esp_wifi/include/esp_mesh_internal.h",
+        "components/esp_wifi/include/esp_now.h",
+        "components/esp_wifi/include/esp_private/esp_wifi_he_private.h",
+        "components/esp_wifi/include/esp_private/esp_wifi_he_types_private.h",
+        "components/esp_wifi/include/esp_private/esp_wifi_private.h",
+        "components/esp_wifi/include/esp_private/esp_wifi_types_private.h",
+        "components/esp_wifi/include/esp_private/wifi.h",
+        "components/esp_wifi/include/esp_private/wifi_os_adapter.h",
+        "components/esp_wifi/include/esp_private/wifi_types.h",
+        "components/esp_wifi/include/esp_smartconfig.h",
+        "components/esp_wifi/include/esp_wifi.h",
+        "components/esp_wifi/include/esp_wifi_ap_get_sta_list.h",
+        "components/esp_wifi/include/esp_wifi_crypto_types.h",
+        "components/esp_wifi/include/esp_wifi_default.h",
+        "components/esp_wifi/include/esp_wifi_he.h",
+        "components/esp_wifi/include/esp_wifi_he_types.h",
+        "components/esp_wifi/include/esp_wifi_netif.h",
+        "components/esp_wifi/include/esp_wifi_types.h",
+        "components/esp_wifi/include/esp_wifi_types_generic.h",
+        "components/esp_wifi/include/local/esp_wifi_types_native.h",
+        "components/esp_wifi/include/smartconfig_ack.h",
+        "components/esp_wifi/wifi_apps/include/apps_private/wifi_apps_private.h",
+        "components/esp_wifi/wifi_apps/nan_app/include/esp_nan.h"
+      ],
+      "reasons": [],
+      "selected_files": 27,
+      "skipped_files": 22,
+      "version": "1"
+    }
+  },
+  "files": [
+    {
+      "path": "components/esp_wifi/CMakeLists.txt",
+      "sha256": "cb520075efcf4b883251a65d7baa3effa9da1d07539a36c3436ed4c7cfe32538"
+    },
+    {
+      "path": "components/esp_wifi/Kconfig",
+      "sha256": "13121534293cd57b4b11dd34a3093e3bd174b62fcf1a2326dc5d6e491042fad8"
+    },
+    {
+      "path": "components/esp_wifi/include/esp_mesh.h",
+      "sha256": "fc189e2698791888446427cef41f75f517f33c49e17aad688e32a3d540d24022"
+    },
+    {
+      "path": "components/esp_wifi/include/esp_mesh_internal.h",
+      "sha256": "19010cae1359dffcf2eb2f44690a83748f1c1f2d67cccfc1079fbc28992137ef"
+    },
+    {
+      "path": "components/esp_wifi/include/esp_now.h",
+      "sha256": "48babf25d146213cdb60da7b3c27020205524ea93a6e95fad43a3266a9538d8f"
+    },
+    {
+      "path": "components/esp_wifi/include/esp_private/esp_wifi_he_private.h",
+      "sha256": "e7e1c916e6d7fee2f4d704f7591cac53250ce61a50b2366566dcc10d64b6e722"
+    },
+    {
+      "path": "components/esp_wifi/include/esp_private/esp_wifi_he_types_private.h",
+      "sha256": "f1973f088b41b6a8771a8c7bbb8a9238ff011679bdcc1c55c48fcb2deaf58a03"
+    },
+    {
+      "path": "components/esp_wifi/include/esp_private/esp_wifi_private.h",
+      "sha256": "7f229f11a2440f03c4a1d82306680b0ae933753230c179573731c08ea2a7273c"
+    },
+    {
+      "path": "components/esp_wifi/include/esp_private/esp_wifi_types_private.h",
+      "sha256": "4f57a3b42084997e62d1e83f136f8bc9d3a46522b687493ccae1c3034aa9edee"
+    },
+    {
+      "path": "components/esp_wifi/include/esp_private/wifi.h",
+      "sha256": "bae46b8d26ed453b0d13af24b7c5beb505c929094b730cbcae8f3ad2081b90c0"
+    },
+    {
+      "path": "components/esp_wifi/include/esp_private/wifi_os_adapter.h",
+      "sha256": "4a4c9a7a5e5969dc57b9fef5a4cdd2f67a9f64abf1c522aff4c8a99763cdbece"
+    },
+    {
+      "path": "components/esp_wifi/include/esp_private/wifi_types.h",
+      "sha256": "3c37593c4832ef5160b9f418074ae34b594f2c2bda18e23a199e71a7147b7019"
+    },
+    {
+      "path": "components/esp_wifi/include/esp_smartconfig.h",
+      "sha256": "e93894d1e276bb4d76e6cf423a59487375881a12484094fdc14893040d3c7fd9"
+    },
+    {
+      "path": "components/esp_wifi/include/esp_wifi.h",
+      "sha256": "8894ceb508391f4e8ee53beba5b6be3d34055122e89d7cced3730f5fa3838692"
+    },
+    {
+      "path": "components/esp_wifi/include/esp_wifi_ap_get_sta_list.h",
+      "sha256": "8f1c84e3b982fa3e077361d242f13e6f9113005d3bd71a8fab836885b9b8ca0a"
+    },
+    {
+      "path": "components/esp_wifi/include/esp_wifi_crypto_types.h",
+      "sha256": "76cd86bb60899158bc86c53df28639bd07130b69e5d76a1d8ce9bd3f7e0cc469"
+    },
+    {
+      "path": "components/esp_wifi/include/esp_wifi_default.h",
+      "sha256": "91b4d5168f0c027d78bfa969069bfadca1c1fcb9cba738146c9f1dd3f7e12cfb"
+    },
+    {
+      "path": "components/esp_wifi/include/esp_wifi_he.h",
+      "sha256": "cf4e9f77caa0e80d2e50fa86b820a739aa3c0bd10cf1bed2f085817e2168615b"
+    },
+    {
+      "path": "components/esp_wifi/include/esp_wifi_he_types.h",
+      "sha256": "0440c9bdaf66e0b852aef80b036282efbfa53fc5cd4cd486efa2220fd76e452c"
+    },
+    {
+      "path": "components/esp_wifi/include/esp_wifi_netif.h",
+      "sha256": "6e641eed9cb3756d8a0369f7b7d94418f6cfdfe25ca886fec5d19473d648f4fb"
+    },
+    {
+      "path": "components/esp_wifi/include/esp_wifi_types.h",
+      "sha256": "90f1fb9ccaa74cce13f7b622e412d0b4094b88ad39632ee7602010023e4462ff"
+    },
+    {
+      "path": "components/esp_wifi/include/esp_wifi_types_generic.h",
+      "sha256": "bde96cb1c0ead3af7208e9b57ccb0949c318c2f4408b634ffee67a9eaf6129d7"
+    },
+    {
+      "path": "components/esp_wifi/include/local/esp_wifi_types_native.h",
+      "sha256": "654e4dafaa181be069d9bbd6791621f803d97dcf8e3a2ba5ad28c7e6e4ac36ac"
+    },
+    {
+      "path": "components/esp_wifi/include/smartconfig_ack.h",
+      "sha256": "2a2dba78e5a1f85c279438a0a0fc5dccaf33ccf611880c6cf3d2447e271b246e"
+    },
+    {
+      "path": "components/esp_wifi/wifi_apps/include/apps_private/wifi_apps_private.h",
+      "sha256": "00fec36f9061f0a2e365b3cab9fe8c9d28b5606508e99ef789b17fe286c15d9c"
+    },
+    {
+      "path": "components/esp_wifi/wifi_apps/nan_app/include/esp_nan.h",
+      "sha256": "8da19b46f1a55a6ce90344260def4c45efa27ff00cf4644f3ea2a709be6362cf"
+    },
+    {
+      "path": "components/esp_wifi/wifi_apps/roaming_app/src/Kconfig.roaming",
+      "sha256": "f6fd74a10fc6f0faaa209c3bdedf520f33ba1f2459792555ab853b7d57ccb8d6"
+    }
+  ],
+  "fingerprint": "f9ff9248e2d24b652a894de68418d76a2d4902e5f3e4971af0f466ab8afbbd2f",
+  "identity": {
+    "commit": "fcae32885b0296b32044cb99ecbdc50d98dddb83",
+    "component_url": "https://github.com/espressif/esp-idf/tree/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi",
+    "kind": "github",
+    "repository_url": "https://github.com/espressif/esp-idf",
+    "root_tree": "d03ebfcf051ee6526a73a045d4ee2c21a0f4966e",
+    "version": "v5.5.1"
+  },
+  "input_fingerprint": "510a1301bbc7cd4f597b1a58cf2dfb4cfe4011790d80597db9358fafd5992cee",
+  "parser_version": "2",
+  "schema_version": 1,
+  "source": {
+    "error_pattern": "^ESP_ERR_",
+    "exclude_submodules": [
+      "lib"
+    ],
+    "id": "idf/esp_wifi",
+    "kind": "github",
+    "maintainer": "espressif",
+    "maintainer_evidence": "https://github.com/espressif/esp-idf",
+    "path": "components/esp_wifi",
+    "ref": "v5.5.1",
+    "repository": "espressif/esp-idf",
+    "scan_mode": "public-headers"
+  },
+  "source_sha256": "5901619d2354b558c9f6defb9a2b2f559dd16c35a8927ea779e886c3cc5a643f"
+}

@@ -1,0 +1,76 @@
+name: Update observations
+on:
+  schedule:
+    - cron: '23 3 * * 2'
+  workflow_dispatch:
+permissions:
+  contents: write
+  pull-requests: write
+concurrency:
+  group: observation-update
+  cancel-in-progress: false
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/cache@v4
+        with:
+          path: .cache/http
+          key: observations-${{ runner.os }}-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: observations-${{ runner.os }}-
+      - name: Preserve baseline
+        run: |
+          mkdir -p .cache
+          cp data/index.json .cache/before.json
+      - name: Resume unmerged observation progress
+        shell: bash
+        run: |
+          if git ls-remote --exit-code --heads origin automation/observations > .cache/pending-ref; then
+            git fetch --depth=1 origin automation/observations:refs/remotes/origin/automation/observations
+            python -m errindex resume-pending
+          else
+            status=$?
+            if [ "$status" -ne 2 ]; then exit "$status"; fi
+          fi
+      - name: Scan selected sources within budgets
+        id: scan
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python -m errindex scan
+      - name: Validate results before opening PR
+        run: |
+          python -m unittest discover -s tests -v
+          node --test tests/space.test.js tests/page.test.js tests/i18n.test.js
+          node --check web/app.js
+          node --check web/diagnostics.js
+          python -m errindex validate
+          python -m errindex report
+          python -m errindex build
+          python -m errindex diff --before .cache/before.json > .cache/pr-body.md
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: scan-run-${{ github.run_id }}
+          path: .cache/last-run.json
+          retention-days: 14
+          include-hidden-files: true
+      - name: Create or update the observation PR
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: automation/observations
+          delete-branch: true
+          title: 'Update observed ESP-IDF error codes'
+          commit-message: 'Update observed error-code evidence and reports'
+          body-path: .cache/pr-body.md
+          add-paths: |
+            data/
+            reports/
+      - name: Surface upstream failures
+        if: steps.scan.outcome == 'failure'
+        run: exit 1

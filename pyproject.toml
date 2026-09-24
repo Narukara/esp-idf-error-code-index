@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "esp-idf-error-code-index"
+version = "0.1.0"
+description = "An unofficial, evidence-based ESP-IDF error code observation index"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.scripts]
+errindex = "errindex.cli:main"
+
+[tool.setuptools]
+packages = ["errindex"]

@@ -1,0 +1,840 @@
+{
+  "analysis": {
+    "configuration": {
+      "CONFIG_ESP_DEBUG_WOLFSSL": {
+        "definition": "config ESP_DEBUG_WOLFSSL\n        bool \"Enable debug logs for wolfSSL\"\n        depends on ESP_TLS_USING_WOLFSSL\n        help\n            Enable detailed debug prints for wolfSSL SSL library.",
+        "file": "components/esp-tls/Kconfig",
+        "line": 102
+      },
+      "CONFIG_ESP_TLS_CLIENT_SESSION_TICKETS": {
+        "definition": "config ESP_TLS_CLIENT_SESSION_TICKETS\n        bool \"Enable client session tickets\"\n        depends on ESP_TLS_USING_MBEDTLS && MBEDTLS_CLIENT_SSL_SESSION_TICKETS\n        help\n            Enable session ticket support as specified in RFC5077.",
+        "file": "components/esp-tls/Kconfig",
+        "line": 34
+      },
+      "CONFIG_ESP_TLS_DYN_BUF_STRATEGY_SUPPORTED": {
+        "definition": "config ESP_TLS_DYN_BUF_STRATEGY_SUPPORTED\n        bool\n        default y\n        help\n            Enable support for dynamic buffer strategy for ESP-TLS. This is the hidden config option kept\n            for external components like OTA, to find out whether the dynamic buffer strategy is supported\n            for particular ESP-IDF version.",
+        "file": "components/esp-tls/Kconfig",
+        "line": 116
+      },
+      "CONFIG_ESP_TLS_INSECURE": {
+        "definition": "config ESP_TLS_INSECURE\n        bool \"Allow potentially insecure options\"\n        help\n            You can enable some potentially insecure options. These options should only be used for testing purposes.\n            Only enable these options if you are very sure.",
+        "file": "components/esp-tls/Kconfig",
+        "line": 83
+      },
+      "CONFIG_ESP_TLS_OCSP_CHECKALL": {
+        "definition": "config ESP_TLS_OCSP_CHECKALL\n        bool \"Enabled full OCSP checks for ESP-TLS\"\n        depends on ESP_TLS_USING_WOLFSSL\n        default y\n        help\n            Enable a fuller set of OCSP checks: checking revocation status of intermediate certificates,\n            optional fallbacks to CRLs, etc.",
+        "file": "components/esp-tls/Kconfig",
+        "line": 108
+      },
+      "CONFIG_ESP_TLS_PSK_VERIFICATION": {
+        "definition": "config ESP_TLS_PSK_VERIFICATION\n        bool \"Enable PSK verification\"\n        select MBEDTLS_PSK_MODES if ESP_TLS_USING_MBEDTLS\n        select MBEDTLS_KEY_EXCHANGE_PSK if ESP_TLS_USING_MBEDTLS\n        select MBEDTLS_KEY_EXCHANGE_DHE_PSK if ESP_TLS_USING_MBEDTLS && MBEDTLS_DHM_C\n        select MBEDTLS_KEY_EXCHANGE_ECDHE_PSK if ESP_TLS_USING_MBEDTLS && MBEDTLS_ECDH_C\n        select MBEDTLS_KEY_EXCHANGE_RSA_PSK if ESP_TLS_USING_MBEDTLS\n        help\n            Enable support for pre shared key ciphers, supported for both mbedTLS as well as\n            wolfSSL TLS library.",
+        "file": "components/esp-tls/Kconfig",
+        "line": 72
+      },
+      "CONFIG_ESP_TLS_SERVER_CERT_SELECT_HOOK": {
+        "definition": "config ESP_TLS_SERVER_CERT_SELECT_HOOK\n        bool \"Certificate selection hook\"\n        depends on ESP_TLS_USING_MBEDTLS\n        help\n            Ability to configure and use a certificate selection callback during server handshake,\n            to select a certificate to present to the client based on the TLS extensions supplied in\n            the client hello (alpn, sni, etc).",
+        "file": "components/esp-tls/Kconfig",
+        "line": 53
+      },
+      "CONFIG_ESP_TLS_SERVER_MIN_AUTH_MODE_OPTIONAL": {
+        "definition": "config ESP_TLS_SERVER_MIN_AUTH_MODE_OPTIONAL\n        bool \"ESP-TLS Server: Set minimum Certificate Verification mode to Optional\"\n        depends on ESP_TLS_USING_MBEDTLS\n        help\n            When this option is enabled, the peer (here, the client) certificate is checked by the server,\n            however the handshake continues even if verification failed. By default, the\n            peer certificate is not checked and ignored by the server.\n\n            mbedtls_ssl_get_verify_result() can be called after the handshake is complete to\n            retrieve status of verification.",
+        "file": "components/esp-tls/Kconfig",
+        "line": 61
+      },
+      "CONFIG_ESP_TLS_SERVER_SESSION_TICKETS": {
+        "definition": "config ESP_TLS_SERVER_SESSION_TICKETS\n        bool \"Enable server session tickets\"\n        depends on ESP_TLS_USING_MBEDTLS && MBEDTLS_SERVER_SSL_SESSION_TICKETS\n        help\n            Enable session ticket support as specified in RFC5077",
+        "file": "components/esp-tls/Kconfig",
+        "line": 40
+      },
+      "CONFIG_ESP_TLS_SERVER_SESSION_TICKET_TIMEOUT": {
+        "definition": "config ESP_TLS_SERVER_SESSION_TICKET_TIMEOUT\n        int \"Server session ticket timeout in seconds\"\n        depends on ESP_TLS_SERVER_SESSION_TICKETS\n        default 86400\n        help\n            Sets the session ticket timeout used in the tls server.",
+        "file": "components/esp-tls/Kconfig",
+        "line": 46
+      },
+      "CONFIG_ESP_TLS_SKIP_SERVER_CERT_VERIFY": {
+        "definition": "config ESP_TLS_SKIP_SERVER_CERT_VERIFY\n        bool \"Skip server certificate verification by default (WARNING: ONLY FOR TESTING PURPOSE, READ HELP)\"\n        depends on ESP_TLS_INSECURE\n        help\n            After enabling this option the esp-tls client will skip the server certificate verification\n            by default. Note that this option will only modify the default behaviour of esp-tls client\n            regarding server cert verification. The default behaviour should only be applicable when\n            no other option regarding the server cert verification is opted in the esp-tls config\n            (e.g. crt_bundle_attach, use_global_ca_store etc.).\n            WARNING : Enabling this option comes with a potential risk of establishing a TLS connection\n            with a server which has a fake identity, provided that the server certificate\n            is not provided either through API or other mechanism like ca_store etc.",
+        "file": "components/esp-tls/Kconfig",
+        "line": 89
+      },
+      "CONFIG_ESP_TLS_USE_DS_PERIPHERAL": {
+        "definition": "config ESP_TLS_USE_DS_PERIPHERAL\n        bool \"Use Digital Signature (DS) Peripheral with ESP-TLS\"\n        depends on ESP_TLS_USING_MBEDTLS && SOC_DIG_SIGN_SUPPORTED\n        default y\n        help\n            Enable use of the Digital Signature Peripheral for ESP-TLS.The DS peripheral\n            can only be used when it is appropriately configured for TLS.\n            Consult the ESP-TLS documentation in ESP-IDF Programming Guide for more details.",
+        "file": "components/esp-tls/Kconfig",
+        "line": 25
+      },
+      "CONFIG_ESP_TLS_USE_SECURE_ELEMENT": {
+        "definition": "config ESP_TLS_USE_SECURE_ELEMENT\n        bool \"Use Secure Element (ATECC608A) with ESP-TLS\"\n        depends on ESP_TLS_USING_MBEDTLS\n        select ATCA_MBEDTLS_ECDSA\n        select ATCA_MBEDTLS_ECDSA_SIGN\n        select ATCA_MBEDTLS_ECDSA_VERIFY\n        help\n            Enable use of Secure Element for ESP-TLS, this enables internal support for\n            ATECC608A peripheral, which can be used for TLS connection.",
+        "file": "components/esp-tls/Kconfig",
+        "line": 15
+      },
+      "CONFIG_ESP_TLS_USING_MBEDTLS": {
+        "definition": "config ESP_TLS_USING_MBEDTLS\n            bool \"mbedTLS\"",
+        "file": "components/esp-tls/Kconfig",
+        "line": 9
+      },
+      "CONFIG_ESP_TLS_USING_WOLFSSL": {
+        "definition": "config ESP_TLS_USING_WOLFSSL\n            depends on TLS_STACK_WOLFSSL\n            bool \"wolfSSL (License info in wolfSSL directory README)\"\n    endchoice",
+        "file": "components/esp-tls/Kconfig",
+        "line": 11
+      }
+    },
+    "coverage": "candidate-static-scan",
+    "definitions": [
+      {
+        "alias_of": null,
+        "base_symbols": [],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "0x8000",
+        "file": "components/esp-tls/esp_tls_errors.h",
+        "hex": "0x8000",
+        "id": "eb87f5012705a8919f4d2368",
+        "line": 24,
+        "resolution": "resolved",
+        "role": "base",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp-tls/esp_tls_errors.h#L24",
+        "symbol": "ESP_ERR_ESP_TLS_BASE",
+        "syntax": "define",
+        "value": 32768
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_ESP_TLS_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_ESP_TLS_BASE + 0x01)",
+        "file": "components/esp-tls/esp_tls_errors.h",
+        "hex": "0x8001",
+        "id": "5b308da41239c10c123c0d3c",
+        "line": 27,
+        "resolution": "resolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp-tls/esp_tls_errors.h#L27",
+        "symbol": "ESP_ERR_ESP_TLS_CANNOT_RESOLVE_HOSTNAME",
+        "syntax": "define",
+        "value": 32769
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_ESP_TLS_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_ESP_TLS_BASE + 0x02)",
+        "file": "components/esp-tls/esp_tls_errors.h",
+        "hex": "0x8002",
+        "id": "1596c9b8242b6fba81ce132d",
+        "line": 28,
+        "resolution": "resolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp-tls/esp_tls_errors.h#L28",
+        "symbol": "ESP_ERR_ESP_TLS_CANNOT_CREATE_SOCKET",
+        "syntax": "define",
+        "value": 32770
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_ESP_TLS_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_ESP_TLS_BASE + 0x03)",
+        "file": "components/esp-tls/esp_tls_errors.h",
+        "hex": "0x8003",
+        "id": "d6f6a31db87641a757926371",
+        "line": 29,
+        "resolution": "resolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp-tls/esp_tls_errors.h#L29",
+        "symbol": "ESP_ERR_ESP_TLS_UNSUPPORTED_PROTOCOL_FAMILY",
+        "syntax": "define",
+        "value": 32771
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_ESP_TLS_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_ESP_TLS_BASE + 0x04)",
+        "file": "components/esp-tls/esp_tls_errors.h",
+        "hex": "0x8004",
+        "id": "2b4964f1a97a9a35449c0d3c",
+        "line": 30,
+        "resolution": "resolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp-tls/esp_tls_errors.h#L30",
+        "symbol": "ESP_ERR_ESP_TLS_FAILED_CONNECT_TO_HOST",
+        "syntax": "define",
+        "value": 32772
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_ESP_TLS_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_ESP_TLS_BASE + 0x05)",
+        "file": "components/esp-tls/esp_tls_errors.h",
+        "hex": "0x8005",
+        "id": "857286127bbf7381cf10d6da",
+        "line": 31,
+        "resolution": "resolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp-tls/esp_tls_errors.h#L31",
+        "symbol": "ESP_ERR_ESP_TLS_SOCKET_SETOPT_FAILED",
+        "syntax": "define",
+        "value": 32773
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_ESP_TLS_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_ESP_TLS_BASE + 0x06)",
+        "file": "components/esp-tls/esp_tls_errors.h",
+        "hex": "0x8006",
+        "id": "b2e83b3e18c251b358085089",
+        "line": 32,
+        "resolution": "resolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp-tls/esp_tls_errors.h#L32",
+        "symbol": "ESP_ERR_ESP_TLS_CONNECTION_TIMEOUT",
+        "syntax": "define",
+        "value": 32774
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_ESP_TLS_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_ESP_TLS_BASE + 0x07)",
+        "file": "components/esp-tls/esp_tls_errors.h",
+        "hex": "0x8007",
+        "id": "82531597ce36811cafa65d6b",
+        "line": 33,
+        "resolution": "resolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp-tls/esp_tls_errors.h#L33",
+        "symbol": "ESP_ERR_ESP_TLS_SE_FAILED",
+        "syntax": "define",
+        "value": 32775
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_ESP_TLS_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_ESP_TLS_BASE + 0x08)",
+        "file": "components/esp-tls/esp_tls_errors.h",
+        "hex": "0x8008",
+        "id": "3c9dc1c87addc2f47652bafe",
+        "line": 34,
+        "resolution": "resolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp-tls/esp_tls_errors.h#L34",
+        "symbol": "ESP_ERR_ESP_TLS_TCP_CLOSED_FIN",
+        "syntax": "define",
+        "value": 32776
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_ESP_TLS_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_ESP_TLS_BASE + 0x09)",
+        "file": "components/esp-tls/esp_tls_errors.h",
+        "hex": "0x8009",
+        "id": "f898b9ca5bbc8f24cda1999c",
+        "line": 35,
+        "resolution": "resolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp-tls/esp_tls_errors.h#L35",
+        "symbol": "ESP_ERR_ESP_TLS_SERVER_HANDSHAKE_TIMEOUT",
+        "syntax": "define",
+        "value": 32777
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_ESP_TLS_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_ESP_TLS_BASE + 0x10)",
+        "file": "components/esp-tls/esp_tls_errors.h",
+        "hex": "0x8010",
+        "id": "ddb986a922ed2172679d9f8f",
+        "line": 37,
+        "resolution": "resolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp-tls/esp_tls_errors.h#L37",
+        "symbol": "ESP_ERR_MBEDTLS_CERT_PARTLY_OK",
+        "syntax": "define",
+        "value": 32784
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_ESP_TLS_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_ESP_TLS_BASE + 0x11)",
+        "file": "components/esp-tls/esp_tls_errors.h",
+        "hex": "0x8011",
+        "id": "4645670d1207a88592c141a0",
+        "line": 38,
+        "resolution": "resolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp-tls/esp_tls_errors.h#L38",
+        "symbol": "ESP_ERR_MBEDTLS_CTR_DRBG_SEED_FAILED",
+        "syntax": "define",
+        "value": 32785
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_ESP_TLS_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_ESP_TLS_BASE + 0x12)",
+        "file": "components/esp-tls/esp_tls_errors.h",
+        "hex": "0x8012",
+        "id": "e29159acb9b35323480edbc2",
+        "line": 39,
+        "resolution": "resolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp-tls/esp_tls_errors.h#L39",
+        "symbol": "ESP_ERR_MBEDTLS_SSL_SET_HOSTNAME_FAILED",
+        "syntax": "define",
+        "value": 32786
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_ESP_TLS_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_ESP_TLS_BASE + 0x13)",
+        "file": "components/esp-tls/esp_tls_errors.h",
+        "hex": "0x8013",
+        "id": "2bea27a2cbc0efe73285c8a3",
+        "line": 40,
+        "resolution": "resolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp-tls/esp_tls_errors.h#L40",
+        "symbol": "ESP_ERR_MBEDTLS_SSL_CONFIG_DEFAULTS_FAILED",
+        "syntax": "define",
+        "value": 32787
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_ESP_TLS_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_ESP_TLS_BASE + 0x14)",
+        "file": "components/esp-tls/esp_tls_errors.h",
+        "hex": "0x8014",
+        "id": "c3eb3b70d13407ef465085e2",
+        "line": 41,
+        "resolution": "resolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp-tls/esp_tls_errors.h#L41",
+        "symbol": "ESP_ERR_MBEDTLS_SSL_CONF_ALPN_PROTOCOLS_FAILED",
+        "syntax": "define",
+        "value": 32788
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_ESP_TLS_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_ESP_TLS_BASE + 0x15)",
+        "file": "components/esp-tls/esp_tls_errors.h",
+        "hex": "0x8015",
+        "id": "2612bc7946a5fa1fef6497c1",
+        "line": 42,
+        "resolution": "resolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp-tls/esp_tls_errors.h#L42",
+        "symbol": "ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED",
+        "syntax": "define",
+        "value": 32789
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_ESP_TLS_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_ESP_TLS_BASE + 0x16)",
+        "file": "components/esp-tls/esp_tls_errors.h",
+        "hex": "0x8016",
+        "id": "2ee4e6466b4ba7e8fa8f602e",
+        "line": 43,
+        "resolution": "resolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp-tls/esp_tls_errors.h#L43",
+        "symbol": "ESP_ERR_MBEDTLS_SSL_CONF_OWN_CERT_FAILED",
+        "syntax": "define",
+        "value": 32790
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_ESP_TLS_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_ESP_TLS_BASE + 0x17)",
+        "file": "components/esp-tls/esp_tls_errors.h",
+        "hex": "0x8017",
+        "id": "d284cf60363cb3455df5fc96",
+        "line": 44,
+        "resolution": "resolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp-tls/esp_tls_errors.h#L44",
+        "symbol": "ESP_ERR_MBEDTLS_SSL_SETUP_FAILED",
+        "syntax": "define",
+        "value": 32791
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_ESP_TLS_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_ESP_TLS_BASE + 0x18)",
+        "file": "components/esp-tls/esp_tls_errors.h",
+        "hex": "0x8018",
+        "id": "70b3b43d7d73278824c2708f",
+        "line": 45,
+        "resolution": "resolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp-tls/esp_tls_errors.h#L45",
+        "symbol": "ESP_ERR_MBEDTLS_SSL_WRITE_FAILED",
+        "syntax": "define",
+        "value": 32792
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_ESP_TLS_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_ESP_TLS_BASE + 0x19)",
+        "file": "components/esp-tls/esp_tls_errors.h",
+        "hex": "0x8019",
+        "id": "bb23247379141a65ee6cba59",
+        "line": 46,
+        "resolution": "resolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp-tls/esp_tls_errors.h#L46",
+        "symbol": "ESP_ERR_MBEDTLS_PK_PARSE_KEY_FAILED",
+        "syntax": "define",
+        "value": 32793
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_ESP_TLS_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_ESP_TLS_BASE + 0x1A)",
+        "file": "components/esp-tls/esp_tls_errors.h",
+        "hex": "0x801a",
+        "id": "f8e942ba02b9094cf455fc30",
+        "line": 47,
+        "resolution": "resolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp-tls/esp_tls_errors.h#L47",
+        "symbol": "ESP_ERR_MBEDTLS_SSL_HANDSHAKE_FAILED",
+        "syntax": "define",
+        "value": 32794
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_ESP_TLS_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_ESP_TLS_BASE + 0x1B)",
+        "file": "components/esp-tls/esp_tls_errors.h",
+        "hex": "0x801b",
+        "id": "fddb9ec632dc8310f81e42a0",
+        "line": 48,
+        "resolution": "resolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp-tls/esp_tls_errors.h#L48",
+        "symbol": "ESP_ERR_MBEDTLS_SSL_CONF_PSK_FAILED",
+        "syntax": "define",
+        "value": 32795
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_ESP_TLS_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_ESP_TLS_BASE + 0x1C)",
+        "file": "components/esp-tls/esp_tls_errors.h",
+        "hex": "0x801c",
+        "id": "e0986a04b8ade7f8c2902023",
+        "line": 49,
+        "resolution": "resolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp-tls/esp_tls_errors.h#L49",
+        "symbol": "ESP_ERR_MBEDTLS_SSL_TICKET_SETUP_FAILED",
+        "syntax": "define",
+        "value": 32796
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_ESP_TLS_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_ESP_TLS_BASE + 0x31)",
+        "file": "components/esp-tls/esp_tls_errors.h",
+        "hex": "0x8031",
+        "id": "492ba94d565be79c8e236887",
+        "line": 52,
+        "resolution": "resolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp-tls/esp_tls_errors.h#L52",
+        "symbol": "ESP_ERR_WOLFSSL_SSL_SET_HOSTNAME_FAILED",
+        "syntax": "define",
+        "value": 32817
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_ESP_TLS_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_ESP_TLS_BASE + 0x32)",
+        "file": "components/esp-tls/esp_tls_errors.h",
+        "hex": "0x8032",
+        "id": "d1727e2d80d663d393e4595b",
+        "line": 53,
+        "resolution": "resolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp-tls/esp_tls_errors.h#L53",
+        "symbol": "ESP_ERR_WOLFSSL_SSL_CONF_ALPN_PROTOCOLS_FAILED",
+        "syntax": "define",
+        "value": 32818
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_ESP_TLS_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_ESP_TLS_BASE + 0x33)",
+        "file": "components/esp-tls/esp_tls_errors.h",
+        "hex": "0x8033",
+        "id": "b8c3884ef953e8be6601cd90",
+        "line": 54,
+        "resolution": "resolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp-tls/esp_tls_errors.h#L54",
+        "symbol": "ESP_ERR_WOLFSSL_CERT_VERIFY_SETUP_FAILED",
+        "syntax": "define",
+        "value": 32819
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_ESP_TLS_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_ESP_TLS_BASE + 0x34)",
+        "file": "components/esp-tls/esp_tls_errors.h",
+        "hex": "0x8034",
+        "id": "108d7abdac0f9eb035bd505f",
+        "line": 55,
+        "resolution": "resolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp-tls/esp_tls_errors.h#L55",
+        "symbol": "ESP_ERR_WOLFSSL_KEY_VERIFY_SETUP_FAILED",
+        "syntax": "define",
+        "value": 32820
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_ESP_TLS_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_ESP_TLS_BASE + 0x35)",
+        "file": "components/esp-tls/esp_tls_errors.h",
+        "hex": "0x8035",
+        "id": "949941cd208178f85ed45333",
+        "line": 56,
+        "resolution": "resolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp-tls/esp_tls_errors.h#L56",
+        "symbol": "ESP_ERR_WOLFSSL_SSL_HANDSHAKE_FAILED",
+        "syntax": "define",
+        "value": 32821
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_ESP_TLS_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_ESP_TLS_BASE + 0x36)",
+        "file": "components/esp-tls/esp_tls_errors.h",
+        "hex": "0x8036",
+        "id": "541e1758af678885a4268ce3",
+        "line": 57,
+        "resolution": "resolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp-tls/esp_tls_errors.h#L57",
+        "symbol": "ESP_ERR_WOLFSSL_CTX_SETUP_FAILED",
+        "syntax": "define",
+        "value": 32822
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_ESP_TLS_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_ESP_TLS_BASE + 0x37)",
+        "file": "components/esp-tls/esp_tls_errors.h",
+        "hex": "0x8037",
+        "id": "171c564d3809a9c0a6c63c73",
+        "line": 58,
+        "resolution": "resolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp-tls/esp_tls_errors.h#L58",
+        "symbol": "ESP_ERR_WOLFSSL_SSL_SETUP_FAILED",
+        "syntax": "define",
+        "value": 32823
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_ESP_TLS_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_ESP_TLS_BASE + 0x38)",
+        "file": "components/esp-tls/esp_tls_errors.h",
+        "hex": "0x8038",
+        "id": "48551aab82b5b0ca33e3e761",
+        "line": 59,
+        "resolution": "resolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp-tls/esp_tls_errors.h#L59",
+        "symbol": "ESP_ERR_WOLFSSL_SSL_WRITE_FAILED",
+        "syntax": "define",
+        "value": 32824
+      }
+    ],
+    "diagnostics": [],
+    "families": [
+      {
+        "base": "ESP_ERR_ESP_TLS_BASE",
+        "conditions": [],
+        "declared_reserved_range": null,
+        "defined_values": [
+          32769,
+          32770,
+          32771,
+          32772,
+          32773,
+          32774,
+          32775,
+          32776,
+          32777,
+          32784,
+          32785,
+          32786,
+          32787,
+          32788,
+          32789,
+          32790,
+          32791,
+          32792,
+          32793,
+          32794,
+          32795,
+          32796,
+          32817,
+          32818,
+          32819,
+          32820,
+          32821,
+          32822,
+          32823,
+          32824
+        ],
+        "envelope": [
+          32769,
+          32824
+        ],
+        "expression": "0x8000",
+        "unresolved_members": [],
+        "value": 32768
+      }
+    ],
+    "limitations": [
+      "Pattern-based candidate discovery; not a build or whole-program analysis",
+      "External includes, generated code, complex expressions and C type conversions may remain unresolved",
+      "Macro scope and conditional coexistence are not proven; enum preprocessing is conservative",
+      "BASE/MAX/END/COUNT roles are naming heuristics unless reviewed"
+    ],
+    "registered_headers": []
+  },
+  "evidence": {
+    "component_tree": "5691834ab4b43ad5fdd906da799e8f92485c7c78",
+    "selection": {
+      "candidate_files": 16,
+      "coverage_note": "Public headers are a static CMake approximation; private implementation definitions may be absent",
+      "mode": "public-headers",
+      "public_header_candidates": [
+        "components/esp-tls/esp-tls-crypto/esp_tls_crypto.h"
+      ],
+      "reasons": [
+        "dynamic_or_external_cmake_path",
+        "fallback_all_headers"
+      ],
+      "selected_files": 10,
+      "skipped_files": 6,
+      "version": "1"
+    }
+  },
+  "files": [
+    {
+      "path": "components/esp-tls/CMakeLists.txt",
+      "sha256": "000ee80871db3235d3318e36f08da11921157e32c0c31404516b36ab3f624e13"
+    },
+    {
+      "path": "components/esp-tls/Kconfig",
+      "sha256": "526ef03606f88e44794925ce7f3c9711aaa6d279fc7fe9d72feae8fa71da4fe2"
+    },
+    {
+      "path": "components/esp-tls/esp-tls-crypto/esp_tls_crypto.h",
+      "sha256": "4d4e3f77f09ff095d43a1a8706ecdf7c70291d4932b1c0f964bc1fc8afb8efdb"
+    },
+    {
+      "path": "components/esp-tls/esp_tls.h",
+      "sha256": "57aaa40d30c4021dfcc9ef8ac61e4fc58f98a253e1fcb7bc001d6b0b4bde618b"
+    },
+    {
+      "path": "components/esp-tls/esp_tls_errors.h",
+      "sha256": "fb35eacc5518f519c63a6a05c4d267f777a48ec28870fa4944e303cfc8155a73"
+    },
+    {
+      "path": "components/esp-tls/private_include/esp_tls_error_capture_internal.h",
+      "sha256": "8c61dbf056795693ae5655cd63a5743edebc1123b043ae29a14a2bc4dd044e4b"
+    },
+    {
+      "path": "components/esp-tls/private_include/esp_tls_mbedtls.h",
+      "sha256": "57ed9517a9fba126b2b64456e675fe2814982ab3cd473ac3aa310b81d7cb4aa8"
+    },
+    {
+      "path": "components/esp-tls/private_include/esp_tls_platform_port.h",
+      "sha256": "401758ae10ab49964121137756c61a4e913d296fcd20bbc8b9c69a09429a5423"
+    },
+    {
+      "path": "components/esp-tls/private_include/esp_tls_private.h",
+      "sha256": "2fe00c5fac91fd6177c897437af890af0d0e0c1a65af52bafa2b41b3d204f72e"
+    },
+    {
+      "path": "components/esp-tls/private_include/esp_tls_wolfssl.h",
+      "sha256": "e00915f7583a4debe555c30c79d89fce839e5e2a852113b941043b7fd00dda54"
+    }
+  ],
+  "fingerprint": "285b2eb9bb88adfd4d0d59effc9045b0a8342a77214d5917c55918fb7a452135",
+  "identity": {
+    "commit": "fcae32885b0296b32044cb99ecbdc50d98dddb83",
+    "component_url": "https://github.com/espressif/esp-idf/tree/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp-tls",
+    "kind": "github",
+    "repository_url": "https://github.com/espressif/esp-idf",
+    "root_tree": "d03ebfcf051ee6526a73a045d4ee2c21a0f4966e",
+    "version": "v5.5.1"
+  },
+  "input_fingerprint": "171d65a07503c2a21ad107459a5fe1f020e5bcf71ed7d32d7357e5c6f3d1243c",
+  "parser_version": "2",
+  "schema_version": 1,
+  "source": {
+    "error_pattern": "^ESP_ERR_",
+    "id": "idf/esp-tls",
+    "kind": "github",
+    "maintainer": "espressif",
+    "maintainer_evidence": "https://github.com/espressif/esp-idf",
+    "path": "components/esp-tls",
+    "ref": "v5.5.1",
+    "repository": "espressif/esp-idf",
+    "scan_mode": "public-headers"
+  },
+  "source_sha256": "b344b258f3489f818b7e51c9cb5e4aeb3611c75e7a4f58f8c6726bd34e7d0998"
+}

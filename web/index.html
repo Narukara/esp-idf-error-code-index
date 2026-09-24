@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light"><title>ESP-IDF Error Code Space</title>
+  <link rel="stylesheet" href="style.css"><link rel="stylesheet" href="atlas.css"><script src="i18n.js" defer></script><script src="space.js" defer></script><script src="app.js" defer></script>
+</head>
+<body>
+  <header><a class="brand" href="./">ESP-IDF <span>/ ERROR INDEX</span></a><nav aria-label="Main navigation"><a class="active" href="./" aria-current="page">Error code space</a><a href="diagnostics.html">Data and methods ↗</a><a href="https://github.com/Narukara/esp-idf-error-code-index">GitHub ↗</a><select id="language" aria-label="Language / 语言"><option value="en" selected>English</option><option value="zh">中文</option></select></nav></header>
+  <main>
+    <section class="intro"><h1>ESP-IDF Error Code Index</h1><p class="lead">Browse observed ESP-IDF error code definitions, inspect their distribution and check a proposed BASE.</p><p class="notice">Unofficial observations, not an allocation service. Light segments indicate no observed use in this index; availability is not guaranteed.</p></section>
+    <div id="status" role="status">Loading error code index…</div>
+    <section class="overview" aria-label="Index overview"><div><strong id="component-count">—</strong><span>indexed components</span></div><div><strong id="value-count">—</strong><span>defined values</span></div><div><strong id="overlap-count">—</strong><span>overlap groups</span></div><a href="diagnostics.html">Coverage and limitations ↗</a></section>
+    <section class="check-panel" aria-labelledby="check-heading"><div><h2 id="check-heading">Range lookup</h2><p class="hint">Enter a start value and count to find observed error codes and BASE markers in that range.</p></div><form id="range-form"><label>Start / BASE<input id="range-base" value="0x7000" autocomplete="off" spellcheck="false" required></label><label>Value count<input id="range-count" value="256" inputmode="numeric" autocomplete="off" required></label><button class="primary" type="submit">Check range ↗</button></form><div id="range-result" role="status" aria-live="polite" hidden></div></section>
+    <section class="map-section" aria-labelledby="map-heading"><div class="section-heading"><div><h2 id="map-heading">Error code distribution</h2></div><div class="view-toggle" role="group" aria-label="Display range"><button id="view-full" class="selected" aria-pressed="true">Full value space</button><button id="view-common" aria-pressed="false">0x0000 – 0xFFFF</button></div></div>
+      <p class="hint map-note">Segment heights use a compressed, nonlinear scale. Select a segment for components and definitions. Gaps remain visible; BASE markers do not reserve the following range.</p>
+      <div class="legend" aria-label="Legend"><span><i class="occupied"></i>Defined error codes</span><span><i class="base"></i>BASE / boundary marker</span><span><i class="shared"></i>Common return values</span><span><i class="overlap"></i>Numeric overlap</span><span><i class="unobserved"></i>No observed use</span></div>
+      <label class="map-search">Find a value, component or symbol<input id="map-query" type="search" placeholder="e.g. 0x1101, nvs_flash, ESP_ERR_WIFI_BASE" autocomplete="off" spellcheck="false"></label><p id="search-status" class="hint" role="status"></p>
+      <div class="atlas"><div><div class="axis-heading"><span>Range / band</span><span>Status and components</span></div><div id="space-map" aria-label="Selectable error code ranges"></div><button id="more-segments" hidden>Show more ranges</button></div><aside id="segment-detail" class="detail-panel" aria-labelledby="detail-heading"><h3 id="detail-heading">Select a range</h3><div id="detail-body">Select a band to inspect observed definitions.</div></aside></div>
+    </section>
+    <section class="closing"><h2>Scope and limitations</h2><p>A result with no overlap still requires checking your component versions and configuration. This index does not reserve numbers or assign queried ranges to components.</p><a href="diagnostics.html">Sources, versions and methodology ↗</a></section>
+    <footer><span>ESP-IDF ERROR INDEX · Unofficial community project</span><a href="index.json" download>Download full index JSON ↗</a></footer>
+  </main>
+</body>
+</html>

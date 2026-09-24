@@ -1,0 +1,140 @@
+{
+  "analysis": {
+    "configuration": {
+      "CONFIG_ESP_HTTPS_OTA_ALLOW_HTTP": {
+        "definition": "config ESP_HTTPS_OTA_ALLOW_HTTP\n        bool \"Allow HTTP for OTA (WARNING: ONLY FOR TESTING PURPOSE, READ HELP)\"\n        default n\n        help\n            It is highly recommended to keep HTTPS (along with server certificate validation) enabled.\n            Enabling this option comes with potential risk of:\n            - Non-encrypted communication channel with server\n            - Accepting firmware upgrade image from server with fake identity",
+        "file": "components/esp_https_ota/Kconfig",
+        "line": 11
+      },
+      "CONFIG_ESP_HTTPS_OTA_DECRYPT_CB": {
+        "definition": "config ESP_HTTPS_OTA_DECRYPT_CB\n        bool \"Provide decryption callback\"\n        default n\n        help\n            Exposes an additional callback whereby firmware data could be decrypted\n            before being processed by OTA update component. This can help to integrate\n            external encryption related format and removal of such encapsulation layer\n            from firmware image.",
+        "file": "components/esp_https_ota/Kconfig",
+        "line": 2
+      },
+      "CONFIG_ESP_HTTPS_OTA_EVENT_POST_TIMEOUT": {
+        "definition": "config ESP_HTTPS_OTA_EVENT_POST_TIMEOUT\n        int \"Time in millisecond to wait for posting event\"\n        default 2000\n        help\n            This config option helps in setting the time in millisecond to wait for event to be posted to the\n            system default event loop. Set it to -1 if you need to set timeout to portMAX_DELAY.",
+        "file": "components/esp_https_ota/Kconfig",
+        "line": 20
+      }
+    },
+    "coverage": "candidate-static-scan",
+    "definitions": [
+      {
+        "alias_of": null,
+        "base_symbols": [],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(0x9000)",
+        "file": "components/esp_https_ota/include/esp_https_ota.h",
+        "hex": "0x9000",
+        "id": "9dc4a81acf5025030b329f6f",
+        "line": 82,
+        "resolution": "resolved",
+        "role": "base",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_https_ota/include/esp_https_ota.h#L82",
+        "symbol": "ESP_ERR_HTTPS_OTA_BASE",
+        "syntax": "define",
+        "value": 36864
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_HTTPS_OTA_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_HTTPS_OTA_BASE + 1)",
+        "file": "components/esp_https_ota/include/esp_https_ota.h",
+        "hex": "0x9001",
+        "id": "d767fa4d83c21055b23b2115",
+        "line": 83,
+        "resolution": "resolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_https_ota/include/esp_https_ota.h#L83",
+        "symbol": "ESP_ERR_HTTPS_OTA_IN_PROGRESS",
+        "syntax": "define",
+        "value": 36865
+      }
+    ],
+    "diagnostics": [],
+    "families": [
+      {
+        "base": "ESP_ERR_HTTPS_OTA_BASE",
+        "conditions": [],
+        "declared_reserved_range": null,
+        "defined_values": [
+          36865
+        ],
+        "envelope": [
+          36865,
+          36865
+        ],
+        "expression": "(0x9000)",
+        "unresolved_members": [],
+        "value": 36864
+      }
+    ],
+    "limitations": [
+      "Pattern-based candidate discovery; not a build or whole-program analysis",
+      "External includes, generated code, complex expressions and C type conversions may remain unresolved",
+      "Macro scope and conditional coexistence are not proven; enum preprocessing is conservative",
+      "BASE/MAX/END/COUNT roles are naming heuristics unless reviewed"
+    ],
+    "registered_headers": []
+  },
+  "evidence": {
+    "component_tree": "183f03ac87cad3e7b197b284dd81659572ee69be",
+    "selection": {
+      "candidate_files": 4,
+      "coverage_note": "Public headers are a static CMake approximation; private implementation definitions may be absent",
+      "mode": "public-headers",
+      "public_header_candidates": [
+        "components/esp_https_ota/include/esp_https_ota.h"
+      ],
+      "reasons": [],
+      "selected_files": 3,
+      "skipped_files": 1,
+      "version": "1"
+    }
+  },
+  "files": [
+    {
+      "path": "components/esp_https_ota/CMakeLists.txt",
+      "sha256": "e2373616da4fc1dec23e7400e671b1fd0e783a2fda375cfb44994d1bddc796b8"
+    },
+    {
+      "path": "components/esp_https_ota/Kconfig",
+      "sha256": "5b8571fd8240b5cbf76da731acd403709dadbdaf6d964159139f8e1b3d453f99"
+    },
+    {
+      "path": "components/esp_https_ota/include/esp_https_ota.h",
+      "sha256": "dc7a93be44044a5814cffdfe50f9df83c6a21797e0e825779f782be19ad9edb0"
+    }
+  ],
+  "fingerprint": "7b026facb4dfd302886f1171801d137765157a26bdbe6d4085a64016dc69d26f",
+  "identity": {
+    "commit": "fcae32885b0296b32044cb99ecbdc50d98dddb83",
+    "component_url": "https://github.com/espressif/esp-idf/tree/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_https_ota",
+    "kind": "github",
+    "repository_url": "https://github.com/espressif/esp-idf",
+    "root_tree": "d03ebfcf051ee6526a73a045d4ee2c21a0f4966e",
+    "version": "v5.5.1"
+  },
+  "input_fingerprint": "2db512be7479ce0ac09bbc2c0b2c5fc4d61a6f01e1a15c1f43a8b909f6a9bf4d",
+  "parser_version": "3",
+  "schema_version": 1,
+  "source": {
+    "error_pattern": "^ESP_ERR_",
+    "id": "idf/esp_https_ota",
+    "kind": "github",
+    "maintainer": "espressif",
+    "maintainer_evidence": "https://github.com/espressif/esp-idf",
+    "path": "components/esp_https_ota",
+    "ref": "v5.5.1",
+    "repository": "espressif/esp-idf",
+    "scan_mode": "public-headers"
+  },
+  "source_sha256": "44a2dc6cc1c731c8ddd0cf14cf82daea7d50689c6842f421458ec82d42f5bb4b"
+}

@@ -1,0 +1,677 @@
+{
+  "analysis": {
+    "configuration": {
+      "CONFIG_NVS_ALLOCATE_CACHE_IN_SPIRAM": {
+        "definition": "config NVS_ALLOCATE_CACHE_IN_SPIRAM\n        bool \"Prefers allocation of in-memory cache structures in SPI connected PSRAM\"\n        depends on SPIRAM && (SPIRAM_USE_CAPS_ALLOC || SPIRAM_USE_MALLOC)\n        default n\n        help\n            Enabling this option lets NVS library try to allocate page cache and key hash list in SPIRAM\n            instead of internal RAM. It can help applications using large nvs partitions or large number\n            of keys to save heap space in internal RAM. SPIRAM heap allocation negatively impacts speed\n            of NVS operations as the CPU accesses NVS cache via SPI instead of direct access to the internal RAM.",
+        "file": "components/nvs_flash/Kconfig",
+        "line": 38
+      },
+      "CONFIG_NVS_ASSERT_ERROR_CHECK": {
+        "definition": "config NVS_ASSERT_ERROR_CHECK\n        bool \"Use assertions for error checking\"\n        default n\n        help\n            This option switches error checking type between assertions (y) or return codes (n).",
+        "file": "components/nvs_flash/Kconfig",
+        "line": 22
+      },
+      "CONFIG_NVS_COMPATIBLE_PRE_V4_3_ENCRYPTION_FLAG": {
+        "definition": "config NVS_COMPATIBLE_PRE_V4_3_ENCRYPTION_FLAG\n        bool \"NVS partition encrypted flag compatible with ESP-IDF before v4.3\"\n        depends on SECURE_FLASH_ENC_ENABLED\n        help\n            Enabling this will ignore \"encrypted\" flag for NVS partitions. NVS encryption\n            scheme is different than hardware flash encryption and hence it is not recommended\n            to have \"encrypted\" flag for NVS partitions. This was not being checked in pre v4.3\n            IDF. Hence, if you have any devices where this flag is kept enabled in partition\n            table then enabling this config will allow to have same behavior as pre v4.3 IDF.",
+        "file": "components/nvs_flash/Kconfig",
+        "line": 12
+      },
+      "CONFIG_NVS_ENCRYPTION": {
+        "definition": "config NVS_ENCRYPTION\n        bool \"Enable NVS encryption\"\n        depends on SECURE_FLASH_ENC_ENABLED || SOC_HMAC_SUPPORTED\n        default y if SECURE_FLASH_ENC_ENABLED\n        help\n            This option enables encryption for NVS. When enabled, XTS-AES is used to encrypt\n            the complete NVS data, except the page headers. It requires XTS encryption keys\n            to be stored in an encrypted partition (enabling flash encryption is mandatory here)\n            or to be derived from an HMAC key burnt in eFuse.",
+        "file": "components/nvs_flash/Kconfig",
+        "line": 2
+      },
+      "CONFIG_NVS_LEGACY_DUP_KEYS_COMPATIBILITY": {
+        "definition": "config NVS_LEGACY_DUP_KEYS_COMPATIBILITY\n        bool \"Enable legacy nvs_set function behavior when same key is reused with different data types\"\n        default n\n        help\n            Enabling this option will switch the nvs_set() family of functions to the legacy mode:\n            when called repeatedly with the same key but different data type, the existing value\n            in the NVS remains active and the new value is just stored, actually not accessible through\n            corresponding nvs_get() call for the key given. Use this option only when your application\n            relies on such NVS API behaviour.",
+        "file": "components/nvs_flash/Kconfig",
+        "line": 28
+      }
+    },
+    "coverage": "candidate-static-scan",
+    "definitions": [
+      {
+        "alias_of": null,
+        "base_symbols": [],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "0x1100",
+        "file": "components/nvs_flash/include/nvs.h",
+        "hex": "0x1100",
+        "id": "7ccd9e9b289b3c1b94984d7d",
+        "line": 29,
+        "resolution": "resolved",
+        "role": "base",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/nvs_flash/include/nvs.h#L29",
+        "symbol": "ESP_ERR_NVS_BASE",
+        "syntax": "define",
+        "value": 4352
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_NVS_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_NVS_BASE + 0x01)",
+        "file": "components/nvs_flash/include/nvs.h",
+        "hex": "0x1101",
+        "id": "afe29a03ebf30c869b16e534",
+        "line": 30,
+        "resolution": "resolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/nvs_flash/include/nvs.h#L30",
+        "symbol": "ESP_ERR_NVS_NOT_INITIALIZED",
+        "syntax": "define",
+        "value": 4353
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_NVS_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_NVS_BASE + 0x02)",
+        "file": "components/nvs_flash/include/nvs.h",
+        "hex": "0x1102",
+        "id": "a08e2f59836fa0f66c2c39f4",
+        "line": 31,
+        "resolution": "resolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/nvs_flash/include/nvs.h#L31",
+        "symbol": "ESP_ERR_NVS_NOT_FOUND",
+        "syntax": "define",
+        "value": 4354
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_NVS_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_NVS_BASE + 0x03)",
+        "file": "components/nvs_flash/include/nvs.h",
+        "hex": "0x1103",
+        "id": "48612ab0ccd0cac72e5be012",
+        "line": 32,
+        "resolution": "resolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/nvs_flash/include/nvs.h#L32",
+        "symbol": "ESP_ERR_NVS_TYPE_MISMATCH",
+        "syntax": "define",
+        "value": 4355
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_NVS_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_NVS_BASE + 0x04)",
+        "file": "components/nvs_flash/include/nvs.h",
+        "hex": "0x1104",
+        "id": "84d23fd422967516b370c961",
+        "line": 33,
+        "resolution": "resolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/nvs_flash/include/nvs.h#L33",
+        "symbol": "ESP_ERR_NVS_READ_ONLY",
+        "syntax": "define",
+        "value": 4356
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_NVS_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_NVS_BASE + 0x05)",
+        "file": "components/nvs_flash/include/nvs.h",
+        "hex": "0x1105",
+        "id": "431499f960a343af80c4c7ff",
+        "line": 34,
+        "resolution": "resolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/nvs_flash/include/nvs.h#L34",
+        "symbol": "ESP_ERR_NVS_NOT_ENOUGH_SPACE",
+        "syntax": "define",
+        "value": 4357
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_NVS_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_NVS_BASE + 0x06)",
+        "file": "components/nvs_flash/include/nvs.h",
+        "hex": "0x1106",
+        "id": "53d0fa815268467ba5b4e6e4",
+        "line": 35,
+        "resolution": "resolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/nvs_flash/include/nvs.h#L35",
+        "symbol": "ESP_ERR_NVS_INVALID_NAME",
+        "syntax": "define",
+        "value": 4358
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_NVS_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_NVS_BASE + 0x07)",
+        "file": "components/nvs_flash/include/nvs.h",
+        "hex": "0x1107",
+        "id": "25c96ac1e630aa65b06e24cf",
+        "line": 36,
+        "resolution": "resolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/nvs_flash/include/nvs.h#L36",
+        "symbol": "ESP_ERR_NVS_INVALID_HANDLE",
+        "syntax": "define",
+        "value": 4359
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_NVS_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_NVS_BASE + 0x08)",
+        "file": "components/nvs_flash/include/nvs.h",
+        "hex": "0x1108",
+        "id": "50894e550f2e8e582aa2c665",
+        "line": 37,
+        "resolution": "resolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/nvs_flash/include/nvs.h#L37",
+        "symbol": "ESP_ERR_NVS_REMOVE_FAILED",
+        "syntax": "define",
+        "value": 4360
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_NVS_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_NVS_BASE + 0x09)",
+        "file": "components/nvs_flash/include/nvs.h",
+        "hex": "0x1109",
+        "id": "01554b6dcc79665e9d6924f3",
+        "line": 38,
+        "resolution": "resolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/nvs_flash/include/nvs.h#L38",
+        "symbol": "ESP_ERR_NVS_KEY_TOO_LONG",
+        "syntax": "define",
+        "value": 4361
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_NVS_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_NVS_BASE + 0x0a)",
+        "file": "components/nvs_flash/include/nvs.h",
+        "hex": "0x110a",
+        "id": "a4888b34eac9af1e51415858",
+        "line": 39,
+        "resolution": "resolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/nvs_flash/include/nvs.h#L39",
+        "symbol": "ESP_ERR_NVS_PAGE_FULL",
+        "syntax": "define",
+        "value": 4362
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_NVS_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_NVS_BASE + 0x0b)",
+        "file": "components/nvs_flash/include/nvs.h",
+        "hex": "0x110b",
+        "id": "af0c98e0cfbf4a3a7058a6c4",
+        "line": 40,
+        "resolution": "resolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/nvs_flash/include/nvs.h#L40",
+        "symbol": "ESP_ERR_NVS_INVALID_STATE",
+        "syntax": "define",
+        "value": 4363
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_NVS_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_NVS_BASE + 0x0c)",
+        "file": "components/nvs_flash/include/nvs.h",
+        "hex": "0x110c",
+        "id": "d5eff324e66778495555f9df",
+        "line": 41,
+        "resolution": "resolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/nvs_flash/include/nvs.h#L41",
+        "symbol": "ESP_ERR_NVS_INVALID_LENGTH",
+        "syntax": "define",
+        "value": 4364
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_NVS_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_NVS_BASE + 0x0d)",
+        "file": "components/nvs_flash/include/nvs.h",
+        "hex": "0x110d",
+        "id": "fde663929e62ac57cc59bc03",
+        "line": 42,
+        "resolution": "resolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/nvs_flash/include/nvs.h#L42",
+        "symbol": "ESP_ERR_NVS_NO_FREE_PAGES",
+        "syntax": "define",
+        "value": 4365
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_NVS_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_NVS_BASE + 0x0e)",
+        "file": "components/nvs_flash/include/nvs.h",
+        "hex": "0x110e",
+        "id": "d6cdf37fc6e098314539233a",
+        "line": 43,
+        "resolution": "resolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/nvs_flash/include/nvs.h#L43",
+        "symbol": "ESP_ERR_NVS_VALUE_TOO_LONG",
+        "syntax": "define",
+        "value": 4366
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_NVS_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_NVS_BASE + 0x0f)",
+        "file": "components/nvs_flash/include/nvs.h",
+        "hex": "0x110f",
+        "id": "350eda50402e2bca7fdb8a3d",
+        "line": 44,
+        "resolution": "resolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/nvs_flash/include/nvs.h#L44",
+        "symbol": "ESP_ERR_NVS_PART_NOT_FOUND",
+        "syntax": "define",
+        "value": 4367
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_NVS_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_NVS_BASE + 0x10)",
+        "file": "components/nvs_flash/include/nvs.h",
+        "hex": "0x1110",
+        "id": "6a44202343b16b2ed747a268",
+        "line": 46,
+        "resolution": "resolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/nvs_flash/include/nvs.h#L46",
+        "symbol": "ESP_ERR_NVS_NEW_VERSION_FOUND",
+        "syntax": "define",
+        "value": 4368
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_NVS_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_NVS_BASE + 0x11)",
+        "file": "components/nvs_flash/include/nvs.h",
+        "hex": "0x1111",
+        "id": "c1e901ef0c42f6d05475b49e",
+        "line": 47,
+        "resolution": "resolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/nvs_flash/include/nvs.h#L47",
+        "symbol": "ESP_ERR_NVS_XTS_ENCR_FAILED",
+        "syntax": "define",
+        "value": 4369
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_NVS_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_NVS_BASE + 0x12)",
+        "file": "components/nvs_flash/include/nvs.h",
+        "hex": "0x1112",
+        "id": "cb836d483542edd5db87dc64",
+        "line": 48,
+        "resolution": "resolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/nvs_flash/include/nvs.h#L48",
+        "symbol": "ESP_ERR_NVS_XTS_DECR_FAILED",
+        "syntax": "define",
+        "value": 4370
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_NVS_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_NVS_BASE + 0x13)",
+        "file": "components/nvs_flash/include/nvs.h",
+        "hex": "0x1113",
+        "id": "ed1a42a8cc14160f686070c9",
+        "line": 49,
+        "resolution": "resolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/nvs_flash/include/nvs.h#L49",
+        "symbol": "ESP_ERR_NVS_XTS_CFG_FAILED",
+        "syntax": "define",
+        "value": 4371
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_NVS_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_NVS_BASE + 0x14)",
+        "file": "components/nvs_flash/include/nvs.h",
+        "hex": "0x1114",
+        "id": "93f48089b22f94c9736f4e03",
+        "line": 50,
+        "resolution": "resolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/nvs_flash/include/nvs.h#L50",
+        "symbol": "ESP_ERR_NVS_XTS_CFG_NOT_FOUND",
+        "syntax": "define",
+        "value": 4372
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_NVS_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_NVS_BASE + 0x15)",
+        "file": "components/nvs_flash/include/nvs.h",
+        "hex": "0x1115",
+        "id": "05b77e2dab970ad8278be91e",
+        "line": 51,
+        "resolution": "resolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/nvs_flash/include/nvs.h#L51",
+        "symbol": "ESP_ERR_NVS_ENCR_NOT_SUPPORTED",
+        "syntax": "define",
+        "value": 4373
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_NVS_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_NVS_BASE + 0x16)",
+        "file": "components/nvs_flash/include/nvs.h",
+        "hex": "0x1116",
+        "id": "e4224ab79f3fc14b040813a0",
+        "line": 52,
+        "resolution": "resolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/nvs_flash/include/nvs.h#L52",
+        "symbol": "ESP_ERR_NVS_KEYS_NOT_INITIALIZED",
+        "syntax": "define",
+        "value": 4374
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_NVS_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_NVS_BASE + 0x17)",
+        "file": "components/nvs_flash/include/nvs.h",
+        "hex": "0x1117",
+        "id": "244929d6beff65b4c340c3cd",
+        "line": 53,
+        "resolution": "resolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/nvs_flash/include/nvs.h#L53",
+        "symbol": "ESP_ERR_NVS_CORRUPT_KEY_PART",
+        "syntax": "define",
+        "value": 4375
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_NVS_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_NVS_BASE + 0x19)",
+        "file": "components/nvs_flash/include/nvs.h",
+        "hex": "0x1119",
+        "id": "8b0430f39a5689a143fe2143",
+        "line": 54,
+        "resolution": "resolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/nvs_flash/include/nvs.h#L54",
+        "symbol": "ESP_ERR_NVS_WRONG_ENCRYPTION",
+        "syntax": "define",
+        "value": 4377
+      },
+      {
+        "alias_of": null,
+        "base_symbols": [
+          "ESP_ERR_NVS_BASE"
+        ],
+        "conditions": [],
+        "config_symbols": [],
+        "configurable": false,
+        "expression": "(ESP_ERR_NVS_BASE + 0x18)",
+        "file": "components/nvs_flash/include/nvs.h",
+        "hex": "0x1118",
+        "id": "82e3300feb32df4eae3013e5",
+        "line": 56,
+        "resolution": "resolved",
+        "role": "error",
+        "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/nvs_flash/include/nvs.h#L56",
+        "symbol": "ESP_ERR_NVS_CONTENT_DIFFERS",
+        "syntax": "define",
+        "value": 4376
+      }
+    ],
+    "diagnostics": [],
+    "families": [
+      {
+        "base": "ESP_ERR_NVS_BASE",
+        "conditions": [],
+        "declared_reserved_range": null,
+        "defined_values": [
+          4353,
+          4354,
+          4355,
+          4356,
+          4357,
+          4358,
+          4359,
+          4360,
+          4361,
+          4362,
+          4363,
+          4364,
+          4365,
+          4366,
+          4367,
+          4368,
+          4369,
+          4370,
+          4371,
+          4372,
+          4373,
+          4374,
+          4375,
+          4376,
+          4377
+        ],
+        "envelope": [
+          4353,
+          4377
+        ],
+        "expression": "0x1100",
+        "unresolved_members": [],
+        "value": 4352
+      }
+    ],
+    "limitations": [
+      "Pattern-based candidate discovery; not a build or whole-program analysis",
+      "External includes, generated code, complex expressions and C type conversions may remain unresolved",
+      "Macro scope and conditional coexistence are not proven; enum preprocessing is conservative",
+      "BASE/MAX/END/COUNT roles are naming heuristics unless reviewed"
+    ],
+    "registered_headers": []
+  },
+  "evidence": {
+    "component_tree": "f95e15f89fb5883496f511915d8cddb2a1c8c729",
+    "selection": {
+      "candidate_files": 53,
+      "coverage_note": "Public headers are a static CMake approximation; private implementation definitions may be absent",
+      "mode": "public-headers",
+      "public_header_candidates": [
+        "components/nvs_flash/include/nvs.h",
+        "components/nvs_flash/include/nvs_bootloader.h",
+        "components/nvs_flash/include/nvs_flash.h",
+        "components/nvs_flash/include/nvs_handle.hpp"
+      ],
+      "reasons": [],
+      "selected_files": 8,
+      "skipped_files": 45,
+      "version": "1"
+    }
+  },
+  "files": [
+    {
+      "path": "components/nvs_flash/CMakeLists.txt",
+      "sha256": "5c9c64cdec8d94313a95fa186ba9d689e930b6d8c71e1935e17115aec2fab320"
+    },
+    {
+      "path": "components/nvs_flash/Kconfig",
+      "sha256": "d9bcf22c47c6837abd4059c717513f01e6de6f78519caef10853610276cfa531"
+    },
+    {
+      "path": "components/nvs_flash/include/nvs.h",
+      "sha256": "d961b401c3fa771c8cabdcf1ed19008b8044281b964990648d012c2ac81e0883"
+    },
+    {
+      "path": "components/nvs_flash/include/nvs_bootloader.h",
+      "sha256": "01a7ecc50c11957c99f68e2b7153c3caa9c07eed4748896d301f79c6fc5f026b"
+    },
+    {
+      "path": "components/nvs_flash/include/nvs_flash.h",
+      "sha256": "5a88848045df9a98ab8aaa21cfb7fac20e2501bb72f638a079cdbba505426235"
+    },
+    {
+      "path": "components/nvs_flash/include/nvs_handle.hpp",
+      "sha256": "e57cd9e1d142f58ab54f63490eec3471374d7c987440be5b69ef8107625d9299"
+    },
+    {
+      "path": "components/nvs_flash/test_apps_bootloader/CMakeLists.txt",
+      "sha256": "cd1d07d461666a18ad6e7a1e55429f8335c5b546f77383f2cbe687a000bd5287"
+    },
+    {
+      "path": "components/nvs_flash/test_apps_bootloader/main/CMakeLists.txt",
+      "sha256": "7200b758c2b5a47d645ac77f7a21a5d53f1b7a588d1415004b00e2011fb07c9a"
+    }
+  ],
+  "fingerprint": "e11aa875eb732e4e5ca8833b460b375d582fda2f913bc49d3b32a392445335e6",
+  "identity": {
+    "commit": "fcae32885b0296b32044cb99ecbdc50d98dddb83",
+    "component_url": "https://github.com/espressif/esp-idf/tree/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/nvs_flash",
+    "kind": "github",
+    "repository_url": "https://github.com/espressif/esp-idf",
+    "root_tree": "d03ebfcf051ee6526a73a045d4ee2c21a0f4966e",
+    "version": "v5.5.1"
+  },
+  "input_fingerprint": "fea005f036a4d5e24ff848649dedb42a58c76e47dd600b2421b9cb4f7152fe44",
+  "parser_version": "3",
+  "schema_version": 1,
+  "source": {
+    "error_pattern": "^ESP_ERR_",
+    "id": "idf/nvs_flash",
+    "kind": "github",
+    "maintainer": "espressif",
+    "maintainer_evidence": "https://github.com/espressif/esp-idf",
+    "path": "components/nvs_flash",
+    "ref": "v5.5.1",
+    "repository": "espressif/esp-idf",
+    "scan_mode": "public-headers"
+  },
+  "source_sha256": "072e1d7d770e2c195aa9b8a47e0c7abbecbc56676a4d868cadacb626227d82f7"
+}

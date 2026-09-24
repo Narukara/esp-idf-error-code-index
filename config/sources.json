@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "limits": {
+    "max_components": 4,
+    "max_requests": 100,
+    "max_download_bytes": 20971520,
+    "max_response_bytes": 8388608,
+    "max_seconds": 240,
+    "request_interval_seconds": 1.0,
+    "metadata_ttl_seconds": 21600,
+    "max_files": 300,
+    "max_file_bytes": 524288,
+    "max_source_bytes": 12582912,
+    "cache_max_bytes": 134217728
+  },
+  "sources": [
+    {
+      "id": "idf/esp_common",
+      "scan_mode": "public-headers",
+      "kind": "github",
+      "repository": "espressif/esp-idf",
+      "ref": "v5.5.1",
+      "path": "components/esp_common",
+      "maintainer": "espressif",
+      "maintainer_evidence": "https://github.com/espressif/esp-idf",
+      "error_pattern": "^(ESP_ERR_|ESP_OK$|ESP_FAIL$)"
+    },
+    {
+      "id": "idf/nvs_flash",
+      "scan_mode": "public-headers",
+      "kind": "github",
+      "repository": "espressif/esp-idf",
+      "ref": "v5.5.1",
+      "path": "components/nvs_flash",
+      "maintainer": "espressif",
+      "maintainer_evidence": "https://github.com/espressif/esp-idf",
+      "error_pattern": "^ESP_ERR_"
+    },
+    {
+      "id": "espressif/mdns",
+      "scan_mode": "public-headers",
+      "kind": "registry",
+      "component": "espressif/mdns",
+      "version": "latest-stable",
+      "maintainer": "espressif",
+      "maintainer_evidence": "https://components.espressif.com/components/espressif/mdns",
+      "error_pattern": "^ESP_ERR_"
+    },
+    {
+      "id": "espressif/led_strip",
+      "scan_mode": "public-headers",
+      "kind": "registry",
+      "component": "espressif/led_strip",
+      "version": "latest-stable",
+      "maintainer": "espressif",
+      "maintainer_evidence": "https://components.espressif.com/components/espressif/led_strip",
+      "error_pattern": "^ESP_ERR_"
+    },
+    {
+      "id": "idf/esp_wifi",
+      "scan_mode": "public-headers",
+      "kind": "github",
+      "repository": "espressif/esp-idf",
+      "ref": "v5.5.1",
+      "path": "components/esp_wifi",
+      "maintainer": "espressif",
+      "maintainer_evidence": "https://github.com/espressif/esp-idf",
+      "error_pattern": "^ESP_ERR_",
+      "exclude_submodules": [
+        "lib"
+      ],
+      "context_headers": [
+        "components/esp_common/include/esp_err.h"
+      ]
+    },
+    {
+      "id": "idf/esp_http_client",
+      "scan_mode": "public-headers",
+      "kind": "github",
+      "repository": "espressif/esp-idf",
+      "ref": "v5.5.1",
+      "path": "components/esp_http_client",
+      "maintainer": "espressif",
+      "maintainer_evidence": "https://github.com/espressif/esp-idf",
+      "error_pattern": "^ESP_ERR_"
+    },
+    {
+      "id": "idf/esp_https_ota",
+      "scan_mode": "public-headers",
+      "kind": "github",
+      "repository": "espressif/esp-idf",
+      "ref": "v5.5.1",
+      "path": "components/esp_https_ota",
+      "maintainer": "espressif",
+      "maintainer_evidence": "https://github.com/espressif/esp-idf",
+      "error_pattern": "^ESP_ERR_"
+    },
+    {
+      "id": "idf/esp-tls",
+      "scan_mode": "public-headers",
+      "kind": "github",
+      "repository": "espressif/esp-idf",
+      "ref": "v5.5.1",
+      "path": "components/esp-tls",
+      "maintainer": "espressif",
+      "maintainer_evidence": "https://github.com/espressif/esp-idf",
+      "error_pattern": "^ESP_ERR_"
+    }
+  ]
+}

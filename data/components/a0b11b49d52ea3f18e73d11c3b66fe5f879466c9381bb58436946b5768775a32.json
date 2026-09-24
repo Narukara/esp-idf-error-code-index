@@ -1,0 +1,332 @@
+{
+  "analysis": {
+    "configuration": {
+      "CONFIG_MDNS_ACTION_QUEUE_LEN": {
+        "definition": "config MDNS_ACTION_QUEUE_LEN\n        int \"Maximum actions pending to the server\"\n        range 8 64\n        default 16\n        help\n            Allows setting the length of mDNS action queue.",
+        "file": "Kconfig",
+        "line": 27
+      },
+      "CONFIG_MDNS_DEBUG_BUFFER_SIZE": {
+        "definition": "config MDNS_DEBUG_BUFFER_SIZE\n        int \"Size of temporary buffer for debug prints\"\n        depends on MDNS_DEBUG_USE_ESP_LOG\n        default 1024\n        help\n            This buffer is used to output mDNS packets in debug prints.",
+        "file": "Kconfig",
+        "line": 151
+      },
+      "CONFIG_MDNS_DEBUG_USE_ESP_LOG": {
+        "definition": "config MDNS_DEBUG_USE_ESP_LOG\n        bool \"Route debug prints to ESP_LOG\"\n        depends on MDNS_ENABLE_DEBUG_PRINTS\n        default y\n        help\n            Enable this option to route debug prints to ESP_LOG, which allows more flexibility.",
+        "file": "Kconfig",
+        "line": 144
+      },
+      "CONFIG_MDNS_ENABLE_BROWSE": {
+        "definition": "config MDNS_ENABLE_BROWSE\n        bool \"Enable mDNS browse (daemon service discovery)\"\n        default y\n        help\n            Enable continuous browse APIs (mdns_browse_new / mdns_browse_delete)\n            and the related receive/send paths. Disable to save ~3–4 KB of flash\n            when the application only advertises services or uses one-shot queries.",
+        "file": "Kconfig",
+        "line": 164
+      },
+      "CONFIG_MDNS_ENABLE_CONSOLE_CLI": {
+        "definition": "config MDNS_ENABLE_CONSOLE_CLI\n        bool \"Enable Command Line Interface on device console\"\n        default y\n        help\n            Enable for the console cli to be available on the device.",
+        "file": "Kconfig",
+        "line": 158
+      },
+      "CONFIG_MDNS_ENABLE_DEBUG_PRINTS": {
+        "definition": "config MDNS_ENABLE_DEBUG_PRINTS\n        bool \"Enable debug prints of mDNS packets\"\n        default n\n        help\n            Enable for the library to log received and sent mDNS packets to stdout.",
+        "file": "Kconfig",
+        "line": 138
+      },
+      "CONFIG_MDNS_MAX_INTERFACES": {
+        "definition": "config MDNS_MAX_INTERFACES\n        int \"Max number of interfaces\"\n        range 1 9\n        default 3\n        help\n            Number of network interfaces to be served by the mDNS library.\n            Lowering this number helps to reduce some static RAM usage.",
+        "file": "Kconfig",
+        "line": 2
+      },
+      "CONFIG_MDNS_MAX_SERVICES": {
+        "definition": "config MDNS_MAX_SERVICES\n        int \"Max number of services\"\n        default 10\n        help\n            Services take up a certain amount of memory, and allowing fewer\n            services to be open at the same time conserves memory. Specify\n            the maximum amount of services here.",
+        "file": "Kconfig",
+        "line": 10
+      },
+      "CONFIG_MDNS_MEMORY_ALLOC_INTERNAL": {
+        "definition": "config MDNS_MEMORY_ALLOC_INTERNAL\n                bool \"Allocate mDNS memory from internal RAM\"\n\n        endchoice",
+        "file": "Kconfig",
+        "line": 90
+      },
+      "CONFIG_MDNS_MEMORY_ALLOC_SPIRAM": {
+        "definition": "config MDNS_MEMORY_ALLOC_SPIRAM\n                bool \"Allocate mDNS memory from SPIRAM\"\n                depends on (SPIRAM_USE_CAPS_ALLOC || SPIRAM_USE_MALLOC)",
+        "file": "Kconfig",
+        "line": 86
+      },
+      "CONFIG_MDNS_MEMORY_CUSTOM_IMPL": {
+        "definition": "config MDNS_MEMORY_CUSTOM_IMPL\n            bool \"Implement custom memory functions\"\n            default n\n            help\n                Enable to implement custom memory functions for mDNS library.\n                This option is useful when the application wants to use custom\n                memory allocation functions for mDNS library.",
+        "file": "Kconfig",
+        "line": 95
+      },
+      "CONFIG_MDNS_MULTIPLE_INSTANCE": {
+        "definition": "config MDNS_MULTIPLE_INSTANCE\n        bool \"Multiple instances under the same service type\"\n        default y\n        help\n            Enables adding multiple service instances under the same service type.",
+        "file": "Kconfig",
+        "line": 179
+      },
+      "CONFIG_MDNS_NETWORKING_SOCKET": {
+        "definition": "config MDNS_NETWORKING_SOCKET\n        bool \"Use BSD sockets for mDNS networking\"\n        default n\n        help\n            Enables optional mDNS networking implementation using BSD sockets\n            in UDP multicast mode.\n            This option creates a new thread to serve receiving packets (TODO).\n            This option uses additional N sockets, where N is number of interfaces.",
+        "file": "Kconfig",
+        "line": 121
+      },
+      "CONFIG_MDNS_PREDEF_NETIF_AP": {
+        "definition": "config MDNS_PREDEF_NETIF_AP\n            bool \"Use predefined interface for WiFi Access Point\"\n            default y\n            help\n                Set up mDNS for the default WiFi Access Point.\n                Disable this option if you do not need mDNS on default WiFi AP.",
+        "file": "Kconfig",
+        "line": 194
+      },
+      "CONFIG_MDNS_PREDEF_NETIF_ETH": {
+        "definition": "config MDNS_PREDEF_NETIF_ETH\n            bool \"Use predefined interface for Ethernet\"\n            depends on ETH_ENABLED\n            default y\n            help\n                Set up mDNS for the default Ethernet interface.\n                Disable this option if you do not need mDNS on default Ethernet.",
+        "file": "Kconfig",
+        "line": 201
+      },
+      "CONFIG_MDNS_PREDEF_NETIF_STA": {
+        "definition": "config MDNS_PREDEF_NETIF_STA\n            bool \"Use predefined interface for WiFi Station\"\n            default y\n            help\n                Set up mDNS for the default WiFi station.\n                Disable this option if you do not need mDNS on default WiFi STA.",
+        "file": "Kconfig",
+        "line": 187
+      },
+      "CONFIG_MDNS_RESPOND_REVERSE_QUERIES": {
+        "definition": "config MDNS_RESPOND_REVERSE_QUERIES\n        bool \"Enable responding to IPv4 reverse queries\"\n        default n\n        help\n            Enables support for IPv4 reverse lookup. If enabled, the mDNS library\n            response to PTR queries of \"A.B.C.D.in-addr.arpa\" type.",
+        "file": "Kconfig",
+        "line": 172
+      },
+      "CONFIG_MDNS_SERVICE_ADD_TIMEOUT_MS": {
+        "definition": "config MDNS_SERVICE_ADD_TIMEOUT_MS\n        int \"mDNS adding service timeout (ms)\"\n        range 10 30000\n        default 2000\n        help\n            Configures timeout for adding a new mDNS service. Adding a service\n            fails if could not be completed within this time.",
+        "file": "Kconfig",
+        "line": 105
+      },
+      "CONFIG_MDNS_SKIP_SUPPRESSING_OWN_QUERIES": {
+        "definition": "config MDNS_SKIP_SUPPRESSING_OWN_QUERIES\n        bool \"Skip suppressing our own packets\"\n        default n\n        help\n            Enable only if the querier and the responder share the same IP address.\n            This usually happens in test mode, where we may run multiple instances of\n            responders/queriers on the same interface.",
+        "file": "Kconfig",
+        "line": 130
+      },
+      "CONFIG_MDNS_TASK_AFFINITY": {
+        "definition": "config MDNS_TASK_AFFINITY\n        hex\n        default FREERTOS_NO_AFFINITY if MDNS_TASK_AFFINITY_NO_AFFINITY\n        default 0x0 if MDNS_TASK_AFFINITY_CPU0\n        default 0x1 if MDNS_TASK_AFFINITY_CPU1",
+        "file": "Kconfig",
+        "line": 57
+      },
+      "CONFIG_MDNS_TASK_AFFINITY_CPU0": {
+        "definition": "config MDNS_TASK_AFFINITY_CPU0\n            bool \"CPU0\"",
+        "file": "Kconfig",
+        "line": 50
+      },
+      "CONFIG_MDNS_TASK_AFFINITY_CPU1": {
+        "definition": "config MDNS_TASK_AFFINITY_CPU1\n            bool \"CPU1\"\n            depends on !FREERTOS_UNICORE\n\n    endchoice",
+        "file": "Kconfig",
+        "line": 52
+      },
+      "CONFIG_MDNS_TASK_AFFINITY_NO_AFFINITY": {
+        "definition": "config MDNS_TASK_AFFINITY_NO_AFFINITY\n            bool \"No affinity\"",
+        "file": "Kconfig",
+        "line": 47
+      },
+      "CONFIG_MDNS_TASK_CREATE_FROM_INTERNAL": {
+        "definition": "config MDNS_TASK_CREATE_FROM_INTERNAL\n                bool \"mDNS task creates on the internal RAM\"\n\n        endchoice\n\n        choice MDNS_MEMORY_ALLOC_FROM\n            prompt \"Select mDNS memory allocation type\"\n            default MDNS_MEMORY_ALLOC_INTERNAL",
+        "file": "Kconfig",
+        "line": 77
+      },
+      "CONFIG_MDNS_TASK_CREATE_FROM_SPIRAM": {
+        "definition": "config MDNS_TASK_CREATE_FROM_SPIRAM\n                bool \"mDNS task creates on the SPIRAM (READ HELP)\"\n                depends on (SPIRAM_USE_CAPS_ALLOC || SPIRAM_USE_MALLOC)\n                help\n                    mDNS task creates on the SPIRAM.\n                    This option requires FreeRTOS component to allow creating\n                    tasks on the external memory.\n                    Please read the documentation about FREERTOS_TASK_CREATE_ALLOW_EXT_MEM",
+        "file": "Kconfig",
+        "line": 69
+      },
+      "CONFIG_MDNS_TASK_PRIORITY": {
+        "definition": "config MDNS_TASK_PRIORITY\n        int \"mDNS task priority\"\n        range 1 255\n        default 1\n        help\n            Allows setting mDNS task priority. Please do not set the task priority\n            higher than priorities of system tasks. Compile time warning/error\n            would be emitted if the chosen task priority were too high.",
+        "file": "Kconfig",
+        "line": 18
+      },
+      "CONFIG_MDNS_TASK_STACK_SIZE": {
+        "definition": "config MDNS_TASK_STACK_SIZE\n        int \"mDNS task stack size\"\n        default 4096\n        help\n            Allows setting mDNS task stacksize.\n\n    choice MDNS_TASK_AFFINITY\n        prompt \"mDNS task affinity\"\n        default MDNS_TASK_AFFINITY_CPU0\n        help\n            Allows setting mDNS tasks affinity, i.e. whether the task is pinned to\n            CPU0, pinned to CPU1, or allowed to run on any CPU.",
+        "file": "Kconfig",
+        "line": 34
+      },
+      "CONFIG_MDNS_TIMER_PERIOD_MS": {
+        "definition": "config MDNS_TIMER_PERIOD_MS\n        int \"mDNS timer period (ms)\"\n        range 10 10000\n        default 100\n        help\n            Configures period of mDNS timer, which periodically transmits packets\n            and schedules mDNS searches.",
+        "file": "Kconfig",
+        "line": 113
+      }
+    },
+    "coverage": "candidate-static-scan",
+    "definitions": [],
+    "diagnostics": [],
+    "limitations": [
+      "Pattern-based candidate discovery; not a build or whole-program analysis",
+      "External includes, generated code, complex expressions and C type conversions may remain unresolved",
+      "Macro scope and conditional coexistence are not proven; enum preprocessing is conservative",
+      "BASE/MAX/END/COUNT roles are naming heuristics unless reviewed"
+    ]
+  },
+  "evidence": {
+    "archive_sha256": "8b1047b691343257de210d83ae5b27df9dc8f259b94ce37aa680501867404a74",
+    "hash_note": "Registry component_hash identifies the release; archive_sha256 is independently observed, not compared as the same hash algorithm"
+  },
+  "files": [
+    {
+      "path": "CMakeLists.txt",
+      "sha256": "760c158f6a9fb7475ffdbf7e83fe644422ae2ebcbb0228b1a80f5dc6a5204334"
+    },
+    {
+      "path": "Kconfig",
+      "sha256": "5c335f054372fe2d765d0f6849e84994d348d4bb7b34fefd5fb5119b09fbfd7f"
+    },
+    {
+      "path": "idf_component.yml",
+      "sha256": "33f62bdab9161745221528906901762f4785fca8cef598e0f0b135ea2637b98e"
+    },
+    {
+      "path": "include/mdns.h",
+      "sha256": "773b2024089bb167ba470a27c339ee03f89d39791c78cb0560f33c828e674c3a"
+    },
+    {
+      "path": "include/mdns_console.h",
+      "sha256": "7b06003a193a2b602dc38e2f8d7b34c4ed3043e02c57345565f06030464d946a"
+    },
+    {
+      "path": "mdns_browser.c",
+      "sha256": "d18d5f81977397ecc071c7107c85447fad36bc7c54736962f90c677e20926825"
+    },
+    {
+      "path": "mdns_cache.c",
+      "sha256": "40371d4f3c05e241b7f444658be003d69c500aa30788c91aaa2768ae8554223b"
+    },
+    {
+      "path": "mdns_console.c",
+      "sha256": "ea1ffdb7ccd8285f1f81b870acac2732d53ed1826b357bd3051c72b10456638b"
+    },
+    {
+      "path": "mdns_debug.c",
+      "sha256": "ea2939595db7a4dedd9b6129e27943e216c13d6b296ecbba10438fe202abd459"
+    },
+    {
+      "path": "mdns_mem_caps.c",
+      "sha256": "eeaf91732c95432c97bd44cd1211e017f5d6e9bf9d52fe13b988099a9c9fc9ad"
+    },
+    {
+      "path": "mdns_netif.c",
+      "sha256": "0ea6896c30d8ff4724602c3cb952403eee254853fb9d3412589b1705ccf1545f"
+    },
+    {
+      "path": "mdns_networking_lwip.c",
+      "sha256": "adc139fa504a925ab644f21f8dce3659927f534e390a176b72b0ae3206c6a3ea"
+    },
+    {
+      "path": "mdns_networking_socket.c",
+      "sha256": "84dcefa81cdbc52212a09934bdc7eb3f49fbac24c2679da0bca2103ce84961c7"
+    },
+    {
+      "path": "mdns_pcb.c",
+      "sha256": "0d87034a1cbdfa290460a14417f58895e477a4b358752b99dbab56afa4018d38"
+    },
+    {
+      "path": "mdns_querier.c",
+      "sha256": "0403b180fa57154fbab1bbde002450b5278b1c8a4b4d9e807e23fa87d9ad518e"
+    },
+    {
+      "path": "mdns_receive.c",
+      "sha256": "da7d826a98b8d38015c3ddc33583b10d2c230167e97fc457c52053c16126085d"
+    },
+    {
+      "path": "mdns_responder.c",
+      "sha256": "6b979631550f23ba66389d1a5c011b59fc3051e8bdbcc2c97865d9fe2c3fad28"
+    },
+    {
+      "path": "mdns_send.c",
+      "sha256": "fd4484a7dfbb1ab140bc6c758d93f4538eaae9728f5d1182d5df33c8eb3f3af2"
+    },
+    {
+      "path": "mdns_service.c",
+      "sha256": "4d9c60e84e3557e774f13b3364515ca9d995d9a8fee839d875e1ffcdd08c7fde"
+    },
+    {
+      "path": "mdns_utils.c",
+      "sha256": "4cb150756882d4aa0e686f5111f494a63cc27c88d795738d96d23fbbd14817f9"
+    },
+    {
+      "path": "private_include/mdns_browser.h",
+      "sha256": "dbcf709626e59b5efc1a018d59a1dafa5d8f0b71a474c60b180b6c0b59817b1c"
+    },
+    {
+      "path": "private_include/mdns_cache.h",
+      "sha256": "9ff1ff4b403caff37a8c365f799928718cf1f8c95a647818b62758cbad366b6c"
+    },
+    {
+      "path": "private_include/mdns_debug.h",
+      "sha256": "9885977f8aa428c2741da28e1e0ca54f2b5ed48560b4f3070e1bd6b521f8197e"
+    },
+    {
+      "path": "private_include/mdns_mem_caps.h",
+      "sha256": "67f749086445e9eb9ba8d00120eca699e9b16865c1c8ccdf4449ad9cd6c9076d"
+    },
+    {
+      "path": "private_include/mdns_netif.h",
+      "sha256": "9ab3c26a5fee95965417dfd8e6d3fa69c4b7480aec51bc19d0f86ff20eba14f2"
+    },
+    {
+      "path": "private_include/mdns_networking.h",
+      "sha256": "07b4ac8ed569bfb500641afd90808b2988e9dc894044391ae824510a265c45aa"
+    },
+    {
+      "path": "private_include/mdns_pcb.h",
+      "sha256": "95bf89b3a83f0fd6f91ee33d70245117fe1788b6ff487120e2aebdf51aefb496"
+    },
+    {
+      "path": "private_include/mdns_private.h",
+      "sha256": "bacc15890ab13f6cd134151abe84bd97bde3e46e1c37e41eaf121ad7dc49a1e5"
+    },
+    {
+      "path": "private_include/mdns_querier.h",
+      "sha256": "9c6b62600bca9a9a60a50d63b1ab64bead0e5f3f5f3267ce41cab06d762a3511"
+    },
+    {
+      "path": "private_include/mdns_receive.h",
+      "sha256": "fff10a3f796db4b7698cef6aae625d3983978790f53730a569bb4f91c91d2d0c"
+    },
+    {
+      "path": "private_include/mdns_responder.h",
+      "sha256": "e1db6cca0a43d1c8f55f432b54f7990b556841b8e44f4735289a879d2a3a158b"
+    },
+    {
+      "path": "private_include/mdns_send.h",
+      "sha256": "4b85ed92b8bcbb9ac2ed9024db0a6fe1bbab115a33609399b60d635de96631f2"
+    },
+    {
+      "path": "private_include/mdns_service.h",
+      "sha256": "330285a5c1e0b62ada683b1ec5f67f2b9946bfb7ab06cec1d8c5dae163ca630a"
+    },
+    {
+      "path": "private_include/mdns_utils.h",
+      "sha256": "dc561d0179deea4b6bc0681b36d3be72860dbfec388c5180b8a54eac1d2f3d42"
+    }
+  ],
+  "fingerprint": "a0b11b49d52ea3f18e73d11c3b66fe5f879466c9381bb58436946b5768775a32",
+  "identity": {
+    "archive_url": "https://components-file.espressif.com/components/espressif/mdns/1.13.1/espressif__mdns-v1.13.1.zip",
+    "component_hash": "b679eafd0acae2066e2645bd91d073e33ca5be515e2545cd3c4e55a3e3bce3cb",
+    "component_url": "https://components.espressif.com/components/espressif/mdns/versions/1.13.1",
+    "dependencies": [
+      {
+        "is_public": false,
+        "matches": [],
+        "name": null,
+        "namespace": null,
+        "registry_url": null,
+        "require": true,
+        "rules": [],
+        "source": "idf",
+        "spec": ">=5.0"
+      }
+    ],
+    "kind": "registry",
+    "repository_url": "git://github.com/espressif/esp-protocols.git",
+    "targets": [],
+    "version": "1.13.1"
+  },
+  "parser_version": "1",
+  "schema_version": 1,
+  "source": {
+    "component": "espressif/mdns",
+    "error_pattern": "^ESP_ERR_",
+    "id": "espressif/mdns",
+    "kind": "registry",
+    "maintainer": "espressif",
+    "maintainer_evidence": "https://components.espressif.com/components/espressif/mdns",
+    "version": "latest-stable"
+  },
+  "source_sha256": "ff7c31ad0dd137a024f8820befff1acdcc69446a21b4ac3daf6f17f46a58eb44"
+}

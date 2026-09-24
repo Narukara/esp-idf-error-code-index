@@ -1,0 +1,4525 @@
+{
+  "components": [
+    {
+      "accepted_at": "2026-09-23T14:34:42+00:00",
+      "bases": [
+        {
+          "expression": "0x3000",
+          "symbol": "ESP_ERR_WIFI_BASE",
+          "value": 12288
+        },
+        {
+          "expression": "0x4000",
+          "symbol": "ESP_ERR_MESH_BASE",
+          "value": 16384
+        },
+        {
+          "expression": "0x6000",
+          "symbol": "ESP_ERR_FLASH_BASE",
+          "value": 24576
+        },
+        {
+          "expression": "0xc000",
+          "symbol": "ESP_ERR_HW_CRYPTO_BASE",
+          "value": 49152
+        },
+        {
+          "expression": "0xd000",
+          "symbol": "ESP_ERR_MEMPROT_BASE",
+          "value": 53248
+        }
+      ],
+      "configurable": 0,
+      "context_headers": [],
+      "coverage": "candidate-static-scan",
+      "definitions": 20,
+      "diagnostics": 0,
+      "error": null,
+      "excluded_submodules": [],
+      "id": "idf/esp_common",
+      "maintainer": "espressif",
+      "result": "data/components/b9aef4618c6df765a9a870dcf18a54c8871e3369eb6a04b080920dc625b39000.json",
+      "selection": {
+        "candidate_files": 12,
+        "coverage_note": "Public headers are a static CMake approximation; private implementation definitions may be absent",
+        "mode": "public-headers",
+        "public_header_candidates": [
+          "components/esp_common/include/esp_assert.h",
+          "components/esp_common/include/esp_attr.h",
+          "components/esp_common/include/esp_bit_defs.h",
+          "components/esp_common/include/esp_check.h",
+          "components/esp_common/include/esp_compiler.h",
+          "components/esp_common/include/esp_err.h",
+          "components/esp_common/include/esp_idf_version.h",
+          "components/esp_common/include/esp_macros.h",
+          "components/esp_common/include/esp_types.h"
+        ],
+        "reasons": [],
+        "selected_files": 11,
+        "skipped_files": 1,
+        "version": "1"
+      },
+      "status": "ok",
+      "unresolved": 0,
+      "url": "https://github.com/espressif/esp-idf/tree/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_common",
+      "values": [
+        257,
+        258,
+        259,
+        260,
+        261,
+        262,
+        263,
+        264,
+        265,
+        266,
+        267,
+        268,
+        269
+      ],
+      "version": "v5.5.1"
+    },
+    {
+      "accepted_at": "2026-09-23T14:34:42+00:00",
+      "bases": [
+        {
+          "expression": "0x1100",
+          "symbol": "ESP_ERR_NVS_BASE",
+          "value": 4352
+        }
+      ],
+      "configurable": 0,
+      "context_headers": [],
+      "coverage": "candidate-static-scan",
+      "definitions": 26,
+      "diagnostics": 0,
+      "error": null,
+      "excluded_submodules": [],
+      "id": "idf/nvs_flash",
+      "maintainer": "espressif",
+      "result": "data/components/e11aa875eb732e4e5ca8833b460b375d582fda2f913bc49d3b32a392445335e6.json",
+      "selection": {
+        "candidate_files": 53,
+        "coverage_note": "Public headers are a static CMake approximation; private implementation definitions may be absent",
+        "mode": "public-headers",
+        "public_header_candidates": [
+          "components/nvs_flash/include/nvs.h",
+          "components/nvs_flash/include/nvs_bootloader.h",
+          "components/nvs_flash/include/nvs_flash.h",
+          "components/nvs_flash/include/nvs_handle.hpp"
+        ],
+        "reasons": [],
+        "selected_files": 8,
+        "skipped_files": 45,
+        "version": "1"
+      },
+      "status": "ok",
+      "unresolved": 0,
+      "url": "https://github.com/espressif/esp-idf/tree/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/nvs_flash",
+      "values": [
+        4353,
+        4354,
+        4355,
+        4356,
+        4357,
+        4358,
+        4359,
+        4360,
+        4361,
+        4362,
+        4363,
+        4364,
+        4365,
+        4366,
+        4367,
+        4368,
+        4369,
+        4370,
+        4371,
+        4372,
+        4373,
+        4374,
+        4375,
+        4376,
+        4377
+      ],
+      "version": "v5.5.1"
+    },
+    {
+      "accepted_at": "2026-09-23T14:34:42+00:00",
+      "bases": [],
+      "configurable": 0,
+      "context_headers": [],
+      "coverage": "candidate-static-scan",
+      "definitions": 0,
+      "diagnostics": 0,
+      "error": null,
+      "excluded_submodules": [],
+      "id": "espressif/mdns",
+      "maintainer": "espressif",
+      "result": "data/components/b0e72b38e8215f46c21102471bafe87f7fc7518e255097e8b85b4c78ac43b2fe.json",
+      "selection": {
+        "candidate_files": 34,
+        "coverage_note": "Public headers are a static CMake approximation; private implementation definitions may be absent",
+        "mode": "public-headers",
+        "public_header_candidates": [
+          "include/mdns.h",
+          "include/mdns_console.h"
+        ],
+        "reasons": [],
+        "selected_files": 5,
+        "skipped_files": 29,
+        "version": "1"
+      },
+      "status": "ok",
+      "unresolved": 0,
+      "url": "https://components.espressif.com/components/espressif/mdns/versions/1.13.1",
+      "values": [],
+      "version": "1.13.1"
+    },
+    {
+      "accepted_at": "2026-09-23T14:34:42+00:00",
+      "bases": [],
+      "configurable": 0,
+      "context_headers": [],
+      "coverage": "candidate-static-scan",
+      "definitions": 0,
+      "diagnostics": 0,
+      "error": null,
+      "excluded_submodules": [],
+      "id": "espressif/led_strip",
+      "maintainer": "espressif",
+      "result": "data/components/5c6c9a50877bb5ab5b2301479c41e8ce9581e5e30971e1cb8f662ef22d88de09.json",
+      "selection": {
+        "candidate_files": 12,
+        "coverage_note": "Public headers are a static CMake approximation; private implementation definitions may be absent",
+        "mode": "public-headers",
+        "public_header_candidates": [
+          "include/led_strip.h",
+          "include/led_strip_rmt.h",
+          "include/led_strip_spi.h",
+          "include/led_strip_types.h",
+          "interface/led_strip_interface.h"
+        ],
+        "reasons": [],
+        "selected_files": 7,
+        "skipped_files": 5,
+        "version": "1"
+      },
+      "status": "ok",
+      "unresolved": 0,
+      "url": "https://components.espressif.com/components/espressif/led_strip/versions/3.0.3",
+      "values": [],
+      "version": "3.0.3"
+    },
+    {
+      "accepted_at": "2026-09-23T14:33:21+00:00",
+      "bases": [
+        {
+          "expression": "(ESP_ERR_WIFI_BASE + 100)",
+          "symbol": "ESP_ERR_ESPNOW_BASE",
+          "value": 12388
+        }
+      ],
+      "configurable": 0,
+      "context_headers": [
+        "components/esp_common/include/esp_err.h"
+      ],
+      "coverage": "candidate-static-scan",
+      "definitions": 62,
+      "diagnostics": 2,
+      "error": null,
+      "excluded_submodules": [
+        {
+          "commit": "c1f74dcf9151ae21b7a3850b90952796a2806358",
+          "path": "lib"
+        }
+      ],
+      "id": "idf/esp_wifi",
+      "maintainer": "espressif",
+      "result": "data/components/57965df9cfa2c94cf360b4493ad7601bb88e7f8d11b387f82e84a6c301de10df.json",
+      "selection": {
+        "candidate_files": 49,
+        "coverage_note": "Public headers are a static CMake approximation; private implementation definitions may be absent",
+        "mode": "public-headers",
+        "public_header_candidates": [
+          "components/esp_wifi/include/esp_mesh.h",
+          "components/esp_wifi/include/esp_mesh_internal.h",
+          "components/esp_wifi/include/esp_now.h",
+          "components/esp_wifi/include/esp_private/esp_wifi_he_private.h",
+          "components/esp_wifi/include/esp_private/esp_wifi_he_types_private.h",
+          "components/esp_wifi/include/esp_private/esp_wifi_private.h",
+          "components/esp_wifi/include/esp_private/esp_wifi_types_private.h",
+          "components/esp_wifi/include/esp_private/wifi.h",
+          "components/esp_wifi/include/esp_private/wifi_os_adapter.h",
+          "components/esp_wifi/include/esp_private/wifi_types.h",
+          "components/esp_wifi/include/esp_smartconfig.h",
+          "components/esp_wifi/include/esp_wifi.h",
+          "components/esp_wifi/include/esp_wifi_ap_get_sta_list.h",
+          "components/esp_wifi/include/esp_wifi_crypto_types.h",
+          "components/esp_wifi/include/esp_wifi_default.h",
+          "components/esp_wifi/include/esp_wifi_he.h",
+          "components/esp_wifi/include/esp_wifi_he_types.h",
+          "components/esp_wifi/include/esp_wifi_netif.h",
+          "components/esp_wifi/include/esp_wifi_types.h",
+          "components/esp_wifi/include/esp_wifi_types_generic.h",
+          "components/esp_wifi/include/local/esp_wifi_types_native.h",
+          "components/esp_wifi/include/smartconfig_ack.h",
+          "components/esp_wifi/wifi_apps/include/apps_private/wifi_apps_private.h",
+          "components/esp_wifi/wifi_apps/nan_app/include/esp_nan.h"
+        ],
+        "reasons": [],
+        "selected_files": 27,
+        "skipped_files": 22,
+        "version": "1"
+      },
+      "status": "ok",
+      "unresolved": 0,
+      "url": "https://github.com/espressif/esp-idf/tree/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi",
+      "values": [
+        12289,
+        12290,
+        12291,
+        12292,
+        12293,
+        12294,
+        12295,
+        12296,
+        12297,
+        12298,
+        12299,
+        12300,
+        12301,
+        12302,
+        12303,
+        12306,
+        12307,
+        12308,
+        12309,
+        12310,
+        12311,
+        12312,
+        12313,
+        12314,
+        12315,
+        12316,
+        12389,
+        12390,
+        12391,
+        12392,
+        12393,
+        12394,
+        12395,
+        12396,
+        12397,
+        16385,
+        16386,
+        16387,
+        16388,
+        16389,
+        16390,
+        16391,
+        16392,
+        16393,
+        16394,
+        16395,
+        16396,
+        16397,
+        16398,
+        16399,
+        16400,
+        16401,
+        16402,
+        16403,
+        16404,
+        16405,
+        16406,
+        16407,
+        16408,
+        16409,
+        16410
+      ],
+      "version": "v5.5.1"
+    },
+    {
+      "accepted_at": "2026-09-23T14:34:42+00:00",
+      "bases": [
+        {
+          "expression": "(0x7000)",
+          "symbol": "ESP_ERR_HTTP_BASE",
+          "value": 28672
+        }
+      ],
+      "configurable": 0,
+      "context_headers": [],
+      "coverage": "candidate-static-scan",
+      "definitions": 11,
+      "diagnostics": 0,
+      "error": null,
+      "excluded_submodules": [],
+      "id": "idf/esp_http_client",
+      "maintainer": "espressif",
+      "result": "data/components/fb74566ee45057e774623506c25098ead855c765050e7a4602a9039eef70dcd6.json",
+      "selection": {
+        "candidate_files": 10,
+        "coverage_note": "Public headers are a static CMake approximation; private implementation definitions may be absent",
+        "mode": "public-headers",
+        "public_header_candidates": [
+          "components/esp_http_client/include/esp_http_client.h"
+        ],
+        "reasons": [],
+        "selected_files": 3,
+        "skipped_files": 7,
+        "version": "1"
+      },
+      "status": "ok",
+      "unresolved": 0,
+      "url": "https://github.com/espressif/esp-idf/tree/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_http_client",
+      "values": [
+        28673,
+        28674,
+        28675,
+        28676,
+        28677,
+        28678,
+        28679,
+        28680,
+        28681,
+        28682
+      ],
+      "version": "v5.5.1"
+    },
+    {
+      "accepted_at": "2026-09-23T14:34:42+00:00",
+      "bases": [
+        {
+          "expression": "(0x9000)",
+          "symbol": "ESP_ERR_HTTPS_OTA_BASE",
+          "value": 36864
+        }
+      ],
+      "configurable": 0,
+      "context_headers": [],
+      "coverage": "candidate-static-scan",
+      "definitions": 2,
+      "diagnostics": 0,
+      "error": null,
+      "excluded_submodules": [],
+      "id": "idf/esp_https_ota",
+      "maintainer": "espressif",
+      "result": "data/components/7b026facb4dfd302886f1171801d137765157a26bdbe6d4085a64016dc69d26f.json",
+      "selection": {
+        "candidate_files": 4,
+        "coverage_note": "Public headers are a static CMake approximation; private implementation definitions may be absent",
+        "mode": "public-headers",
+        "public_header_candidates": [
+          "components/esp_https_ota/include/esp_https_ota.h"
+        ],
+        "reasons": [],
+        "selected_files": 3,
+        "skipped_files": 1,
+        "version": "1"
+      },
+      "status": "ok",
+      "unresolved": 0,
+      "url": "https://github.com/espressif/esp-idf/tree/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_https_ota",
+      "values": [
+        36865
+      ],
+      "version": "v5.5.1"
+    },
+    {
+      "accepted_at": "2026-09-23T14:34:42+00:00",
+      "bases": [
+        {
+          "expression": "0x8000",
+          "symbol": "ESP_ERR_ESP_TLS_BASE",
+          "value": 32768
+        }
+      ],
+      "configurable": 0,
+      "context_headers": [],
+      "coverage": "candidate-static-scan",
+      "definitions": 31,
+      "diagnostics": 0,
+      "error": null,
+      "excluded_submodules": [],
+      "id": "idf/esp-tls",
+      "maintainer": "espressif",
+      "result": "data/components/519781a58bcd64a4492b4c99472237490d0f1f6478b8a7cfcad11e6f6c2b5f96.json",
+      "selection": {
+        "candidate_files": 16,
+        "coverage_note": "Public headers are a static CMake approximation; private implementation definitions may be absent",
+        "mode": "public-headers",
+        "public_header_candidates": [
+          "components/esp-tls/esp-tls-crypto/esp_tls_crypto.h"
+        ],
+        "reasons": [
+          "dynamic_or_external_cmake_path",
+          "fallback_all_headers"
+        ],
+        "selected_files": 10,
+        "skipped_files": 6,
+        "version": "1"
+      },
+      "status": "ok",
+      "unresolved": 0,
+      "url": "https://github.com/espressif/esp-idf/tree/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp-tls",
+      "values": [
+        32769,
+        32770,
+        32771,
+        32772,
+        32773,
+        32774,
+        32775,
+        32776,
+        32777,
+        32784,
+        32785,
+        32786,
+        32787,
+        32788,
+        32789,
+        32790,
+        32791,
+        32792,
+        32793,
+        32794,
+        32795,
+        32796,
+        32817,
+        32818,
+        32819,
+        32820,
+        32821,
+        32822,
+        32823,
+        32824
+      ],
+      "version": "v5.5.1"
+    }
+  ],
+  "definitions": [
+    {
+      "alias_of": null,
+      "base_symbols": [],
+      "component": "idf/esp_common",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "expression": "0",
+      "file": "components/esp_common/include/esp_err.h",
+      "hex": "0x0",
+      "id": "82155827121f84c95a7b80c0",
+      "line": 22,
+      "resolution": "resolved",
+      "role": "shared",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_common/include/esp_err.h#L22",
+      "stale": false,
+      "symbol": "ESP_OK",
+      "syntax": "define",
+      "value": 0,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [],
+      "component": "idf/esp_common",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "expression": "-1",
+      "file": "components/esp_common/include/esp_err.h",
+      "hex": "-0x1",
+      "id": "6787bb9e43041fe94035eaa3",
+      "line": 23,
+      "resolution": "resolved",
+      "role": "shared",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_common/include/esp_err.h#L23",
+      "stale": false,
+      "symbol": "ESP_FAIL",
+      "syntax": "define",
+      "value": -1,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [],
+      "component": "idf/esp_common",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "expression": "0x101",
+      "file": "components/esp_common/include/esp_err.h",
+      "hex": "0x101",
+      "id": "2853b787b49184b6d9645c73",
+      "line": 25,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_common/include/esp_err.h#L25",
+      "stale": false,
+      "symbol": "ESP_ERR_NO_MEM",
+      "syntax": "define",
+      "value": 257,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [],
+      "component": "idf/esp_common",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "expression": "0x102",
+      "file": "components/esp_common/include/esp_err.h",
+      "hex": "0x102",
+      "id": "43aaf501fd1bf98ac613d340",
+      "line": 26,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_common/include/esp_err.h#L26",
+      "stale": false,
+      "symbol": "ESP_ERR_INVALID_ARG",
+      "syntax": "define",
+      "value": 258,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [],
+      "component": "idf/esp_common",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "expression": "0x103",
+      "file": "components/esp_common/include/esp_err.h",
+      "hex": "0x103",
+      "id": "b6d29bb23a9c9bd302bebfb1",
+      "line": 27,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_common/include/esp_err.h#L27",
+      "stale": false,
+      "symbol": "ESP_ERR_INVALID_STATE",
+      "syntax": "define",
+      "value": 259,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [],
+      "component": "idf/esp_common",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "expression": "0x104",
+      "file": "components/esp_common/include/esp_err.h",
+      "hex": "0x104",
+      "id": "ba6e26ceac554f115c869566",
+      "line": 28,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_common/include/esp_err.h#L28",
+      "stale": false,
+      "symbol": "ESP_ERR_INVALID_SIZE",
+      "syntax": "define",
+      "value": 260,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [],
+      "component": "idf/esp_common",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "expression": "0x105",
+      "file": "components/esp_common/include/esp_err.h",
+      "hex": "0x105",
+      "id": "d4f4405fc5ed53573ba6835a",
+      "line": 29,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_common/include/esp_err.h#L29",
+      "stale": false,
+      "symbol": "ESP_ERR_NOT_FOUND",
+      "syntax": "define",
+      "value": 261,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [],
+      "component": "idf/esp_common",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "expression": "0x106",
+      "file": "components/esp_common/include/esp_err.h",
+      "hex": "0x106",
+      "id": "7ce2127c4496c11de264cacc",
+      "line": 30,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_common/include/esp_err.h#L30",
+      "stale": false,
+      "symbol": "ESP_ERR_NOT_SUPPORTED",
+      "syntax": "define",
+      "value": 262,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [],
+      "component": "idf/esp_common",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "expression": "0x107",
+      "file": "components/esp_common/include/esp_err.h",
+      "hex": "0x107",
+      "id": "c279044d80748202a171889d",
+      "line": 31,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_common/include/esp_err.h#L31",
+      "stale": false,
+      "symbol": "ESP_ERR_TIMEOUT",
+      "syntax": "define",
+      "value": 263,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [],
+      "component": "idf/esp_common",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "expression": "0x108",
+      "file": "components/esp_common/include/esp_err.h",
+      "hex": "0x108",
+      "id": "371af6654d97cf32b185640a",
+      "line": 32,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_common/include/esp_err.h#L32",
+      "stale": false,
+      "symbol": "ESP_ERR_INVALID_RESPONSE",
+      "syntax": "define",
+      "value": 264,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [],
+      "component": "idf/esp_common",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "expression": "0x109",
+      "file": "components/esp_common/include/esp_err.h",
+      "hex": "0x109",
+      "id": "fa73281bda43eff40d282d08",
+      "line": 33,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_common/include/esp_err.h#L33",
+      "stale": false,
+      "symbol": "ESP_ERR_INVALID_CRC",
+      "syntax": "define",
+      "value": 265,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [],
+      "component": "idf/esp_common",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "expression": "0x10A",
+      "file": "components/esp_common/include/esp_err.h",
+      "hex": "0x10a",
+      "id": "5ca8096141021267c2ae5ccb",
+      "line": 34,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_common/include/esp_err.h#L34",
+      "stale": false,
+      "symbol": "ESP_ERR_INVALID_VERSION",
+      "syntax": "define",
+      "value": 266,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [],
+      "component": "idf/esp_common",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "expression": "0x10B",
+      "file": "components/esp_common/include/esp_err.h",
+      "hex": "0x10b",
+      "id": "3df0f8ee46adba84e438cbfd",
+      "line": 35,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_common/include/esp_err.h#L35",
+      "stale": false,
+      "symbol": "ESP_ERR_INVALID_MAC",
+      "syntax": "define",
+      "value": 267,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [],
+      "component": "idf/esp_common",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "expression": "0x10C",
+      "file": "components/esp_common/include/esp_err.h",
+      "hex": "0x10c",
+      "id": "ee42b05720cc6c2c3b9b4815",
+      "line": 36,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_common/include/esp_err.h#L36",
+      "stale": false,
+      "symbol": "ESP_ERR_NOT_FINISHED",
+      "syntax": "define",
+      "value": 268,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [],
+      "component": "idf/esp_common",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "expression": "0x10D",
+      "file": "components/esp_common/include/esp_err.h",
+      "hex": "0x10d",
+      "id": "fa54b61eea56bb3d20f3c058",
+      "line": 37,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_common/include/esp_err.h#L37",
+      "stale": false,
+      "symbol": "ESP_ERR_NOT_ALLOWED",
+      "syntax": "define",
+      "value": 269,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [],
+      "component": "idf/esp_common",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "expression": "0x3000",
+      "file": "components/esp_common/include/esp_err.h",
+      "hex": "0x3000",
+      "id": "662cb5d2c1243e42a72d76ac",
+      "line": 39,
+      "resolution": "resolved",
+      "role": "base",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_common/include/esp_err.h#L39",
+      "stale": false,
+      "symbol": "ESP_ERR_WIFI_BASE",
+      "syntax": "define",
+      "value": 12288,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [],
+      "component": "idf/esp_common",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "expression": "0x4000",
+      "file": "components/esp_common/include/esp_err.h",
+      "hex": "0x4000",
+      "id": "b19a5ee33626d39be8cc4fff",
+      "line": 40,
+      "resolution": "resolved",
+      "role": "base",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_common/include/esp_err.h#L40",
+      "stale": false,
+      "symbol": "ESP_ERR_MESH_BASE",
+      "syntax": "define",
+      "value": 16384,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [],
+      "component": "idf/esp_common",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "expression": "0x6000",
+      "file": "components/esp_common/include/esp_err.h",
+      "hex": "0x6000",
+      "id": "b6bab326772f8a46ffe1947e",
+      "line": 41,
+      "resolution": "resolved",
+      "role": "base",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_common/include/esp_err.h#L41",
+      "stale": false,
+      "symbol": "ESP_ERR_FLASH_BASE",
+      "syntax": "define",
+      "value": 24576,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [],
+      "component": "idf/esp_common",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "expression": "0xc000",
+      "file": "components/esp_common/include/esp_err.h",
+      "hex": "0xc000",
+      "id": "fa00b8d3cae3c714aae6bd85",
+      "line": 42,
+      "resolution": "resolved",
+      "role": "base",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_common/include/esp_err.h#L42",
+      "stale": false,
+      "symbol": "ESP_ERR_HW_CRYPTO_BASE",
+      "syntax": "define",
+      "value": 49152,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [],
+      "component": "idf/esp_common",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "expression": "0xd000",
+      "file": "components/esp_common/include/esp_err.h",
+      "hex": "0xd000",
+      "id": "d295b0c5721628cd30ab5d3a",
+      "line": 43,
+      "resolution": "resolved",
+      "role": "base",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_common/include/esp_err.h#L43",
+      "stale": false,
+      "symbol": "ESP_ERR_MEMPROT_BASE",
+      "syntax": "define",
+      "value": 53248,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [],
+      "component": "idf/nvs_flash",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "expression": "0x1100",
+      "file": "components/nvs_flash/include/nvs.h",
+      "hex": "0x1100",
+      "id": "7ccd9e9b289b3c1b94984d7d",
+      "line": 29,
+      "resolution": "resolved",
+      "role": "base",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/nvs_flash/include/nvs.h#L29",
+      "stale": false,
+      "symbol": "ESP_ERR_NVS_BASE",
+      "syntax": "define",
+      "value": 4352,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_NVS_BASE"
+      ],
+      "component": "idf/nvs_flash",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "expression": "(ESP_ERR_NVS_BASE + 0x01)",
+      "file": "components/nvs_flash/include/nvs.h",
+      "hex": "0x1101",
+      "id": "afe29a03ebf30c869b16e534",
+      "line": 30,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/nvs_flash/include/nvs.h#L30",
+      "stale": false,
+      "symbol": "ESP_ERR_NVS_NOT_INITIALIZED",
+      "syntax": "define",
+      "value": 4353,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_NVS_BASE"
+      ],
+      "component": "idf/nvs_flash",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "expression": "(ESP_ERR_NVS_BASE + 0x02)",
+      "file": "components/nvs_flash/include/nvs.h",
+      "hex": "0x1102",
+      "id": "a08e2f59836fa0f66c2c39f4",
+      "line": 31,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/nvs_flash/include/nvs.h#L31",
+      "stale": false,
+      "symbol": "ESP_ERR_NVS_NOT_FOUND",
+      "syntax": "define",
+      "value": 4354,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_NVS_BASE"
+      ],
+      "component": "idf/nvs_flash",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "expression": "(ESP_ERR_NVS_BASE + 0x03)",
+      "file": "components/nvs_flash/include/nvs.h",
+      "hex": "0x1103",
+      "id": "48612ab0ccd0cac72e5be012",
+      "line": 32,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/nvs_flash/include/nvs.h#L32",
+      "stale": false,
+      "symbol": "ESP_ERR_NVS_TYPE_MISMATCH",
+      "syntax": "define",
+      "value": 4355,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_NVS_BASE"
+      ],
+      "component": "idf/nvs_flash",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "expression": "(ESP_ERR_NVS_BASE + 0x04)",
+      "file": "components/nvs_flash/include/nvs.h",
+      "hex": "0x1104",
+      "id": "84d23fd422967516b370c961",
+      "line": 33,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/nvs_flash/include/nvs.h#L33",
+      "stale": false,
+      "symbol": "ESP_ERR_NVS_READ_ONLY",
+      "syntax": "define",
+      "value": 4356,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_NVS_BASE"
+      ],
+      "component": "idf/nvs_flash",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "expression": "(ESP_ERR_NVS_BASE + 0x05)",
+      "file": "components/nvs_flash/include/nvs.h",
+      "hex": "0x1105",
+      "id": "431499f960a343af80c4c7ff",
+      "line": 34,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/nvs_flash/include/nvs.h#L34",
+      "stale": false,
+      "symbol": "ESP_ERR_NVS_NOT_ENOUGH_SPACE",
+      "syntax": "define",
+      "value": 4357,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_NVS_BASE"
+      ],
+      "component": "idf/nvs_flash",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "expression": "(ESP_ERR_NVS_BASE + 0x06)",
+      "file": "components/nvs_flash/include/nvs.h",
+      "hex": "0x1106",
+      "id": "53d0fa815268467ba5b4e6e4",
+      "line": 35,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/nvs_flash/include/nvs.h#L35",
+      "stale": false,
+      "symbol": "ESP_ERR_NVS_INVALID_NAME",
+      "syntax": "define",
+      "value": 4358,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_NVS_BASE"
+      ],
+      "component": "idf/nvs_flash",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "expression": "(ESP_ERR_NVS_BASE + 0x07)",
+      "file": "components/nvs_flash/include/nvs.h",
+      "hex": "0x1107",
+      "id": "25c96ac1e630aa65b06e24cf",
+      "line": 36,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/nvs_flash/include/nvs.h#L36",
+      "stale": false,
+      "symbol": "ESP_ERR_NVS_INVALID_HANDLE",
+      "syntax": "define",
+      "value": 4359,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_NVS_BASE"
+      ],
+      "component": "idf/nvs_flash",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "expression": "(ESP_ERR_NVS_BASE + 0x08)",
+      "file": "components/nvs_flash/include/nvs.h",
+      "hex": "0x1108",
+      "id": "50894e550f2e8e582aa2c665",
+      "line": 37,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/nvs_flash/include/nvs.h#L37",
+      "stale": false,
+      "symbol": "ESP_ERR_NVS_REMOVE_FAILED",
+      "syntax": "define",
+      "value": 4360,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_NVS_BASE"
+      ],
+      "component": "idf/nvs_flash",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "expression": "(ESP_ERR_NVS_BASE + 0x09)",
+      "file": "components/nvs_flash/include/nvs.h",
+      "hex": "0x1109",
+      "id": "01554b6dcc79665e9d6924f3",
+      "line": 38,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/nvs_flash/include/nvs.h#L38",
+      "stale": false,
+      "symbol": "ESP_ERR_NVS_KEY_TOO_LONG",
+      "syntax": "define",
+      "value": 4361,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_NVS_BASE"
+      ],
+      "component": "idf/nvs_flash",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "expression": "(ESP_ERR_NVS_BASE + 0x0a)",
+      "file": "components/nvs_flash/include/nvs.h",
+      "hex": "0x110a",
+      "id": "a4888b34eac9af1e51415858",
+      "line": 39,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/nvs_flash/include/nvs.h#L39",
+      "stale": false,
+      "symbol": "ESP_ERR_NVS_PAGE_FULL",
+      "syntax": "define",
+      "value": 4362,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_NVS_BASE"
+      ],
+      "component": "idf/nvs_flash",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "expression": "(ESP_ERR_NVS_BASE + 0x0b)",
+      "file": "components/nvs_flash/include/nvs.h",
+      "hex": "0x110b",
+      "id": "af0c98e0cfbf4a3a7058a6c4",
+      "line": 40,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/nvs_flash/include/nvs.h#L40",
+      "stale": false,
+      "symbol": "ESP_ERR_NVS_INVALID_STATE",
+      "syntax": "define",
+      "value": 4363,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_NVS_BASE"
+      ],
+      "component": "idf/nvs_flash",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "expression": "(ESP_ERR_NVS_BASE + 0x0c)",
+      "file": "components/nvs_flash/include/nvs.h",
+      "hex": "0x110c",
+      "id": "d5eff324e66778495555f9df",
+      "line": 41,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/nvs_flash/include/nvs.h#L41",
+      "stale": false,
+      "symbol": "ESP_ERR_NVS_INVALID_LENGTH",
+      "syntax": "define",
+      "value": 4364,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_NVS_BASE"
+      ],
+      "component": "idf/nvs_flash",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "expression": "(ESP_ERR_NVS_BASE + 0x0d)",
+      "file": "components/nvs_flash/include/nvs.h",
+      "hex": "0x110d",
+      "id": "fde663929e62ac57cc59bc03",
+      "line": 42,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/nvs_flash/include/nvs.h#L42",
+      "stale": false,
+      "symbol": "ESP_ERR_NVS_NO_FREE_PAGES",
+      "syntax": "define",
+      "value": 4365,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_NVS_BASE"
+      ],
+      "component": "idf/nvs_flash",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "expression": "(ESP_ERR_NVS_BASE + 0x0e)",
+      "file": "components/nvs_flash/include/nvs.h",
+      "hex": "0x110e",
+      "id": "d6cdf37fc6e098314539233a",
+      "line": 43,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/nvs_flash/include/nvs.h#L43",
+      "stale": false,
+      "symbol": "ESP_ERR_NVS_VALUE_TOO_LONG",
+      "syntax": "define",
+      "value": 4366,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_NVS_BASE"
+      ],
+      "component": "idf/nvs_flash",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "expression": "(ESP_ERR_NVS_BASE + 0x0f)",
+      "file": "components/nvs_flash/include/nvs.h",
+      "hex": "0x110f",
+      "id": "350eda50402e2bca7fdb8a3d",
+      "line": 44,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/nvs_flash/include/nvs.h#L44",
+      "stale": false,
+      "symbol": "ESP_ERR_NVS_PART_NOT_FOUND",
+      "syntax": "define",
+      "value": 4367,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_NVS_BASE"
+      ],
+      "component": "idf/nvs_flash",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "expression": "(ESP_ERR_NVS_BASE + 0x10)",
+      "file": "components/nvs_flash/include/nvs.h",
+      "hex": "0x1110",
+      "id": "6a44202343b16b2ed747a268",
+      "line": 46,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/nvs_flash/include/nvs.h#L46",
+      "stale": false,
+      "symbol": "ESP_ERR_NVS_NEW_VERSION_FOUND",
+      "syntax": "define",
+      "value": 4368,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_NVS_BASE"
+      ],
+      "component": "idf/nvs_flash",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "expression": "(ESP_ERR_NVS_BASE + 0x11)",
+      "file": "components/nvs_flash/include/nvs.h",
+      "hex": "0x1111",
+      "id": "c1e901ef0c42f6d05475b49e",
+      "line": 47,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/nvs_flash/include/nvs.h#L47",
+      "stale": false,
+      "symbol": "ESP_ERR_NVS_XTS_ENCR_FAILED",
+      "syntax": "define",
+      "value": 4369,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_NVS_BASE"
+      ],
+      "component": "idf/nvs_flash",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "expression": "(ESP_ERR_NVS_BASE + 0x12)",
+      "file": "components/nvs_flash/include/nvs.h",
+      "hex": "0x1112",
+      "id": "cb836d483542edd5db87dc64",
+      "line": 48,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/nvs_flash/include/nvs.h#L48",
+      "stale": false,
+      "symbol": "ESP_ERR_NVS_XTS_DECR_FAILED",
+      "syntax": "define",
+      "value": 4370,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_NVS_BASE"
+      ],
+      "component": "idf/nvs_flash",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "expression": "(ESP_ERR_NVS_BASE + 0x13)",
+      "file": "components/nvs_flash/include/nvs.h",
+      "hex": "0x1113",
+      "id": "ed1a42a8cc14160f686070c9",
+      "line": 49,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/nvs_flash/include/nvs.h#L49",
+      "stale": false,
+      "symbol": "ESP_ERR_NVS_XTS_CFG_FAILED",
+      "syntax": "define",
+      "value": 4371,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_NVS_BASE"
+      ],
+      "component": "idf/nvs_flash",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "expression": "(ESP_ERR_NVS_BASE + 0x14)",
+      "file": "components/nvs_flash/include/nvs.h",
+      "hex": "0x1114",
+      "id": "93f48089b22f94c9736f4e03",
+      "line": 50,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/nvs_flash/include/nvs.h#L50",
+      "stale": false,
+      "symbol": "ESP_ERR_NVS_XTS_CFG_NOT_FOUND",
+      "syntax": "define",
+      "value": 4372,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_NVS_BASE"
+      ],
+      "component": "idf/nvs_flash",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "expression": "(ESP_ERR_NVS_BASE + 0x15)",
+      "file": "components/nvs_flash/include/nvs.h",
+      "hex": "0x1115",
+      "id": "05b77e2dab970ad8278be91e",
+      "line": 51,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/nvs_flash/include/nvs.h#L51",
+      "stale": false,
+      "symbol": "ESP_ERR_NVS_ENCR_NOT_SUPPORTED",
+      "syntax": "define",
+      "value": 4373,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_NVS_BASE"
+      ],
+      "component": "idf/nvs_flash",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "expression": "(ESP_ERR_NVS_BASE + 0x16)",
+      "file": "components/nvs_flash/include/nvs.h",
+      "hex": "0x1116",
+      "id": "e4224ab79f3fc14b040813a0",
+      "line": 52,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/nvs_flash/include/nvs.h#L52",
+      "stale": false,
+      "symbol": "ESP_ERR_NVS_KEYS_NOT_INITIALIZED",
+      "syntax": "define",
+      "value": 4374,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_NVS_BASE"
+      ],
+      "component": "idf/nvs_flash",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "expression": "(ESP_ERR_NVS_BASE + 0x17)",
+      "file": "components/nvs_flash/include/nvs.h",
+      "hex": "0x1117",
+      "id": "244929d6beff65b4c340c3cd",
+      "line": 53,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/nvs_flash/include/nvs.h#L53",
+      "stale": false,
+      "symbol": "ESP_ERR_NVS_CORRUPT_KEY_PART",
+      "syntax": "define",
+      "value": 4375,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_NVS_BASE"
+      ],
+      "component": "idf/nvs_flash",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "expression": "(ESP_ERR_NVS_BASE + 0x19)",
+      "file": "components/nvs_flash/include/nvs.h",
+      "hex": "0x1119",
+      "id": "8b0430f39a5689a143fe2143",
+      "line": 54,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/nvs_flash/include/nvs.h#L54",
+      "stale": false,
+      "symbol": "ESP_ERR_NVS_WRONG_ENCRYPTION",
+      "syntax": "define",
+      "value": 4377,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_NVS_BASE"
+      ],
+      "component": "idf/nvs_flash",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "expression": "(ESP_ERR_NVS_BASE + 0x18)",
+      "file": "components/nvs_flash/include/nvs.h",
+      "hex": "0x1118",
+      "id": "82e3300feb32df4eae3013e5",
+      "line": 56,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/nvs_flash/include/nvs.h#L56",
+      "stale": false,
+      "symbol": "ESP_ERR_NVS_CONTENT_DIFFERS",
+      "syntax": "define",
+      "value": 4376,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_MESH_BASE"
+      ],
+      "component": "idf/esp_wifi",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "context_references": [
+        {
+          "expression": "0x4000",
+          "file": "components/esp_common/include/esp_err.h",
+          "line": 40,
+          "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_common/include/esp_err.h#L40",
+          "symbol": "ESP_ERR_MESH_BASE"
+        }
+      ],
+      "expression": "(ESP_ERR_MESH_BASE + 1)",
+      "file": "components/esp_wifi/include/esp_mesh.h",
+      "hex": "0x4001",
+      "id": "0a5e6c221f0271b6c981bfa0",
+      "line": 92,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_mesh.h#L92",
+      "stale": false,
+      "symbol": "ESP_ERR_MESH_WIFI_NOT_START",
+      "syntax": "define",
+      "value": 16385,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_MESH_BASE"
+      ],
+      "component": "idf/esp_wifi",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "context_references": [
+        {
+          "expression": "0x4000",
+          "file": "components/esp_common/include/esp_err.h",
+          "line": 40,
+          "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_common/include/esp_err.h#L40",
+          "symbol": "ESP_ERR_MESH_BASE"
+        }
+      ],
+      "expression": "(ESP_ERR_MESH_BASE + 2)",
+      "file": "components/esp_wifi/include/esp_mesh.h",
+      "hex": "0x4002",
+      "id": "a46d73e2ff768105fb699cba",
+      "line": 93,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_mesh.h#L93",
+      "stale": false,
+      "symbol": "ESP_ERR_MESH_NOT_INIT",
+      "syntax": "define",
+      "value": 16386,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_MESH_BASE"
+      ],
+      "component": "idf/esp_wifi",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "context_references": [
+        {
+          "expression": "0x4000",
+          "file": "components/esp_common/include/esp_err.h",
+          "line": 40,
+          "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_common/include/esp_err.h#L40",
+          "symbol": "ESP_ERR_MESH_BASE"
+        }
+      ],
+      "expression": "(ESP_ERR_MESH_BASE + 3)",
+      "file": "components/esp_wifi/include/esp_mesh.h",
+      "hex": "0x4003",
+      "id": "c190df24db57301a67297259",
+      "line": 94,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_mesh.h#L94",
+      "stale": false,
+      "symbol": "ESP_ERR_MESH_NOT_CONFIG",
+      "syntax": "define",
+      "value": 16387,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_MESH_BASE"
+      ],
+      "component": "idf/esp_wifi",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "context_references": [
+        {
+          "expression": "0x4000",
+          "file": "components/esp_common/include/esp_err.h",
+          "line": 40,
+          "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_common/include/esp_err.h#L40",
+          "symbol": "ESP_ERR_MESH_BASE"
+        }
+      ],
+      "expression": "(ESP_ERR_MESH_BASE + 4)",
+      "file": "components/esp_wifi/include/esp_mesh.h",
+      "hex": "0x4004",
+      "id": "9702226cd9027ef3d38c49c0",
+      "line": 95,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_mesh.h#L95",
+      "stale": false,
+      "symbol": "ESP_ERR_MESH_NOT_START",
+      "syntax": "define",
+      "value": 16388,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_MESH_BASE"
+      ],
+      "component": "idf/esp_wifi",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "context_references": [
+        {
+          "expression": "0x4000",
+          "file": "components/esp_common/include/esp_err.h",
+          "line": 40,
+          "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_common/include/esp_err.h#L40",
+          "symbol": "ESP_ERR_MESH_BASE"
+        }
+      ],
+      "expression": "(ESP_ERR_MESH_BASE + 5)",
+      "file": "components/esp_wifi/include/esp_mesh.h",
+      "hex": "0x4005",
+      "id": "33226af9aa4e3d048bf874d6",
+      "line": 96,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_mesh.h#L96",
+      "stale": false,
+      "symbol": "ESP_ERR_MESH_NOT_SUPPORT",
+      "syntax": "define",
+      "value": 16389,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_MESH_BASE"
+      ],
+      "component": "idf/esp_wifi",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "context_references": [
+        {
+          "expression": "0x4000",
+          "file": "components/esp_common/include/esp_err.h",
+          "line": 40,
+          "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_common/include/esp_err.h#L40",
+          "symbol": "ESP_ERR_MESH_BASE"
+        }
+      ],
+      "expression": "(ESP_ERR_MESH_BASE + 6)",
+      "file": "components/esp_wifi/include/esp_mesh.h",
+      "hex": "0x4006",
+      "id": "62b0ca3b807b42e59f2e38ca",
+      "line": 97,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_mesh.h#L97",
+      "stale": false,
+      "symbol": "ESP_ERR_MESH_NOT_ALLOWED",
+      "syntax": "define",
+      "value": 16390,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_MESH_BASE"
+      ],
+      "component": "idf/esp_wifi",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "context_references": [
+        {
+          "expression": "0x4000",
+          "file": "components/esp_common/include/esp_err.h",
+          "line": 40,
+          "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_common/include/esp_err.h#L40",
+          "symbol": "ESP_ERR_MESH_BASE"
+        }
+      ],
+      "expression": "(ESP_ERR_MESH_BASE + 7)",
+      "file": "components/esp_wifi/include/esp_mesh.h",
+      "hex": "0x4007",
+      "id": "f8b628b5df7038118abbd3ea",
+      "line": 98,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_mesh.h#L98",
+      "stale": false,
+      "symbol": "ESP_ERR_MESH_NO_MEMORY",
+      "syntax": "define",
+      "value": 16391,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_MESH_BASE"
+      ],
+      "component": "idf/esp_wifi",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "context_references": [
+        {
+          "expression": "0x4000",
+          "file": "components/esp_common/include/esp_err.h",
+          "line": 40,
+          "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_common/include/esp_err.h#L40",
+          "symbol": "ESP_ERR_MESH_BASE"
+        }
+      ],
+      "expression": "(ESP_ERR_MESH_BASE + 8)",
+      "file": "components/esp_wifi/include/esp_mesh.h",
+      "hex": "0x4008",
+      "id": "cd79098828faa472cfdf61f3",
+      "line": 99,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_mesh.h#L99",
+      "stale": false,
+      "symbol": "ESP_ERR_MESH_ARGUMENT",
+      "syntax": "define",
+      "value": 16392,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_MESH_BASE"
+      ],
+      "component": "idf/esp_wifi",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "context_references": [
+        {
+          "expression": "0x4000",
+          "file": "components/esp_common/include/esp_err.h",
+          "line": 40,
+          "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_common/include/esp_err.h#L40",
+          "symbol": "ESP_ERR_MESH_BASE"
+        }
+      ],
+      "expression": "(ESP_ERR_MESH_BASE + 9)",
+      "file": "components/esp_wifi/include/esp_mesh.h",
+      "hex": "0x4009",
+      "id": "c1fced7d181c16e2d5d7e0d3",
+      "line": 100,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_mesh.h#L100",
+      "stale": false,
+      "symbol": "ESP_ERR_MESH_EXCEED_MTU",
+      "syntax": "define",
+      "value": 16393,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_MESH_BASE"
+      ],
+      "component": "idf/esp_wifi",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "context_references": [
+        {
+          "expression": "0x4000",
+          "file": "components/esp_common/include/esp_err.h",
+          "line": 40,
+          "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_common/include/esp_err.h#L40",
+          "symbol": "ESP_ERR_MESH_BASE"
+        }
+      ],
+      "expression": "(ESP_ERR_MESH_BASE + 10)",
+      "file": "components/esp_wifi/include/esp_mesh.h",
+      "hex": "0x400a",
+      "id": "78c77602195c261aa6d6781e",
+      "line": 101,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_mesh.h#L101",
+      "stale": false,
+      "symbol": "ESP_ERR_MESH_TIMEOUT",
+      "syntax": "define",
+      "value": 16394,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_MESH_BASE"
+      ],
+      "component": "idf/esp_wifi",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "context_references": [
+        {
+          "expression": "0x4000",
+          "file": "components/esp_common/include/esp_err.h",
+          "line": 40,
+          "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_common/include/esp_err.h#L40",
+          "symbol": "ESP_ERR_MESH_BASE"
+        }
+      ],
+      "expression": "(ESP_ERR_MESH_BASE + 11)",
+      "file": "components/esp_wifi/include/esp_mesh.h",
+      "hex": "0x400b",
+      "id": "d70e04a18449d3db9c125e48",
+      "line": 102,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_mesh.h#L102",
+      "stale": false,
+      "symbol": "ESP_ERR_MESH_DISCONNECTED",
+      "syntax": "define",
+      "value": 16395,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_MESH_BASE"
+      ],
+      "component": "idf/esp_wifi",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "context_references": [
+        {
+          "expression": "0x4000",
+          "file": "components/esp_common/include/esp_err.h",
+          "line": 40,
+          "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_common/include/esp_err.h#L40",
+          "symbol": "ESP_ERR_MESH_BASE"
+        }
+      ],
+      "expression": "(ESP_ERR_MESH_BASE + 12)",
+      "file": "components/esp_wifi/include/esp_mesh.h",
+      "hex": "0x400c",
+      "id": "5e485fcada432d8053ef3ef4",
+      "line": 103,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_mesh.h#L103",
+      "stale": false,
+      "symbol": "ESP_ERR_MESH_QUEUE_FAIL",
+      "syntax": "define",
+      "value": 16396,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_MESH_BASE"
+      ],
+      "component": "idf/esp_wifi",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "context_references": [
+        {
+          "expression": "0x4000",
+          "file": "components/esp_common/include/esp_err.h",
+          "line": 40,
+          "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_common/include/esp_err.h#L40",
+          "symbol": "ESP_ERR_MESH_BASE"
+        }
+      ],
+      "expression": "(ESP_ERR_MESH_BASE + 13)",
+      "file": "components/esp_wifi/include/esp_mesh.h",
+      "hex": "0x400d",
+      "id": "0674fc3996de47d086541cc1",
+      "line": 104,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_mesh.h#L104",
+      "stale": false,
+      "symbol": "ESP_ERR_MESH_QUEUE_FULL",
+      "syntax": "define",
+      "value": 16397,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_MESH_BASE"
+      ],
+      "component": "idf/esp_wifi",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "context_references": [
+        {
+          "expression": "0x4000",
+          "file": "components/esp_common/include/esp_err.h",
+          "line": 40,
+          "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_common/include/esp_err.h#L40",
+          "symbol": "ESP_ERR_MESH_BASE"
+        }
+      ],
+      "expression": "(ESP_ERR_MESH_BASE + 14)",
+      "file": "components/esp_wifi/include/esp_mesh.h",
+      "hex": "0x400e",
+      "id": "8b68f2cef93985657c91cee0",
+      "line": 105,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_mesh.h#L105",
+      "stale": false,
+      "symbol": "ESP_ERR_MESH_NO_PARENT_FOUND",
+      "syntax": "define",
+      "value": 16398,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_MESH_BASE"
+      ],
+      "component": "idf/esp_wifi",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "context_references": [
+        {
+          "expression": "0x4000",
+          "file": "components/esp_common/include/esp_err.h",
+          "line": 40,
+          "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_common/include/esp_err.h#L40",
+          "symbol": "ESP_ERR_MESH_BASE"
+        }
+      ],
+      "expression": "(ESP_ERR_MESH_BASE + 15)",
+      "file": "components/esp_wifi/include/esp_mesh.h",
+      "hex": "0x400f",
+      "id": "be9dba075bbeb48a130da1e9",
+      "line": 106,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_mesh.h#L106",
+      "stale": false,
+      "symbol": "ESP_ERR_MESH_NO_ROUTE_FOUND",
+      "syntax": "define",
+      "value": 16399,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_MESH_BASE"
+      ],
+      "component": "idf/esp_wifi",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "context_references": [
+        {
+          "expression": "0x4000",
+          "file": "components/esp_common/include/esp_err.h",
+          "line": 40,
+          "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_common/include/esp_err.h#L40",
+          "symbol": "ESP_ERR_MESH_BASE"
+        }
+      ],
+      "expression": "(ESP_ERR_MESH_BASE + 16)",
+      "file": "components/esp_wifi/include/esp_mesh.h",
+      "hex": "0x4010",
+      "id": "ef4b3359e8643de17a410525",
+      "line": 107,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_mesh.h#L107",
+      "stale": false,
+      "symbol": "ESP_ERR_MESH_OPTION_NULL",
+      "syntax": "define",
+      "value": 16400,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_MESH_BASE"
+      ],
+      "component": "idf/esp_wifi",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "context_references": [
+        {
+          "expression": "0x4000",
+          "file": "components/esp_common/include/esp_err.h",
+          "line": 40,
+          "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_common/include/esp_err.h#L40",
+          "symbol": "ESP_ERR_MESH_BASE"
+        }
+      ],
+      "expression": "(ESP_ERR_MESH_BASE + 17)",
+      "file": "components/esp_wifi/include/esp_mesh.h",
+      "hex": "0x4011",
+      "id": "ea74ef9df819c5b74cb28bf5",
+      "line": 108,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_mesh.h#L108",
+      "stale": false,
+      "symbol": "ESP_ERR_MESH_OPTION_UNKNOWN",
+      "syntax": "define",
+      "value": 16401,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_MESH_BASE"
+      ],
+      "component": "idf/esp_wifi",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "context_references": [
+        {
+          "expression": "0x4000",
+          "file": "components/esp_common/include/esp_err.h",
+          "line": 40,
+          "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_common/include/esp_err.h#L40",
+          "symbol": "ESP_ERR_MESH_BASE"
+        }
+      ],
+      "expression": "(ESP_ERR_MESH_BASE + 18)",
+      "file": "components/esp_wifi/include/esp_mesh.h",
+      "hex": "0x4012",
+      "id": "3abfe8070f8f849d2a1d4dca",
+      "line": 109,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_mesh.h#L109",
+      "stale": false,
+      "symbol": "ESP_ERR_MESH_XON_NO_WINDOW",
+      "syntax": "define",
+      "value": 16402,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_MESH_BASE"
+      ],
+      "component": "idf/esp_wifi",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "context_references": [
+        {
+          "expression": "0x4000",
+          "file": "components/esp_common/include/esp_err.h",
+          "line": 40,
+          "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_common/include/esp_err.h#L40",
+          "symbol": "ESP_ERR_MESH_BASE"
+        }
+      ],
+      "expression": "(ESP_ERR_MESH_BASE + 19)",
+      "file": "components/esp_wifi/include/esp_mesh.h",
+      "hex": "0x4013",
+      "id": "77cef4e06512594f7755056a",
+      "line": 110,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_mesh.h#L110",
+      "stale": false,
+      "symbol": "ESP_ERR_MESH_INTERFACE",
+      "syntax": "define",
+      "value": 16403,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_MESH_BASE"
+      ],
+      "component": "idf/esp_wifi",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "context_references": [
+        {
+          "expression": "0x4000",
+          "file": "components/esp_common/include/esp_err.h",
+          "line": 40,
+          "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_common/include/esp_err.h#L40",
+          "symbol": "ESP_ERR_MESH_BASE"
+        }
+      ],
+      "expression": "(ESP_ERR_MESH_BASE + 20)",
+      "file": "components/esp_wifi/include/esp_mesh.h",
+      "hex": "0x4014",
+      "id": "b0ae68afd81e567d844351a0",
+      "line": 111,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_mesh.h#L111",
+      "stale": false,
+      "symbol": "ESP_ERR_MESH_DISCARD_DUPLICATE",
+      "syntax": "define",
+      "value": 16404,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_MESH_BASE"
+      ],
+      "component": "idf/esp_wifi",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "context_references": [
+        {
+          "expression": "0x4000",
+          "file": "components/esp_common/include/esp_err.h",
+          "line": 40,
+          "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_common/include/esp_err.h#L40",
+          "symbol": "ESP_ERR_MESH_BASE"
+        }
+      ],
+      "expression": "(ESP_ERR_MESH_BASE + 21)",
+      "file": "components/esp_wifi/include/esp_mesh.h",
+      "hex": "0x4015",
+      "id": "a2dcb96eb319ac607fa143f5",
+      "line": 112,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_mesh.h#L112",
+      "stale": false,
+      "symbol": "ESP_ERR_MESH_DISCARD",
+      "syntax": "define",
+      "value": 16405,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_MESH_BASE"
+      ],
+      "component": "idf/esp_wifi",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "context_references": [
+        {
+          "expression": "0x4000",
+          "file": "components/esp_common/include/esp_err.h",
+          "line": 40,
+          "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_common/include/esp_err.h#L40",
+          "symbol": "ESP_ERR_MESH_BASE"
+        }
+      ],
+      "expression": "(ESP_ERR_MESH_BASE + 22)",
+      "file": "components/esp_wifi/include/esp_mesh.h",
+      "hex": "0x4016",
+      "id": "9cae89e58545c9f866696cfa",
+      "line": 113,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_mesh.h#L113",
+      "stale": false,
+      "symbol": "ESP_ERR_MESH_VOTING",
+      "syntax": "define",
+      "value": 16406,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_MESH_BASE"
+      ],
+      "component": "idf/esp_wifi",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "context_references": [
+        {
+          "expression": "0x4000",
+          "file": "components/esp_common/include/esp_err.h",
+          "line": 40,
+          "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_common/include/esp_err.h#L40",
+          "symbol": "ESP_ERR_MESH_BASE"
+        }
+      ],
+      "expression": "(ESP_ERR_MESH_BASE + 23)",
+      "file": "components/esp_wifi/include/esp_mesh.h",
+      "hex": "0x4017",
+      "id": "7549f71a7b811c47f4f05c43",
+      "line": 114,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_mesh.h#L114",
+      "stale": false,
+      "symbol": "ESP_ERR_MESH_XMIT",
+      "syntax": "define",
+      "value": 16407,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_MESH_BASE"
+      ],
+      "component": "idf/esp_wifi",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "context_references": [
+        {
+          "expression": "0x4000",
+          "file": "components/esp_common/include/esp_err.h",
+          "line": 40,
+          "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_common/include/esp_err.h#L40",
+          "symbol": "ESP_ERR_MESH_BASE"
+        }
+      ],
+      "expression": "(ESP_ERR_MESH_BASE + 24)",
+      "file": "components/esp_wifi/include/esp_mesh.h",
+      "hex": "0x4018",
+      "id": "ade08c7e5db5547c617ddced",
+      "line": 115,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_mesh.h#L115",
+      "stale": false,
+      "symbol": "ESP_ERR_MESH_QUEUE_READ",
+      "syntax": "define",
+      "value": 16408,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_MESH_BASE"
+      ],
+      "component": "idf/esp_wifi",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "context_references": [
+        {
+          "expression": "0x4000",
+          "file": "components/esp_common/include/esp_err.h",
+          "line": 40,
+          "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_common/include/esp_err.h#L40",
+          "symbol": "ESP_ERR_MESH_BASE"
+        }
+      ],
+      "expression": "(ESP_ERR_MESH_BASE + 25)",
+      "file": "components/esp_wifi/include/esp_mesh.h",
+      "hex": "0x4019",
+      "id": "3d9a970417d1d2390c887801",
+      "line": 116,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_mesh.h#L116",
+      "stale": false,
+      "symbol": "ESP_ERR_MESH_PS",
+      "syntax": "define",
+      "value": 16409,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_MESH_BASE"
+      ],
+      "component": "idf/esp_wifi",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "context_references": [
+        {
+          "expression": "0x4000",
+          "file": "components/esp_common/include/esp_err.h",
+          "line": 40,
+          "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_common/include/esp_err.h#L40",
+          "symbol": "ESP_ERR_MESH_BASE"
+        }
+      ],
+      "expression": "(ESP_ERR_MESH_BASE + 26)",
+      "file": "components/esp_wifi/include/esp_mesh.h",
+      "hex": "0x401a",
+      "id": "b0643c86fc0c2f31bccd447a",
+      "line": 117,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_mesh.h#L117",
+      "stale": false,
+      "symbol": "ESP_ERR_MESH_RECV_RELEASE",
+      "syntax": "define",
+      "value": 16410,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_WIFI_BASE"
+      ],
+      "component": "idf/esp_wifi",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "context_references": [
+        {
+          "expression": "0x3000",
+          "file": "components/esp_common/include/esp_err.h",
+          "line": 39,
+          "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_common/include/esp_err.h#L39",
+          "symbol": "ESP_ERR_WIFI_BASE"
+        }
+      ],
+      "expression": "(ESP_ERR_WIFI_BASE + 100)",
+      "file": "components/esp_wifi/include/esp_now.h",
+      "hex": "0x3064",
+      "id": "df3122496f470de900aec93f",
+      "line": 35,
+      "resolution": "resolved",
+      "role": "base",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_now.h#L35",
+      "stale": false,
+      "symbol": "ESP_ERR_ESPNOW_BASE",
+      "syntax": "define",
+      "value": 12388,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_ESPNOW_BASE",
+        "ESP_ERR_WIFI_BASE"
+      ],
+      "component": "idf/esp_wifi",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "context_references": [
+        {
+          "expression": "0x3000",
+          "file": "components/esp_common/include/esp_err.h",
+          "line": 39,
+          "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_common/include/esp_err.h#L39",
+          "symbol": "ESP_ERR_WIFI_BASE"
+        }
+      ],
+      "expression": "(ESP_ERR_ESPNOW_BASE + 1)",
+      "file": "components/esp_wifi/include/esp_now.h",
+      "hex": "0x3065",
+      "id": "51ecb3324b766d7a46d5ff43",
+      "line": 36,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_now.h#L36",
+      "stale": false,
+      "symbol": "ESP_ERR_ESPNOW_NOT_INIT",
+      "syntax": "define",
+      "value": 12389,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_ESPNOW_BASE",
+        "ESP_ERR_WIFI_BASE"
+      ],
+      "component": "idf/esp_wifi",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "context_references": [
+        {
+          "expression": "0x3000",
+          "file": "components/esp_common/include/esp_err.h",
+          "line": 39,
+          "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_common/include/esp_err.h#L39",
+          "symbol": "ESP_ERR_WIFI_BASE"
+        }
+      ],
+      "expression": "(ESP_ERR_ESPNOW_BASE + 2)",
+      "file": "components/esp_wifi/include/esp_now.h",
+      "hex": "0x3066",
+      "id": "25ee85138f5c0d2f0e6c911a",
+      "line": 37,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_now.h#L37",
+      "stale": false,
+      "symbol": "ESP_ERR_ESPNOW_ARG",
+      "syntax": "define",
+      "value": 12390,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_ESPNOW_BASE",
+        "ESP_ERR_WIFI_BASE"
+      ],
+      "component": "idf/esp_wifi",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "context_references": [
+        {
+          "expression": "0x3000",
+          "file": "components/esp_common/include/esp_err.h",
+          "line": 39,
+          "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_common/include/esp_err.h#L39",
+          "symbol": "ESP_ERR_WIFI_BASE"
+        }
+      ],
+      "expression": "(ESP_ERR_ESPNOW_BASE + 3)",
+      "file": "components/esp_wifi/include/esp_now.h",
+      "hex": "0x3067",
+      "id": "51a3149fcfb08d0f2efd74ba",
+      "line": 38,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_now.h#L38",
+      "stale": false,
+      "symbol": "ESP_ERR_ESPNOW_NO_MEM",
+      "syntax": "define",
+      "value": 12391,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_ESPNOW_BASE",
+        "ESP_ERR_WIFI_BASE"
+      ],
+      "component": "idf/esp_wifi",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "context_references": [
+        {
+          "expression": "0x3000",
+          "file": "components/esp_common/include/esp_err.h",
+          "line": 39,
+          "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_common/include/esp_err.h#L39",
+          "symbol": "ESP_ERR_WIFI_BASE"
+        }
+      ],
+      "expression": "(ESP_ERR_ESPNOW_BASE + 4)",
+      "file": "components/esp_wifi/include/esp_now.h",
+      "hex": "0x3068",
+      "id": "2924634ee7d69567084012b0",
+      "line": 39,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_now.h#L39",
+      "stale": false,
+      "symbol": "ESP_ERR_ESPNOW_FULL",
+      "syntax": "define",
+      "value": 12392,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_ESPNOW_BASE",
+        "ESP_ERR_WIFI_BASE"
+      ],
+      "component": "idf/esp_wifi",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "context_references": [
+        {
+          "expression": "0x3000",
+          "file": "components/esp_common/include/esp_err.h",
+          "line": 39,
+          "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_common/include/esp_err.h#L39",
+          "symbol": "ESP_ERR_WIFI_BASE"
+        }
+      ],
+      "expression": "(ESP_ERR_ESPNOW_BASE + 5)",
+      "file": "components/esp_wifi/include/esp_now.h",
+      "hex": "0x3069",
+      "id": "904965f55718f145078c8d48",
+      "line": 40,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_now.h#L40",
+      "stale": false,
+      "symbol": "ESP_ERR_ESPNOW_NOT_FOUND",
+      "syntax": "define",
+      "value": 12393,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_ESPNOW_BASE",
+        "ESP_ERR_WIFI_BASE"
+      ],
+      "component": "idf/esp_wifi",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "context_references": [
+        {
+          "expression": "0x3000",
+          "file": "components/esp_common/include/esp_err.h",
+          "line": 39,
+          "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_common/include/esp_err.h#L39",
+          "symbol": "ESP_ERR_WIFI_BASE"
+        }
+      ],
+      "expression": "(ESP_ERR_ESPNOW_BASE + 6)",
+      "file": "components/esp_wifi/include/esp_now.h",
+      "hex": "0x306a",
+      "id": "f68b58aa14acf529b8e003ae",
+      "line": 41,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_now.h#L41",
+      "stale": false,
+      "symbol": "ESP_ERR_ESPNOW_INTERNAL",
+      "syntax": "define",
+      "value": 12394,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_ESPNOW_BASE",
+        "ESP_ERR_WIFI_BASE"
+      ],
+      "component": "idf/esp_wifi",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "context_references": [
+        {
+          "expression": "0x3000",
+          "file": "components/esp_common/include/esp_err.h",
+          "line": 39,
+          "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_common/include/esp_err.h#L39",
+          "symbol": "ESP_ERR_WIFI_BASE"
+        }
+      ],
+      "expression": "(ESP_ERR_ESPNOW_BASE + 7)",
+      "file": "components/esp_wifi/include/esp_now.h",
+      "hex": "0x306b",
+      "id": "4ba1453f1bcfe912d84235c7",
+      "line": 42,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_now.h#L42",
+      "stale": false,
+      "symbol": "ESP_ERR_ESPNOW_EXIST",
+      "syntax": "define",
+      "value": 12395,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_ESPNOW_BASE",
+        "ESP_ERR_WIFI_BASE"
+      ],
+      "component": "idf/esp_wifi",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "context_references": [
+        {
+          "expression": "0x3000",
+          "file": "components/esp_common/include/esp_err.h",
+          "line": 39,
+          "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_common/include/esp_err.h#L39",
+          "symbol": "ESP_ERR_WIFI_BASE"
+        }
+      ],
+      "expression": "(ESP_ERR_ESPNOW_BASE + 8)",
+      "file": "components/esp_wifi/include/esp_now.h",
+      "hex": "0x306c",
+      "id": "e0e5795617fd7036e76ae80b",
+      "line": 43,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_now.h#L43",
+      "stale": false,
+      "symbol": "ESP_ERR_ESPNOW_IF",
+      "syntax": "define",
+      "value": 12396,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_ESPNOW_BASE",
+        "ESP_ERR_WIFI_BASE"
+      ],
+      "component": "idf/esp_wifi",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "context_references": [
+        {
+          "expression": "0x3000",
+          "file": "components/esp_common/include/esp_err.h",
+          "line": 39,
+          "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_common/include/esp_err.h#L39",
+          "symbol": "ESP_ERR_WIFI_BASE"
+        }
+      ],
+      "expression": "(ESP_ERR_ESPNOW_BASE + 9)",
+      "file": "components/esp_wifi/include/esp_now.h",
+      "hex": "0x306d",
+      "id": "21e72498b2694a8200392041",
+      "line": 44,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_now.h#L44",
+      "stale": false,
+      "symbol": "ESP_ERR_ESPNOW_CHAN",
+      "syntax": "define",
+      "value": 12397,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_WIFI_BASE"
+      ],
+      "component": "idf/esp_wifi",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "context_references": [
+        {
+          "expression": "0x3000",
+          "file": "components/esp_common/include/esp_err.h",
+          "line": 39,
+          "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_common/include/esp_err.h#L39",
+          "symbol": "ESP_ERR_WIFI_BASE"
+        }
+      ],
+      "expression": "(ESP_ERR_WIFI_BASE + 1)",
+      "file": "components/esp_wifi/include/esp_wifi.h",
+      "hex": "0x3001",
+      "id": "5de8f07eb6d1f73611734bb4",
+      "line": 63,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_wifi.h#L63",
+      "stale": false,
+      "symbol": "ESP_ERR_WIFI_NOT_INIT",
+      "syntax": "define",
+      "value": 12289,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_WIFI_BASE"
+      ],
+      "component": "idf/esp_wifi",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "context_references": [
+        {
+          "expression": "0x3000",
+          "file": "components/esp_common/include/esp_err.h",
+          "line": 39,
+          "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_common/include/esp_err.h#L39",
+          "symbol": "ESP_ERR_WIFI_BASE"
+        }
+      ],
+      "expression": "(ESP_ERR_WIFI_BASE + 2)",
+      "file": "components/esp_wifi/include/esp_wifi.h",
+      "hex": "0x3002",
+      "id": "e681f3f07ed7001de46b46d1",
+      "line": 64,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_wifi.h#L64",
+      "stale": false,
+      "symbol": "ESP_ERR_WIFI_NOT_STARTED",
+      "syntax": "define",
+      "value": 12290,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_WIFI_BASE"
+      ],
+      "component": "idf/esp_wifi",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "context_references": [
+        {
+          "expression": "0x3000",
+          "file": "components/esp_common/include/esp_err.h",
+          "line": 39,
+          "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_common/include/esp_err.h#L39",
+          "symbol": "ESP_ERR_WIFI_BASE"
+        }
+      ],
+      "expression": "(ESP_ERR_WIFI_BASE + 3)",
+      "file": "components/esp_wifi/include/esp_wifi.h",
+      "hex": "0x3003",
+      "id": "cb2dd9e8b6178b60f52cc835",
+      "line": 65,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_wifi.h#L65",
+      "stale": false,
+      "symbol": "ESP_ERR_WIFI_NOT_STOPPED",
+      "syntax": "define",
+      "value": 12291,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_WIFI_BASE"
+      ],
+      "component": "idf/esp_wifi",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "context_references": [
+        {
+          "expression": "0x3000",
+          "file": "components/esp_common/include/esp_err.h",
+          "line": 39,
+          "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_common/include/esp_err.h#L39",
+          "symbol": "ESP_ERR_WIFI_BASE"
+        }
+      ],
+      "expression": "(ESP_ERR_WIFI_BASE + 4)",
+      "file": "components/esp_wifi/include/esp_wifi.h",
+      "hex": "0x3004",
+      "id": "2d9c59caeecb999710a597da",
+      "line": 66,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_wifi.h#L66",
+      "stale": false,
+      "symbol": "ESP_ERR_WIFI_IF",
+      "syntax": "define",
+      "value": 12292,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_WIFI_BASE"
+      ],
+      "component": "idf/esp_wifi",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "context_references": [
+        {
+          "expression": "0x3000",
+          "file": "components/esp_common/include/esp_err.h",
+          "line": 39,
+          "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_common/include/esp_err.h#L39",
+          "symbol": "ESP_ERR_WIFI_BASE"
+        }
+      ],
+      "expression": "(ESP_ERR_WIFI_BASE + 5)",
+      "file": "components/esp_wifi/include/esp_wifi.h",
+      "hex": "0x3005",
+      "id": "795ce47042b4e76e3390347c",
+      "line": 67,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_wifi.h#L67",
+      "stale": false,
+      "symbol": "ESP_ERR_WIFI_MODE",
+      "syntax": "define",
+      "value": 12293,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_WIFI_BASE"
+      ],
+      "component": "idf/esp_wifi",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "context_references": [
+        {
+          "expression": "0x3000",
+          "file": "components/esp_common/include/esp_err.h",
+          "line": 39,
+          "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_common/include/esp_err.h#L39",
+          "symbol": "ESP_ERR_WIFI_BASE"
+        }
+      ],
+      "expression": "(ESP_ERR_WIFI_BASE + 6)",
+      "file": "components/esp_wifi/include/esp_wifi.h",
+      "hex": "0x3006",
+      "id": "ad1351cebc17d795fce4273d",
+      "line": 68,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_wifi.h#L68",
+      "stale": false,
+      "symbol": "ESP_ERR_WIFI_STATE",
+      "syntax": "define",
+      "value": 12294,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_WIFI_BASE"
+      ],
+      "component": "idf/esp_wifi",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "context_references": [
+        {
+          "expression": "0x3000",
+          "file": "components/esp_common/include/esp_err.h",
+          "line": 39,
+          "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_common/include/esp_err.h#L39",
+          "symbol": "ESP_ERR_WIFI_BASE"
+        }
+      ],
+      "expression": "(ESP_ERR_WIFI_BASE + 7)",
+      "file": "components/esp_wifi/include/esp_wifi.h",
+      "hex": "0x3007",
+      "id": "61239143714a40cea03f28e9",
+      "line": 69,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_wifi.h#L69",
+      "stale": false,
+      "symbol": "ESP_ERR_WIFI_CONN",
+      "syntax": "define",
+      "value": 12295,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_WIFI_BASE"
+      ],
+      "component": "idf/esp_wifi",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "context_references": [
+        {
+          "expression": "0x3000",
+          "file": "components/esp_common/include/esp_err.h",
+          "line": 39,
+          "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_common/include/esp_err.h#L39",
+          "symbol": "ESP_ERR_WIFI_BASE"
+        }
+      ],
+      "expression": "(ESP_ERR_WIFI_BASE + 8)",
+      "file": "components/esp_wifi/include/esp_wifi.h",
+      "hex": "0x3008",
+      "id": "c4a312a46515c1eb615504ab",
+      "line": 70,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_wifi.h#L70",
+      "stale": false,
+      "symbol": "ESP_ERR_WIFI_NVS",
+      "syntax": "define",
+      "value": 12296,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_WIFI_BASE"
+      ],
+      "component": "idf/esp_wifi",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "context_references": [
+        {
+          "expression": "0x3000",
+          "file": "components/esp_common/include/esp_err.h",
+          "line": 39,
+          "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_common/include/esp_err.h#L39",
+          "symbol": "ESP_ERR_WIFI_BASE"
+        }
+      ],
+      "expression": "(ESP_ERR_WIFI_BASE + 9)",
+      "file": "components/esp_wifi/include/esp_wifi.h",
+      "hex": "0x3009",
+      "id": "ccf3c505cf5630686b8d231a",
+      "line": 71,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_wifi.h#L71",
+      "stale": false,
+      "symbol": "ESP_ERR_WIFI_MAC",
+      "syntax": "define",
+      "value": 12297,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_WIFI_BASE"
+      ],
+      "component": "idf/esp_wifi",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "context_references": [
+        {
+          "expression": "0x3000",
+          "file": "components/esp_common/include/esp_err.h",
+          "line": 39,
+          "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_common/include/esp_err.h#L39",
+          "symbol": "ESP_ERR_WIFI_BASE"
+        }
+      ],
+      "expression": "(ESP_ERR_WIFI_BASE + 10)",
+      "file": "components/esp_wifi/include/esp_wifi.h",
+      "hex": "0x300a",
+      "id": "93c281b6adc46efb2e50b328",
+      "line": 72,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_wifi.h#L72",
+      "stale": false,
+      "symbol": "ESP_ERR_WIFI_SSID",
+      "syntax": "define",
+      "value": 12298,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_WIFI_BASE"
+      ],
+      "component": "idf/esp_wifi",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "context_references": [
+        {
+          "expression": "0x3000",
+          "file": "components/esp_common/include/esp_err.h",
+          "line": 39,
+          "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_common/include/esp_err.h#L39",
+          "symbol": "ESP_ERR_WIFI_BASE"
+        }
+      ],
+      "expression": "(ESP_ERR_WIFI_BASE + 11)",
+      "file": "components/esp_wifi/include/esp_wifi.h",
+      "hex": "0x300b",
+      "id": "dbd63928296b8296892b7eb7",
+      "line": 73,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_wifi.h#L73",
+      "stale": false,
+      "symbol": "ESP_ERR_WIFI_PASSWORD",
+      "syntax": "define",
+      "value": 12299,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_WIFI_BASE"
+      ],
+      "component": "idf/esp_wifi",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "context_references": [
+        {
+          "expression": "0x3000",
+          "file": "components/esp_common/include/esp_err.h",
+          "line": 39,
+          "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_common/include/esp_err.h#L39",
+          "symbol": "ESP_ERR_WIFI_BASE"
+        }
+      ],
+      "expression": "(ESP_ERR_WIFI_BASE + 12)",
+      "file": "components/esp_wifi/include/esp_wifi.h",
+      "hex": "0x300c",
+      "id": "6a5a82e55c43e2594caaf0c6",
+      "line": 74,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_wifi.h#L74",
+      "stale": false,
+      "symbol": "ESP_ERR_WIFI_TIMEOUT",
+      "syntax": "define",
+      "value": 12300,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_WIFI_BASE"
+      ],
+      "component": "idf/esp_wifi",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "context_references": [
+        {
+          "expression": "0x3000",
+          "file": "components/esp_common/include/esp_err.h",
+          "line": 39,
+          "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_common/include/esp_err.h#L39",
+          "symbol": "ESP_ERR_WIFI_BASE"
+        }
+      ],
+      "expression": "(ESP_ERR_WIFI_BASE + 13)",
+      "file": "components/esp_wifi/include/esp_wifi.h",
+      "hex": "0x300d",
+      "id": "7a342b27c18e686a675abf26",
+      "line": 75,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_wifi.h#L75",
+      "stale": false,
+      "symbol": "ESP_ERR_WIFI_WAKE_FAIL",
+      "syntax": "define",
+      "value": 12301,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_WIFI_BASE"
+      ],
+      "component": "idf/esp_wifi",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "context_references": [
+        {
+          "expression": "0x3000",
+          "file": "components/esp_common/include/esp_err.h",
+          "line": 39,
+          "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_common/include/esp_err.h#L39",
+          "symbol": "ESP_ERR_WIFI_BASE"
+        }
+      ],
+      "expression": "(ESP_ERR_WIFI_BASE + 14)",
+      "file": "components/esp_wifi/include/esp_wifi.h",
+      "hex": "0x300e",
+      "id": "d1533c8e4fff62276d7d9781",
+      "line": 76,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_wifi.h#L76",
+      "stale": false,
+      "symbol": "ESP_ERR_WIFI_WOULD_BLOCK",
+      "syntax": "define",
+      "value": 12302,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_WIFI_BASE"
+      ],
+      "component": "idf/esp_wifi",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "context_references": [
+        {
+          "expression": "0x3000",
+          "file": "components/esp_common/include/esp_err.h",
+          "line": 39,
+          "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_common/include/esp_err.h#L39",
+          "symbol": "ESP_ERR_WIFI_BASE"
+        }
+      ],
+      "expression": "(ESP_ERR_WIFI_BASE + 15)",
+      "file": "components/esp_wifi/include/esp_wifi.h",
+      "hex": "0x300f",
+      "id": "0cacdb1b8daadf73a4549e68",
+      "line": 77,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_wifi.h#L77",
+      "stale": false,
+      "symbol": "ESP_ERR_WIFI_NOT_CONNECT",
+      "syntax": "define",
+      "value": 12303,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_WIFI_BASE"
+      ],
+      "component": "idf/esp_wifi",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "context_references": [
+        {
+          "expression": "0x3000",
+          "file": "components/esp_common/include/esp_err.h",
+          "line": 39,
+          "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_common/include/esp_err.h#L39",
+          "symbol": "ESP_ERR_WIFI_BASE"
+        }
+      ],
+      "expression": "(ESP_ERR_WIFI_BASE + 18)",
+      "file": "components/esp_wifi/include/esp_wifi.h",
+      "hex": "0x3012",
+      "id": "72c39be47730267f557b95c6",
+      "line": 79,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_wifi.h#L79",
+      "stale": false,
+      "symbol": "ESP_ERR_WIFI_POST",
+      "syntax": "define",
+      "value": 12306,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_WIFI_BASE"
+      ],
+      "component": "idf/esp_wifi",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "context_references": [
+        {
+          "expression": "0x3000",
+          "file": "components/esp_common/include/esp_err.h",
+          "line": 39,
+          "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_common/include/esp_err.h#L39",
+          "symbol": "ESP_ERR_WIFI_BASE"
+        }
+      ],
+      "expression": "(ESP_ERR_WIFI_BASE + 19)",
+      "file": "components/esp_wifi/include/esp_wifi.h",
+      "hex": "0x3013",
+      "id": "d97cdd2428f77f5a1099a9cc",
+      "line": 80,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_wifi.h#L80",
+      "stale": false,
+      "symbol": "ESP_ERR_WIFI_INIT_STATE",
+      "syntax": "define",
+      "value": 12307,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_WIFI_BASE"
+      ],
+      "component": "idf/esp_wifi",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "context_references": [
+        {
+          "expression": "0x3000",
+          "file": "components/esp_common/include/esp_err.h",
+          "line": 39,
+          "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_common/include/esp_err.h#L39",
+          "symbol": "ESP_ERR_WIFI_BASE"
+        }
+      ],
+      "expression": "(ESP_ERR_WIFI_BASE + 20)",
+      "file": "components/esp_wifi/include/esp_wifi.h",
+      "hex": "0x3014",
+      "id": "ca078e354b45f277afcc5c05",
+      "line": 81,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_wifi.h#L81",
+      "stale": false,
+      "symbol": "ESP_ERR_WIFI_STOP_STATE",
+      "syntax": "define",
+      "value": 12308,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_WIFI_BASE"
+      ],
+      "component": "idf/esp_wifi",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "context_references": [
+        {
+          "expression": "0x3000",
+          "file": "components/esp_common/include/esp_err.h",
+          "line": 39,
+          "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_common/include/esp_err.h#L39",
+          "symbol": "ESP_ERR_WIFI_BASE"
+        }
+      ],
+      "expression": "(ESP_ERR_WIFI_BASE + 21)",
+      "file": "components/esp_wifi/include/esp_wifi.h",
+      "hex": "0x3015",
+      "id": "1f41109b77c54c82c4a4c171",
+      "line": 82,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_wifi.h#L82",
+      "stale": false,
+      "symbol": "ESP_ERR_WIFI_NOT_ASSOC",
+      "syntax": "define",
+      "value": 12309,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_WIFI_BASE"
+      ],
+      "component": "idf/esp_wifi",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "context_references": [
+        {
+          "expression": "0x3000",
+          "file": "components/esp_common/include/esp_err.h",
+          "line": 39,
+          "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_common/include/esp_err.h#L39",
+          "symbol": "ESP_ERR_WIFI_BASE"
+        }
+      ],
+      "expression": "(ESP_ERR_WIFI_BASE + 22)",
+      "file": "components/esp_wifi/include/esp_wifi.h",
+      "hex": "0x3016",
+      "id": "03aeebce4b606836cf4255ce",
+      "line": 83,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_wifi.h#L83",
+      "stale": false,
+      "symbol": "ESP_ERR_WIFI_TX_DISALLOW",
+      "syntax": "define",
+      "value": 12310,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_WIFI_BASE"
+      ],
+      "component": "idf/esp_wifi",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "context_references": [
+        {
+          "expression": "0x3000",
+          "file": "components/esp_common/include/esp_err.h",
+          "line": 39,
+          "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_common/include/esp_err.h#L39",
+          "symbol": "ESP_ERR_WIFI_BASE"
+        }
+      ],
+      "expression": "(ESP_ERR_WIFI_BASE + 23)",
+      "file": "components/esp_wifi/include/esp_wifi.h",
+      "hex": "0x3017",
+      "id": "b042114a796534156a26598a",
+      "line": 85,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_wifi.h#L85",
+      "stale": false,
+      "symbol": "ESP_ERR_WIFI_TWT_FULL",
+      "syntax": "define",
+      "value": 12311,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_WIFI_BASE"
+      ],
+      "component": "idf/esp_wifi",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "context_references": [
+        {
+          "expression": "0x3000",
+          "file": "components/esp_common/include/esp_err.h",
+          "line": 39,
+          "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_common/include/esp_err.h#L39",
+          "symbol": "ESP_ERR_WIFI_BASE"
+        }
+      ],
+      "expression": "(ESP_ERR_WIFI_BASE + 24)",
+      "file": "components/esp_wifi/include/esp_wifi.h",
+      "hex": "0x3018",
+      "id": "13add1e964b5f90ffb461923",
+      "line": 86,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_wifi.h#L86",
+      "stale": false,
+      "symbol": "ESP_ERR_WIFI_TWT_SETUP_TIMEOUT",
+      "syntax": "define",
+      "value": 12312,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_WIFI_BASE"
+      ],
+      "component": "idf/esp_wifi",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "context_references": [
+        {
+          "expression": "0x3000",
+          "file": "components/esp_common/include/esp_err.h",
+          "line": 39,
+          "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_common/include/esp_err.h#L39",
+          "symbol": "ESP_ERR_WIFI_BASE"
+        }
+      ],
+      "expression": "(ESP_ERR_WIFI_BASE + 25)",
+      "file": "components/esp_wifi/include/esp_wifi.h",
+      "hex": "0x3019",
+      "id": "03b24339d7bc3241670e6c3d",
+      "line": 87,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_wifi.h#L87",
+      "stale": false,
+      "symbol": "ESP_ERR_WIFI_TWT_SETUP_TXFAIL",
+      "syntax": "define",
+      "value": 12313,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_WIFI_BASE"
+      ],
+      "component": "idf/esp_wifi",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "context_references": [
+        {
+          "expression": "0x3000",
+          "file": "components/esp_common/include/esp_err.h",
+          "line": 39,
+          "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_common/include/esp_err.h#L39",
+          "symbol": "ESP_ERR_WIFI_BASE"
+        }
+      ],
+      "expression": "(ESP_ERR_WIFI_BASE + 26)",
+      "file": "components/esp_wifi/include/esp_wifi.h",
+      "hex": "0x301a",
+      "id": "d8d15b2212ffab4709b10ce2",
+      "line": 88,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_wifi.h#L88",
+      "stale": false,
+      "symbol": "ESP_ERR_WIFI_TWT_SETUP_REJECT",
+      "syntax": "define",
+      "value": 12314,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_WIFI_BASE"
+      ],
+      "component": "idf/esp_wifi",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "context_references": [
+        {
+          "expression": "0x3000",
+          "file": "components/esp_common/include/esp_err.h",
+          "line": 39,
+          "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_common/include/esp_err.h#L39",
+          "symbol": "ESP_ERR_WIFI_BASE"
+        }
+      ],
+      "expression": "(ESP_ERR_WIFI_BASE + 27)",
+      "file": "components/esp_wifi/include/esp_wifi.h",
+      "hex": "0x301b",
+      "id": "031e4e01b01354c084579750",
+      "line": 89,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_wifi.h#L89",
+      "stale": false,
+      "symbol": "ESP_ERR_WIFI_DISCARD",
+      "syntax": "define",
+      "value": 12315,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_WIFI_BASE"
+      ],
+      "component": "idf/esp_wifi",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "context_references": [
+        {
+          "expression": "0x3000",
+          "file": "components/esp_common/include/esp_err.h",
+          "line": 39,
+          "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_common/include/esp_err.h#L39",
+          "symbol": "ESP_ERR_WIFI_BASE"
+        }
+      ],
+      "expression": "(ESP_ERR_WIFI_BASE + 28)",
+      "file": "components/esp_wifi/include/esp_wifi.h",
+      "hex": "0x301c",
+      "id": "704eafa171e631407dc4cb77",
+      "line": 90,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_wifi/include/esp_wifi.h#L90",
+      "stale": false,
+      "symbol": "ESP_ERR_WIFI_ROC_IN_PROGRESS",
+      "syntax": "define",
+      "value": 12316,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [],
+      "component": "idf/esp_http_client",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "expression": "(0x7000)",
+      "file": "components/esp_http_client/include/esp_http_client.h",
+      "hex": "0x7000",
+      "id": "02c06f5acb22e360fefc0f57",
+      "line": 255,
+      "resolution": "resolved",
+      "role": "base",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_http_client/include/esp_http_client.h#L255",
+      "stale": false,
+      "symbol": "ESP_ERR_HTTP_BASE",
+      "syntax": "define",
+      "value": 28672,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_HTTP_BASE"
+      ],
+      "component": "idf/esp_http_client",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "expression": "(ESP_ERR_HTTP_BASE + 1)",
+      "file": "components/esp_http_client/include/esp_http_client.h",
+      "hex": "0x7001",
+      "id": "8181a590b01fc408547efe2c",
+      "line": 256,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_http_client/include/esp_http_client.h#L256",
+      "stale": false,
+      "symbol": "ESP_ERR_HTTP_MAX_REDIRECT",
+      "syntax": "define",
+      "value": 28673,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_HTTP_BASE"
+      ],
+      "component": "idf/esp_http_client",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "expression": "(ESP_ERR_HTTP_BASE + 2)",
+      "file": "components/esp_http_client/include/esp_http_client.h",
+      "hex": "0x7002",
+      "id": "690095b51e92067edb4c906f",
+      "line": 257,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_http_client/include/esp_http_client.h#L257",
+      "stale": false,
+      "symbol": "ESP_ERR_HTTP_CONNECT",
+      "syntax": "define",
+      "value": 28674,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_HTTP_BASE"
+      ],
+      "component": "idf/esp_http_client",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "expression": "(ESP_ERR_HTTP_BASE + 3)",
+      "file": "components/esp_http_client/include/esp_http_client.h",
+      "hex": "0x7003",
+      "id": "16697951e28670e7db40f2c7",
+      "line": 258,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_http_client/include/esp_http_client.h#L258",
+      "stale": false,
+      "symbol": "ESP_ERR_HTTP_WRITE_DATA",
+      "syntax": "define",
+      "value": 28675,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_HTTP_BASE"
+      ],
+      "component": "idf/esp_http_client",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "expression": "(ESP_ERR_HTTP_BASE + 4)",
+      "file": "components/esp_http_client/include/esp_http_client.h",
+      "hex": "0x7004",
+      "id": "ac2e1b4e4cfe8e540361d080",
+      "line": 259,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_http_client/include/esp_http_client.h#L259",
+      "stale": false,
+      "symbol": "ESP_ERR_HTTP_FETCH_HEADER",
+      "syntax": "define",
+      "value": 28676,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_HTTP_BASE"
+      ],
+      "component": "idf/esp_http_client",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "expression": "(ESP_ERR_HTTP_BASE + 5)",
+      "file": "components/esp_http_client/include/esp_http_client.h",
+      "hex": "0x7005",
+      "id": "127e95d141009618915c09c6",
+      "line": 260,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_http_client/include/esp_http_client.h#L260",
+      "stale": false,
+      "symbol": "ESP_ERR_HTTP_INVALID_TRANSPORT",
+      "syntax": "define",
+      "value": 28677,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_HTTP_BASE"
+      ],
+      "component": "idf/esp_http_client",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "expression": "(ESP_ERR_HTTP_BASE + 6)",
+      "file": "components/esp_http_client/include/esp_http_client.h",
+      "hex": "0x7006",
+      "id": "805a7b2c03d84f424ac7ea61",
+      "line": 261,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_http_client/include/esp_http_client.h#L261",
+      "stale": false,
+      "symbol": "ESP_ERR_HTTP_CONNECTING",
+      "syntax": "define",
+      "value": 28678,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_HTTP_BASE"
+      ],
+      "component": "idf/esp_http_client",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "expression": "(ESP_ERR_HTTP_BASE + 7)",
+      "file": "components/esp_http_client/include/esp_http_client.h",
+      "hex": "0x7007",
+      "id": "3cb62c9449630dc150384fdd",
+      "line": 262,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_http_client/include/esp_http_client.h#L262",
+      "stale": false,
+      "symbol": "ESP_ERR_HTTP_EAGAIN",
+      "syntax": "define",
+      "value": 28679,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_HTTP_BASE"
+      ],
+      "component": "idf/esp_http_client",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "expression": "(ESP_ERR_HTTP_BASE + 8)",
+      "file": "components/esp_http_client/include/esp_http_client.h",
+      "hex": "0x7008",
+      "id": "98a4c576ba050560c591ac10",
+      "line": 263,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_http_client/include/esp_http_client.h#L263",
+      "stale": false,
+      "symbol": "ESP_ERR_HTTP_CONNECTION_CLOSED",
+      "syntax": "define",
+      "value": 28680,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_HTTP_BASE"
+      ],
+      "component": "idf/esp_http_client",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "expression": "(ESP_ERR_HTTP_BASE + 9)",
+      "file": "components/esp_http_client/include/esp_http_client.h",
+      "hex": "0x7009",
+      "id": "68adf34063585ebce639b434",
+      "line": 264,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_http_client/include/esp_http_client.h#L264",
+      "stale": false,
+      "symbol": "ESP_ERR_HTTP_NOT_MODIFIED",
+      "syntax": "define",
+      "value": 28681,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_HTTP_BASE"
+      ],
+      "component": "idf/esp_http_client",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "expression": "(ESP_ERR_HTTP_BASE + 10)",
+      "file": "components/esp_http_client/include/esp_http_client.h",
+      "hex": "0x700a",
+      "id": "be87349c467bd990537ca78c",
+      "line": 265,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_http_client/include/esp_http_client.h#L265",
+      "stale": false,
+      "symbol": "ESP_ERR_HTTP_RANGE_NOT_SATISFIABLE",
+      "syntax": "define",
+      "value": 28682,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [],
+      "component": "idf/esp_https_ota",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "expression": "(0x9000)",
+      "file": "components/esp_https_ota/include/esp_https_ota.h",
+      "hex": "0x9000",
+      "id": "9dc4a81acf5025030b329f6f",
+      "line": 82,
+      "resolution": "resolved",
+      "role": "base",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_https_ota/include/esp_https_ota.h#L82",
+      "stale": false,
+      "symbol": "ESP_ERR_HTTPS_OTA_BASE",
+      "syntax": "define",
+      "value": 36864,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_HTTPS_OTA_BASE"
+      ],
+      "component": "idf/esp_https_ota",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "expression": "(ESP_ERR_HTTPS_OTA_BASE + 1)",
+      "file": "components/esp_https_ota/include/esp_https_ota.h",
+      "hex": "0x9001",
+      "id": "d767fa4d83c21055b23b2115",
+      "line": 83,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp_https_ota/include/esp_https_ota.h#L83",
+      "stale": false,
+      "symbol": "ESP_ERR_HTTPS_OTA_IN_PROGRESS",
+      "syntax": "define",
+      "value": 36865,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [],
+      "component": "idf/esp-tls",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "expression": "0x8000",
+      "file": "components/esp-tls/esp_tls_errors.h",
+      "hex": "0x8000",
+      "id": "eb87f5012705a8919f4d2368",
+      "line": 24,
+      "resolution": "resolved",
+      "role": "base",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp-tls/esp_tls_errors.h#L24",
+      "stale": false,
+      "symbol": "ESP_ERR_ESP_TLS_BASE",
+      "syntax": "define",
+      "value": 32768,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_ESP_TLS_BASE"
+      ],
+      "component": "idf/esp-tls",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "expression": "(ESP_ERR_ESP_TLS_BASE + 0x01)",
+      "file": "components/esp-tls/esp_tls_errors.h",
+      "hex": "0x8001",
+      "id": "5b308da41239c10c123c0d3c",
+      "line": 27,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp-tls/esp_tls_errors.h#L27",
+      "stale": false,
+      "symbol": "ESP_ERR_ESP_TLS_CANNOT_RESOLVE_HOSTNAME",
+      "syntax": "define",
+      "value": 32769,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_ESP_TLS_BASE"
+      ],
+      "component": "idf/esp-tls",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "expression": "(ESP_ERR_ESP_TLS_BASE + 0x02)",
+      "file": "components/esp-tls/esp_tls_errors.h",
+      "hex": "0x8002",
+      "id": "1596c9b8242b6fba81ce132d",
+      "line": 28,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp-tls/esp_tls_errors.h#L28",
+      "stale": false,
+      "symbol": "ESP_ERR_ESP_TLS_CANNOT_CREATE_SOCKET",
+      "syntax": "define",
+      "value": 32770,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_ESP_TLS_BASE"
+      ],
+      "component": "idf/esp-tls",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "expression": "(ESP_ERR_ESP_TLS_BASE + 0x03)",
+      "file": "components/esp-tls/esp_tls_errors.h",
+      "hex": "0x8003",
+      "id": "d6f6a31db87641a757926371",
+      "line": 29,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp-tls/esp_tls_errors.h#L29",
+      "stale": false,
+      "symbol": "ESP_ERR_ESP_TLS_UNSUPPORTED_PROTOCOL_FAMILY",
+      "syntax": "define",
+      "value": 32771,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_ESP_TLS_BASE"
+      ],
+      "component": "idf/esp-tls",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "expression": "(ESP_ERR_ESP_TLS_BASE + 0x04)",
+      "file": "components/esp-tls/esp_tls_errors.h",
+      "hex": "0x8004",
+      "id": "2b4964f1a97a9a35449c0d3c",
+      "line": 30,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp-tls/esp_tls_errors.h#L30",
+      "stale": false,
+      "symbol": "ESP_ERR_ESP_TLS_FAILED_CONNECT_TO_HOST",
+      "syntax": "define",
+      "value": 32772,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_ESP_TLS_BASE"
+      ],
+      "component": "idf/esp-tls",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "expression": "(ESP_ERR_ESP_TLS_BASE + 0x05)",
+      "file": "components/esp-tls/esp_tls_errors.h",
+      "hex": "0x8005",
+      "id": "857286127bbf7381cf10d6da",
+      "line": 31,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp-tls/esp_tls_errors.h#L31",
+      "stale": false,
+      "symbol": "ESP_ERR_ESP_TLS_SOCKET_SETOPT_FAILED",
+      "syntax": "define",
+      "value": 32773,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_ESP_TLS_BASE"
+      ],
+      "component": "idf/esp-tls",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "expression": "(ESP_ERR_ESP_TLS_BASE + 0x06)",
+      "file": "components/esp-tls/esp_tls_errors.h",
+      "hex": "0x8006",
+      "id": "b2e83b3e18c251b358085089",
+      "line": 32,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp-tls/esp_tls_errors.h#L32",
+      "stale": false,
+      "symbol": "ESP_ERR_ESP_TLS_CONNECTION_TIMEOUT",
+      "syntax": "define",
+      "value": 32774,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_ESP_TLS_BASE"
+      ],
+      "component": "idf/esp-tls",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "expression": "(ESP_ERR_ESP_TLS_BASE + 0x07)",
+      "file": "components/esp-tls/esp_tls_errors.h",
+      "hex": "0x8007",
+      "id": "82531597ce36811cafa65d6b",
+      "line": 33,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp-tls/esp_tls_errors.h#L33",
+      "stale": false,
+      "symbol": "ESP_ERR_ESP_TLS_SE_FAILED",
+      "syntax": "define",
+      "value": 32775,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_ESP_TLS_BASE"
+      ],
+      "component": "idf/esp-tls",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "expression": "(ESP_ERR_ESP_TLS_BASE + 0x08)",
+      "file": "components/esp-tls/esp_tls_errors.h",
+      "hex": "0x8008",
+      "id": "3c9dc1c87addc2f47652bafe",
+      "line": 34,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp-tls/esp_tls_errors.h#L34",
+      "stale": false,
+      "symbol": "ESP_ERR_ESP_TLS_TCP_CLOSED_FIN",
+      "syntax": "define",
+      "value": 32776,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_ESP_TLS_BASE"
+      ],
+      "component": "idf/esp-tls",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "expression": "(ESP_ERR_ESP_TLS_BASE + 0x09)",
+      "file": "components/esp-tls/esp_tls_errors.h",
+      "hex": "0x8009",
+      "id": "f898b9ca5bbc8f24cda1999c",
+      "line": 35,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp-tls/esp_tls_errors.h#L35",
+      "stale": false,
+      "symbol": "ESP_ERR_ESP_TLS_SERVER_HANDSHAKE_TIMEOUT",
+      "syntax": "define",
+      "value": 32777,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_ESP_TLS_BASE"
+      ],
+      "component": "idf/esp-tls",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "expression": "(ESP_ERR_ESP_TLS_BASE + 0x10)",
+      "file": "components/esp-tls/esp_tls_errors.h",
+      "hex": "0x8010",
+      "id": "ddb986a922ed2172679d9f8f",
+      "line": 37,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp-tls/esp_tls_errors.h#L37",
+      "stale": false,
+      "symbol": "ESP_ERR_MBEDTLS_CERT_PARTLY_OK",
+      "syntax": "define",
+      "value": 32784,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_ESP_TLS_BASE"
+      ],
+      "component": "idf/esp-tls",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "expression": "(ESP_ERR_ESP_TLS_BASE + 0x11)",
+      "file": "components/esp-tls/esp_tls_errors.h",
+      "hex": "0x8011",
+      "id": "4645670d1207a88592c141a0",
+      "line": 38,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp-tls/esp_tls_errors.h#L38",
+      "stale": false,
+      "symbol": "ESP_ERR_MBEDTLS_CTR_DRBG_SEED_FAILED",
+      "syntax": "define",
+      "value": 32785,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_ESP_TLS_BASE"
+      ],
+      "component": "idf/esp-tls",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "expression": "(ESP_ERR_ESP_TLS_BASE + 0x12)",
+      "file": "components/esp-tls/esp_tls_errors.h",
+      "hex": "0x8012",
+      "id": "e29159acb9b35323480edbc2",
+      "line": 39,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp-tls/esp_tls_errors.h#L39",
+      "stale": false,
+      "symbol": "ESP_ERR_MBEDTLS_SSL_SET_HOSTNAME_FAILED",
+      "syntax": "define",
+      "value": 32786,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_ESP_TLS_BASE"
+      ],
+      "component": "idf/esp-tls",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "expression": "(ESP_ERR_ESP_TLS_BASE + 0x13)",
+      "file": "components/esp-tls/esp_tls_errors.h",
+      "hex": "0x8013",
+      "id": "2bea27a2cbc0efe73285c8a3",
+      "line": 40,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp-tls/esp_tls_errors.h#L40",
+      "stale": false,
+      "symbol": "ESP_ERR_MBEDTLS_SSL_CONFIG_DEFAULTS_FAILED",
+      "syntax": "define",
+      "value": 32787,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_ESP_TLS_BASE"
+      ],
+      "component": "idf/esp-tls",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "expression": "(ESP_ERR_ESP_TLS_BASE + 0x14)",
+      "file": "components/esp-tls/esp_tls_errors.h",
+      "hex": "0x8014",
+      "id": "c3eb3b70d13407ef465085e2",
+      "line": 41,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp-tls/esp_tls_errors.h#L41",
+      "stale": false,
+      "symbol": "ESP_ERR_MBEDTLS_SSL_CONF_ALPN_PROTOCOLS_FAILED",
+      "syntax": "define",
+      "value": 32788,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_ESP_TLS_BASE"
+      ],
+      "component": "idf/esp-tls",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "expression": "(ESP_ERR_ESP_TLS_BASE + 0x15)",
+      "file": "components/esp-tls/esp_tls_errors.h",
+      "hex": "0x8015",
+      "id": "2612bc7946a5fa1fef6497c1",
+      "line": 42,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp-tls/esp_tls_errors.h#L42",
+      "stale": false,
+      "symbol": "ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED",
+      "syntax": "define",
+      "value": 32789,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_ESP_TLS_BASE"
+      ],
+      "component": "idf/esp-tls",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "expression": "(ESP_ERR_ESP_TLS_BASE + 0x16)",
+      "file": "components/esp-tls/esp_tls_errors.h",
+      "hex": "0x8016",
+      "id": "2ee4e6466b4ba7e8fa8f602e",
+      "line": 43,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp-tls/esp_tls_errors.h#L43",
+      "stale": false,
+      "symbol": "ESP_ERR_MBEDTLS_SSL_CONF_OWN_CERT_FAILED",
+      "syntax": "define",
+      "value": 32790,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_ESP_TLS_BASE"
+      ],
+      "component": "idf/esp-tls",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "expression": "(ESP_ERR_ESP_TLS_BASE + 0x17)",
+      "file": "components/esp-tls/esp_tls_errors.h",
+      "hex": "0x8017",
+      "id": "d284cf60363cb3455df5fc96",
+      "line": 44,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp-tls/esp_tls_errors.h#L44",
+      "stale": false,
+      "symbol": "ESP_ERR_MBEDTLS_SSL_SETUP_FAILED",
+      "syntax": "define",
+      "value": 32791,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_ESP_TLS_BASE"
+      ],
+      "component": "idf/esp-tls",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "expression": "(ESP_ERR_ESP_TLS_BASE + 0x18)",
+      "file": "components/esp-tls/esp_tls_errors.h",
+      "hex": "0x8018",
+      "id": "70b3b43d7d73278824c2708f",
+      "line": 45,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp-tls/esp_tls_errors.h#L45",
+      "stale": false,
+      "symbol": "ESP_ERR_MBEDTLS_SSL_WRITE_FAILED",
+      "syntax": "define",
+      "value": 32792,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_ESP_TLS_BASE"
+      ],
+      "component": "idf/esp-tls",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "expression": "(ESP_ERR_ESP_TLS_BASE + 0x19)",
+      "file": "components/esp-tls/esp_tls_errors.h",
+      "hex": "0x8019",
+      "id": "bb23247379141a65ee6cba59",
+      "line": 46,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp-tls/esp_tls_errors.h#L46",
+      "stale": false,
+      "symbol": "ESP_ERR_MBEDTLS_PK_PARSE_KEY_FAILED",
+      "syntax": "define",
+      "value": 32793,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_ESP_TLS_BASE"
+      ],
+      "component": "idf/esp-tls",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "expression": "(ESP_ERR_ESP_TLS_BASE + 0x1A)",
+      "file": "components/esp-tls/esp_tls_errors.h",
+      "hex": "0x801a",
+      "id": "f8e942ba02b9094cf455fc30",
+      "line": 47,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp-tls/esp_tls_errors.h#L47",
+      "stale": false,
+      "symbol": "ESP_ERR_MBEDTLS_SSL_HANDSHAKE_FAILED",
+      "syntax": "define",
+      "value": 32794,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_ESP_TLS_BASE"
+      ],
+      "component": "idf/esp-tls",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "expression": "(ESP_ERR_ESP_TLS_BASE + 0x1B)",
+      "file": "components/esp-tls/esp_tls_errors.h",
+      "hex": "0x801b",
+      "id": "fddb9ec632dc8310f81e42a0",
+      "line": 48,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp-tls/esp_tls_errors.h#L48",
+      "stale": false,
+      "symbol": "ESP_ERR_MBEDTLS_SSL_CONF_PSK_FAILED",
+      "syntax": "define",
+      "value": 32795,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_ESP_TLS_BASE"
+      ],
+      "component": "idf/esp-tls",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "expression": "(ESP_ERR_ESP_TLS_BASE + 0x1C)",
+      "file": "components/esp-tls/esp_tls_errors.h",
+      "hex": "0x801c",
+      "id": "e0986a04b8ade7f8c2902023",
+      "line": 49,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp-tls/esp_tls_errors.h#L49",
+      "stale": false,
+      "symbol": "ESP_ERR_MBEDTLS_SSL_TICKET_SETUP_FAILED",
+      "syntax": "define",
+      "value": 32796,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_ESP_TLS_BASE"
+      ],
+      "component": "idf/esp-tls",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "expression": "(ESP_ERR_ESP_TLS_BASE + 0x31)",
+      "file": "components/esp-tls/esp_tls_errors.h",
+      "hex": "0x8031",
+      "id": "492ba94d565be79c8e236887",
+      "line": 52,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp-tls/esp_tls_errors.h#L52",
+      "stale": false,
+      "symbol": "ESP_ERR_WOLFSSL_SSL_SET_HOSTNAME_FAILED",
+      "syntax": "define",
+      "value": 32817,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_ESP_TLS_BASE"
+      ],
+      "component": "idf/esp-tls",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "expression": "(ESP_ERR_ESP_TLS_BASE + 0x32)",
+      "file": "components/esp-tls/esp_tls_errors.h",
+      "hex": "0x8032",
+      "id": "d1727e2d80d663d393e4595b",
+      "line": 53,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp-tls/esp_tls_errors.h#L53",
+      "stale": false,
+      "symbol": "ESP_ERR_WOLFSSL_SSL_CONF_ALPN_PROTOCOLS_FAILED",
+      "syntax": "define",
+      "value": 32818,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_ESP_TLS_BASE"
+      ],
+      "component": "idf/esp-tls",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "expression": "(ESP_ERR_ESP_TLS_BASE + 0x33)",
+      "file": "components/esp-tls/esp_tls_errors.h",
+      "hex": "0x8033",
+      "id": "b8c3884ef953e8be6601cd90",
+      "line": 54,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp-tls/esp_tls_errors.h#L54",
+      "stale": false,
+      "symbol": "ESP_ERR_WOLFSSL_CERT_VERIFY_SETUP_FAILED",
+      "syntax": "define",
+      "value": 32819,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_ESP_TLS_BASE"
+      ],
+      "component": "idf/esp-tls",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "expression": "(ESP_ERR_ESP_TLS_BASE + 0x34)",
+      "file": "components/esp-tls/esp_tls_errors.h",
+      "hex": "0x8034",
+      "id": "108d7abdac0f9eb035bd505f",
+      "line": 55,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp-tls/esp_tls_errors.h#L55",
+      "stale": false,
+      "symbol": "ESP_ERR_WOLFSSL_KEY_VERIFY_SETUP_FAILED",
+      "syntax": "define",
+      "value": 32820,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_ESP_TLS_BASE"
+      ],
+      "component": "idf/esp-tls",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "expression": "(ESP_ERR_ESP_TLS_BASE + 0x35)",
+      "file": "components/esp-tls/esp_tls_errors.h",
+      "hex": "0x8035",
+      "id": "949941cd208178f85ed45333",
+      "line": 56,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp-tls/esp_tls_errors.h#L56",
+      "stale": false,
+      "symbol": "ESP_ERR_WOLFSSL_SSL_HANDSHAKE_FAILED",
+      "syntax": "define",
+      "value": 32821,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_ESP_TLS_BASE"
+      ],
+      "component": "idf/esp-tls",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "expression": "(ESP_ERR_ESP_TLS_BASE + 0x36)",
+      "file": "components/esp-tls/esp_tls_errors.h",
+      "hex": "0x8036",
+      "id": "541e1758af678885a4268ce3",
+      "line": 57,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp-tls/esp_tls_errors.h#L57",
+      "stale": false,
+      "symbol": "ESP_ERR_WOLFSSL_CTX_SETUP_FAILED",
+      "syntax": "define",
+      "value": 32822,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_ESP_TLS_BASE"
+      ],
+      "component": "idf/esp-tls",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "expression": "(ESP_ERR_ESP_TLS_BASE + 0x37)",
+      "file": "components/esp-tls/esp_tls_errors.h",
+      "hex": "0x8037",
+      "id": "171c564d3809a9c0a6c63c73",
+      "line": 58,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp-tls/esp_tls_errors.h#L58",
+      "stale": false,
+      "symbol": "ESP_ERR_WOLFSSL_SSL_SETUP_FAILED",
+      "syntax": "define",
+      "value": 32823,
+      "version": "v5.5.1"
+    },
+    {
+      "alias_of": null,
+      "base_symbols": [
+        "ESP_ERR_ESP_TLS_BASE"
+      ],
+      "component": "idf/esp-tls",
+      "conditions": [],
+      "config_symbols": [],
+      "configurable": false,
+      "expression": "(ESP_ERR_ESP_TLS_BASE + 0x38)",
+      "file": "components/esp-tls/esp_tls_errors.h",
+      "hex": "0x8038",
+      "id": "48551aab82b5b0ca33e3e761",
+      "line": 59,
+      "resolution": "resolved",
+      "role": "error",
+      "source_url": "https://github.com/espressif/esp-idf/blob/fcae32885b0296b32044cb99ecbdc50d98dddb83/components/esp-tls/esp_tls_errors.h#L59",
+      "stale": false,
+      "symbol": "ESP_ERR_WOLFSSL_SSL_WRITE_FAILED",
+      "syntax": "define",
+      "value": 32824,
+      "version": "v5.5.1"
+    }
+  ],
+  "inactive_sources": [],
+  "notice": "非官方观察索引，不分配或保留错误码。未观察到不代表可安全使用。",
+  "overlaps": [],
+  "schema_version": 1,
+  "scope": "Only configured component versions; static candidate definitions, not compiled/runtime usage"
+}
