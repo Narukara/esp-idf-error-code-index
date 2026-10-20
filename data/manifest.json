@@ -1,27 +1,29 @@
 {
-  "next_source": "idf/esp_common",
+  "next_source": "idf/esp_wifi",
   "schema_version": 1,
   "sources": {
     "espressif/led_strip": {
-      "accepted_at": "2026-09-23T14:34:42+00:00",
+      "accepted_at": "2026-10-20T08:42:54+00:00",
       "analyses": {
+        "3f4e6375683260becb2e6ced23ae1ad3216b3a98bd124b57955d3427c319fd5d": "893ffb84a0b1fe5cbdf0b88f7650968cc9d758390485cbd57921aa08952880ba",
         "41c23354dc93e3228fdabb3c1b309f22110a28c354027fc81ab8e30ec2497318": "106b0d8e69d50fbb9c6516f7e04822ecd51eb84f8c2e156bac7c609765b6da92",
         "8b236654efef0250df26bea913f17ea7464cc970a5387409b218dd252052f417": "5c6c9a50877bb5ab5b2301479c41e8ce9581e5e30971e1cb8f662ef22d88de09",
         "db02020936d5993c5e674b1966ceeee854a33e5825018e2b54a5f1d56c04d88c": "0e039961bda1e58a81940b3a678a71f3e06198abacc022ba7760e2f7c0e6b69d"
       },
-      "fingerprint": "5c6c9a50877bb5ab5b2301479c41e8ce9581e5e30971e1cb8f662ef22d88de09",
-      "result": "data/components/5c6c9a50877bb5ab5b2301479c41e8ce9581e5e30971e1cb8f662ef22d88de09.json",
+      "fingerprint": "893ffb84a0b1fe5cbdf0b88f7650968cc9d758390485cbd57921aa08952880ba",
+      "result": "data/components/893ffb84a0b1fe5cbdf0b88f7650968cc9d758390485cbd57921aa08952880ba.json",
       "status": "ok"
     },
     "espressif/mdns": {
-      "accepted_at": "2026-09-23T14:34:42+00:00",
+      "accepted_at": "2026-10-06T10:32:55+00:00",
       "analyses": {
         "0b5e7b42e5bf34ee06f19ee833a57d37a5069a5824a68648734791d0641c517a": "b51a81191b42faf9a108f6232a1712d343c3551a5579f420735b55db332e54f0",
+        "1bc37a325cc1b2f543fc8eb817369ccd2fd59956979eb1b6a836aa511e41c394": "b2fd500a7dcc707ea9c21d74d3668e419d3889948fcad8c295682d64ed919704",
         "a979ef35e6dabbd75a0091d82bdef422dbb4e833222cef4dc074357b4370cfb5": "4c84a096506c9330338cae191ab2516953f373b4b77ab6ec58109c6a825f6556",
         "b00e6f73af6090adb3acfd6b373bb1c2e9707f681e82297269fde12fd2761bea": "b0e72b38e8215f46c21102471bafe87f7fc7518e255097e8b85b4c78ac43b2fe"
       },
-      "fingerprint": "b0e72b38e8215f46c21102471bafe87f7fc7518e255097e8b85b4c78ac43b2fe",
-      "result": "data/components/b0e72b38e8215f46c21102471bafe87f7fc7518e255097e8b85b4c78ac43b2fe.json",
+      "fingerprint": "b2fd500a7dcc707ea9c21d74d3668e419d3889948fcad8c295682d64ed919704",
+      "result": "data/components/b2fd500a7dcc707ea9c21d74d3668e419d3889948fcad8c295682d64ed919704.json",
       "status": "ok"
     },
     "idf/esp-tls": {
