@@ -146,7 +146,7 @@
       "version": "v5.5.1"
     },
     {
-      "accepted_at": "2026-09-23T14:34:42+00:00",
+      "accepted_at": "2026-10-06T10:32:55+00:00",
       "bases": [],
       "configurable": 0,
       "context_headers": [],
@@ -157,7 +157,7 @@
       "excluded_submodules": [],
       "id": "espressif/mdns",
       "maintainer": "espressif",
-      "result": "data/components/b0e72b38e8215f46c21102471bafe87f7fc7518e255097e8b85b4c78ac43b2fe.json",
+      "result": "data/components/b2fd500a7dcc707ea9c21d74d3668e419d3889948fcad8c295682d64ed919704.json",
       "selection": {
         "candidate_files": 34,
         "coverage_note": "Public headers are a static CMake approximation; private implementation definitions may be absent",
@@ -173,12 +173,12 @@
       },
       "status": "ok",
       "unresolved": 0,
-      "url": "https://components.espressif.com/components/espressif/mdns/versions/1.13.1",
+      "url": "https://components.espressif.com/components/espressif/mdns/versions/1.14.0",
       "values": [],
-      "version": "1.13.1"
+      "version": "1.14.0"
     },
     {
-      "accepted_at": "2026-09-23T14:34:42+00:00",
+      "accepted_at": "2026-10-20T08:42:54+00:00",
       "bases": [],
       "configurable": 0,
       "context_headers": [],
@@ -189,9 +189,9 @@
       "excluded_submodules": [],
       "id": "espressif/led_strip",
       "maintainer": "espressif",
-      "result": "data/components/5c6c9a50877bb5ab5b2301479c41e8ce9581e5e30971e1cb8f662ef22d88de09.json",
+      "result": "data/components/893ffb84a0b1fe5cbdf0b88f7650968cc9d758390485cbd57921aa08952880ba.json",
       "selection": {
-        "candidate_files": 12,
+        "candidate_files": 13,
         "coverage_note": "Public headers are a static CMake approximation; private implementation definitions may be absent",
         "mode": "public-headers",
         "public_header_candidates": [
@@ -203,14 +203,14 @@
         ],
         "reasons": [],
         "selected_files": 7,
-        "skipped_files": 5,
+        "skipped_files": 6,
         "version": "1"
       },
       "status": "ok",
       "unresolved": 0,
-      "url": "https://components.espressif.com/components/espressif/led_strip/versions/3.0.3",
+      "url": "https://components.espressif.com/components/espressif/led_strip/versions/3.1.0~1",
       "values": [],
-      "version": "3.0.3"
+      "version": "3.1.0~1"
     },
     {
       "accepted_at": "2026-09-23T14:33:21+00:00",
