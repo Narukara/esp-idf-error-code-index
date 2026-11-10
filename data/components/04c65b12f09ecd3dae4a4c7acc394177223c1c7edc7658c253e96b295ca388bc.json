@@ -1,0 +1,103 @@
+{
+  "analysis": {
+    "configuration": {},
+    "coverage": "candidate-static-scan",
+    "definitions": [],
+    "diagnostics": [],
+    "families": [],
+    "limitations": [
+      "Pattern-based candidate discovery; not a build or whole-program analysis",
+      "External includes, generated code, complex expressions and C type conversions may remain unresolved",
+      "Macro scope and conditional coexistence are not proven; enum preprocessing is conservative",
+      "BASE/MAX/END/COUNT roles are naming heuristics unless reviewed"
+    ],
+    "registered_headers": []
+  },
+  "evidence": {
+    "archive_sha256": "47dc5e648a48a2f0a0994063521344a4c0541ae18c86be9380c6af8d0bf9d0d5",
+    "hash_note": "Registry component_hash identifies the release; archive_sha256 is independently observed, not compared as the same hash algorithm",
+    "selection": {
+      "candidate_files": 13,
+      "coverage_note": "Public headers are a static CMake approximation; private implementation definitions may be absent",
+      "mode": "public-headers",
+      "public_header_candidates": [
+        "include/led_strip.h",
+        "include/led_strip_rmt.h",
+        "include/led_strip_spi.h",
+        "include/led_strip_types.h",
+        "interface/led_strip_interface.h"
+      ],
+      "reasons": [],
+      "selected_files": 7,
+      "skipped_files": 6,
+      "version": "1"
+    }
+  },
+  "files": [
+    {
+      "path": "CMakeLists.txt",
+      "sha256": "4d84c87c62937c79420c3fd7ff8767be310d02dd899d94aebe490c6caae9558a"
+    },
+    {
+      "path": "idf_component.yml",
+      "sha256": "b4a28bd79e0f1183510ab32228f05a9d853e1a63e686b6d080970d2bd2017ea0"
+    },
+    {
+      "path": "include/led_strip.h",
+      "sha256": "296af31e12689fcba02070c490377c0dc2c17722028514c26c0870f05742f9c0"
+    },
+    {
+      "path": "include/led_strip_rmt.h",
+      "sha256": "c63a152ab4aa187080b8d29cdb49365a9ea03b6ca7c41c66920e5c58ac0d0c52"
+    },
+    {
+      "path": "include/led_strip_spi.h",
+      "sha256": "1dbd03d1583b92dd504302edce39db8b225613891bf1dddf6ccf6f596a4cf252"
+    },
+    {
+      "path": "include/led_strip_types.h",
+      "sha256": "18fa8b9d558782df0c8a980ddd38b02d5fd1705801d86e1be1902e385d15e26a"
+    },
+    {
+      "path": "interface/led_strip_interface.h",
+      "sha256": "269ce84952923b596c355fe0b63705a23c3b4e7ed2df468c904745ac07c3c8fb"
+    }
+  ],
+  "fingerprint": "04c65b12f09ecd3dae4a4c7acc394177223c1c7edc7658c253e96b295ca388bc",
+  "identity": {
+    "archive_url": "https://components-file.espressif.com/components/espressif/led_strip/3.1.1/espressif__led_strip-v3.1.1.zip",
+    "component_hash": "027f68f2b57b0dca1d68dff6cc1139d9093825aa808c2bc3ca42bb2ce530fce9",
+    "component_url": "https://components.espressif.com/components/espressif/led_strip/versions/3.1.1",
+    "dependencies": [
+      {
+        "is_public": false,
+        "matches": [],
+        "name": null,
+        "namespace": null,
+        "registry_url": null,
+        "require": true,
+        "rules": [],
+        "source": "idf",
+        "spec": ">=5.2"
+      }
+    ],
+    "kind": "registry",
+    "repository_url": "git://github.com/espressif/idf-extra-components.git",
+    "targets": [],
+    "version": "3.1.1"
+  },
+  "input_fingerprint": "71f4c1566426d76cdc3f25c66924c377f6b6a4bf18420707eef33db066d4d3f8",
+  "parser_version": "3",
+  "schema_version": 1,
+  "source": {
+    "component": "espressif/led_strip",
+    "error_pattern": "^ESP_ERR_",
+    "id": "espressif/led_strip",
+    "kind": "registry",
+    "maintainer": "espressif",
+    "maintainer_evidence": "https://components.espressif.com/components/espressif/led_strip",
+    "scan_mode": "public-headers",
+    "version": "latest-stable"
+  },
+  "source_sha256": "48651affa832c1ad687727a87f7e916e0f2bff1b6d4e2f8397bc3c7a58ff292f"
+}
